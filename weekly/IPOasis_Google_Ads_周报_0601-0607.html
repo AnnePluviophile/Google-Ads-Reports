@@ -1,0 +1,666 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPOasis Google Ads 周报 6/1-6/7</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#1a73e8;--g:#0d904f;--r:#d93025;--o:#e8710a;--bg:#f8f9fa;--card:#fff;--bd:#dadce0;--t1:#202124;--t2:#5f6368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.75;padding:32px 16px;font-size:14px}
+.ctn{max-width:980px;margin:0 auto}
+.hdr{text-align:center;padding:36px 24px;background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;border-radius:16px;margin-bottom:28px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%)}
+.hdr h1{font-size:24px;margin-bottom:4px;font-weight:700;position:relative}
+.hdr .sub{font-size:13px;opacity:.9;position:relative}
+.sec{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:18px;border:1px solid var(--bd);transition:all .2s}
+.sec:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.sec h2{font-size:18px;color:var(--p);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.sec h2 .toggle{font-size:14px;color:var(--t2);transition:transform .3s}
+.sec.collapsed .body{display:none}
+.sec.collapsed h2 .toggle{transform:rotate(-90deg)}
+.sec h3{font-size:14px;color:var(--t1);margin:20px 0 10px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12px}
+th{background:#f1f3f4;color:var(--t2);padding:8px;text-align:left;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--bd)}
+td{padding:7px 8px;border-bottom:1px solid #f0f0f0;color:var(--t2)}
+tr:hover td{background:#f8f9fa}
+.up{color:var(--g);font-weight:600}.down{color:var(--r);font-weight:600}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.3px}
+.tg{background:#e6f4ea;color:#137333}.tr{background:#fce8e6;color:#c5221f}.tb{background:#e8f0fe;color:#1967d2}.to{background:#fef3e6;color:#c5600a}.ty{background:#f1f3f4;color:#5f6368}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.kpi-card{background:linear-gradient(135deg,#f8f9fa,#fff);padding:18px;border-radius:10px;border:1px solid var(--bd);text-align:center;transition:all .25s;cursor:default}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:var(--p)}
+.kpi-card .ico{font-size:20px;margin-bottom:6px}
+.kpi-card .v{font-size:22px;font-weight:700;color:var(--t1);line-height:1.2}
+.kpi-card .l{font-size:11px;color:var(--t2);margin-top:4px}
+.kpi-card .c{font-size:11px;margin-top:6px;padding:2px 8px;border-radius:10px;display:inline-block}
+.kpi-card .c.up{background:#e6f4ea;color:#137333}
+.kpi-card .c.down{background:#fce8e6;color:#c5221f}
+.kpi-card .c.flat{background:#f1f3f4;color:#5f6368}
+.kpi-card.good{border-color:#e6f4ea;background:linear-gradient(135deg,#f5fcf7,#fff)}
+.kpi-card.good .v{color:var(--g)}
+.co{padding:14px 20px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.85}
+.ci{background:#e8f4fd;border-left:4px solid var(--p)}
+.cw{background:#fff4e5;border-left:4px solid var(--o)}
+.cs{background:#e6f4ea;border-left:4px solid var(--g)}
+.cr{background:#fce8e6;border-left:4px solid var(--r)}
+p{font-size:13px;color:var(--t2);margin-bottom:10px;line-height:1.85}
+strong{color:var(--t1)} em{font-style:normal;color:var(--p);font-weight:600}
+code{background:#f1f3f4;padding:1px 5px;border-radius:3px;font-size:12px;color:#c5221f}
+.insight{background:#fffdf5;border:1px solid #fde293;border-radius:8px;padding:16px 20px;margin:14px 0}
+.insight-title{font-size:13px;font-weight:700;color:#b06000;margin-bottom:6px}
+.verdict{font-size:14px;font-weight:700;color:var(--t1);margin:10px 0;padding:14px;background:#fffdf5;border-radius:8px;border-left:4px solid #ffd54f}
+.chart-wrap{margin:16px 0;background:#fff;padding:18px;border-radius:10px;border:1px solid var(--bd);position:relative}
+.chart-wrap canvas{max-height:300px}
+.chart-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.chart-sub{font-size:11px;color:var(--t2);margin-bottom:8px}
+.chart-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px;margin:14px 0}
+.tab-bar{display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #e8f0fe}
+.tab-btn{padding:8px 14px;font-size:12px;background:transparent;border:none;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-weight:600;transition:all .2s}
+.tab-btn:hover{color:var(--p)}
+.tab-btn.active{color:var(--p);border-bottom-color:var(--p)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.action-item{background:#fff;border-radius:10px;padding:16px 18px;margin:10px 0;border-left:4px solid var(--p);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.action-item.warn{border-left-color:var(--o);background:linear-gradient(90deg,#fff8eb 0%,#fff 100%)}
+.action-item.ok{border-left-color:var(--g);background:linear-gradient(90deg,#f5fcf7 0%,#fff 100%)}
+.action-item .head{font-weight:700;color:var(--t1);font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.priority-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.priority-tag.p1{background:#e8710a;color:#fff}
+.priority-tag.p2{background:#1a73e8;color:#fff}
+.priority-tag.p3{background:#5f6368;color:#fff}
+.nav{position:fixed;top:20px;right:20px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.1);font-size:11px;z-index:100;max-width:160px}
+.nav a{display:block;color:var(--t2);text-decoration:none;padding:4px 0;border-radius:4px;padding-left:8px;transition:all .15s}
+.nav a:hover{color:var(--p);background:#e8f0fe}
+.callout{background:#e8f0fe;border:1px solid #aecbfa;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:12px;color:#185abc}
+.callout strong{color:#0b3a8a}
+@media (max-width:780px){.nav{display:none}}
+@media print{body{padding:0;background:#fff}.sec{break-inside:avoid;page-break-inside:avoid}.nav{display:none}}
+</style></head><body>
+
+<div class="nav">
+  <div style="font-weight:700;color:var(--t1);margin-bottom:6px;font-size:12px">目录</div>
+  <a href="#sec0">核心结论</a>
+  <a href="#sec1">本周发生了什么</a>
+  <a href="#sec2">Campaign 总览</a>
+  <a href="#sec3">Register 系列</a>
+  <a href="#sec4">Purchase 系列</a>
+  <a href="#sec_isp">ISP 系列上线专题</a>
+  <a href="#sec5">设备与时段</a>
+  <a href="#sec6">下周观察</a>
+</div>
+
+<div class="ctn">
+<div class="hdr">
+  <h1>📊 IPOasis Google Ads 周度分析报告</h1>
+  <div class="sub">2026-06-01(周一)~ 2026-06-07(周日) &nbsp;|&nbsp; 对比 2026-05-25 ~ 2026-05-31</div>
+</div>
+
+<!-- ============ 核心结论 ============ -->
+<div class="sec" id="sec0">
+<h2>🎯 核心结论 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="verdict">🚀 <strong>ISP 系列上线周——计划了两周的大动作终于落地,是一个"扩量 + 结构验证"的积极周。</strong>消耗 $1,166.70(+16.8%)、Register(All Conv)244(+16.2%,刷新历史新高)、Reg CPA $4.78(基本持平)、Purchase 11 单(+10%)。6/2-6/3 集中上线了 <strong>ISP Purchase 新 campaign + CN Register 加 ISP ad group</strong>,一周就带来约 <strong>52 个 register 增量</strong>(ISP register ad group 28 + ISP Pur campaign 附带 24),<strong>静态 IP 搜索词 CPA $2.27-$2.48 直接验证了静态意图的真实价值</strong>。Purchase 来源结构本周又翻回"老 Pur US 主导"(6 单),CN Reg 回落到 3 单——印证上周"CN Reg 主导"更可能是单周波动。ISP Pur campaign 首周 0 购买,属 learning 期正常(CN Pur 当初也是第 1 周才破零)。</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">💰</div><div class="v">$1,166.70</div><div class="l">总消耗</div><div class="c down">↑ 16.8%</div></div>
+  <div class="kpi-card good"><div class="ico">👁️</div><div class="v">16,400</div><div class="l">展示</div><div class="c up">↑ 21.1%</div></div>
+  <div class="kpi-card good"><div class="ico">🖱️</div><div class="v">877</div><div class="l">点击</div><div class="c up">↑ 16.9%</div></div>
+  <div class="kpi-card"><div class="ico">📊</div><div class="v">5.35%</div><div class="l">CTR</div><div class="c down">↓ 0.19pp</div></div>
+  <div class="kpi-card good"><div class="ico">✅</div><div class="v">244</div><div class="l">注册(All Conv,全账户)</div><div class="c up">↑ 16.2%</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$4.78</div><div class="l">注册成本(混合)</div><div class="c flat">≈ 持平</div></div>
+  <div class="kpi-card"><div class="ico">🛒</div><div class="v">11</div><div class="l">购买(All Conv)</div><div class="c up">↑ 10%</div></div>
+  <div class="kpi-card"><div class="ico">💸</div><div class="v">$106.06</div><div class="l">购买成本(混合)</div><div class="c down">↑ 6.2%</div></div>
+</div>
+
+<div class="callout">
+<strong>📌 本周 Purchase 11 个分布(All Conv,仅 conversion_purchase):</strong>老 Pur US 6 个(55%)+ CN Reg 附带 3 个(27%)+ CN Pur 2 个(18%)+ <strong>ISP Pur 新 0 个</strong>(learning 中)。<strong>老 Pur US 重夺主力,和上周正好对调(上周 CN Reg 6 / 老 Pur US 3)。</strong><br>
+<strong>📌 本周 Register 244 分布:</strong>CN Reg 112(<strong>含新 ISP ad group 28</strong>)+ 老 Reg US 65 + ISP Pur 新附带 24 + CN Pur 附带 18 + 老 Pur US 附带 25。<strong>新增的 ISP 两块(ad group 28 + campaign 附带 24 = 52)是本周 register 增量的主要来源。</strong>
+</div>
+
+<h3>📈 月度 Purchase 趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 1-5 月完整月 Purchase + 6 月进行中</div>
+  <div class="chart-sub">6 月仅第 1 周(11 单),按当前节奏外推全月 ~45-48 单</div>
+  <canvas id="monthlyChart"></canvas>
+</div>
+
+<div class="co cs">
+<strong>月度增长轨迹延续:</strong>1月 11 → 2月 15 → 3月 25 → 4月 32 → 5月 45。6 月第 1 周 11 单,如果维持 10-12 单/周的稳态,全月预计 <strong>45-48 单</strong>,大概率持平或微超 5 月。<strong>本月真正的变量是 ISP 系列——如果 ISP Pur 在 6 月中下旬开始出单,6 月有机会突破 50 单大关。</strong>
+</div>
+
+<h3>📈 过去 4 周转化趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 Register 创新高,Purchase 5 周稳在 10-12 单区间</div>
+  <div class="chart-sub">数据按 All Conv 口径(Register=conversion_register, Purchase=conversion_purchase)</div>
+  <canvas id="trendChart"></canvas>
+</div>
+
+<div class="co ci">
+<strong>这张图说明的事:</strong>Register 239.5 → 182.5 → 210 → <strong>244(新高)</strong>,本周靠 ISP 上线再上一个台阶;Purchase 12 → 11 → 10 → 11,<strong>连续 5 周稳在 10-12 单</strong>,Purchase 进入成熟稳态。<strong>本周的意义不在 Purchase 数量(还是 11),而在于账户结构升级——从"4 个 campaign"扩展到"6 个 campaign 的矩阵",且 ISP register 侧立刻就跑出了健康 CPA。</strong>
+</div>
+
+</div></div>
+
+<!-- ============ 一、本周发生了什么 ============ -->
+<div class="sec" id="sec1">
+<h2>📅 一、本周发生了什么:ISP 系列上线 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout">
+<strong>📌 本周核心事件:6/2-6/3 集中上线 ISP 系列。</strong>这是上周报告 P1 动作("等供应商 API 到位后立刻执行")的落地。共 82 次变更事件,绝大多数集中在 6/2-6/3 两天。
+</div>
+
+<h3>账户变更日志(6/1-6/7)</h3>
+<table>
+<tr><th>时间</th><th>事件</th><th>说明</th></tr>
+<tr><td>6/1</td><td>REMOVE + UPDATE AD_GROUP_AD</td><td>各 1 次,常规广告微调</td></tr>
+<tr style="background:#fffdf5"><td>6/2 🚀</td><td><strong>CREATE CAMPAIGN + CAMPAIGN_BUDGET</strong></td><td><strong>新建 ISP Purchase campaign</strong> <code>isp_purchase_ALL_cn_260602</code> + 独立预算</td></tr>
+<tr style="background:#fffdf5"><td>6/2 🚀</td><td>CREATE AD_GROUP × 2</td><td>新建 ISP purchase 广告组 + CN Register 下新增 <code>isp_register中文词_ALL_0602</code></td></tr>
+<tr style="background:#fffdf5"><td>6/2 🚀</td><td><strong>CREATE × 20 AD_GROUP_CRITERION</strong>(negative)</td><td>给 ISP 系列预置 ~20 个否定词,开局就做流量纯化</td></tr>
+<tr style="background:#fffdf5"><td>6/2 🚀</td><td>CREATE ASSET × 9 + AD × 3 + CAMPAIGN_ASSET × 3</td><td>ISP 落地页素材 + RSA 广告搭建</td></tr>
+<tr style="background:#fffdf5"><td>6/2 🚀</td><td>UPDATE CAMPAIGN × 5 + CAMPAIGN_CRITERION × 3</td><td>定向 / 出价 / 命名等配置</td></tr>
+<tr style="background:#fffdf5"><td>6/3 🚀</td><td>CREATE CAMPAIGN_ASSET × 5 + AD × 4 + UPDATE AD × 4</td><td>ISP 收尾:补充素材、扩充广告变体、打磨文案</td></tr>
+<tr><td colspan="3" style="font-size:11px;color:#999">合计 82 次变更事件,集中在 6/2-6/3 的 ISP 系列上线动作</td></tr>
+</table>
+
+<div class="co cs">
+<strong>本周操作评价:这是一次"有准备、有纪律"的新系列上线。</strong><br>
+✅ <strong>双轨并进</strong>——同时上 ISP Purchase 独立 campaign(攻购买)+ CN Register 加 ISP ad group(攻注册),两条路径同步验证静态意图<br>
+✅ <strong>开局即预置 20 否定词</strong>——不是先放量再清理,而是上来就纯化流量,体现成熟的账户管理习惯<br>
+✅ <strong>独立 campaign + 独立命名(260602 / 0603 标记)</strong>——方便后续周报追溯数据节点,这点做得很对<br><br>
+唯一要提醒的:6/2-6/3 改动量很大(82 次),<strong>本周之后建议进入"观察期",不要再叠加其他大改动</strong>,让 ISP 上线成为一个干净、可独立归因的变量。
+</div>
+
+<h3>上周观察项的执行情况</h3>
+<table>
+<tr><th>上周观察项</th><th>本周状态</th><th>结果</th><th>评价</th></tr>
+<tr><td>P1 ISP 系列上线(等供应商 API)</td><td>6/2-6/3 完成上线</td><td>新 ISP Pur campaign + CN Reg 加 ISP ad group,首周带 52 register</td><td><span class="tag tg">✅ 关键里程碑达成</span></td></tr>
+<tr><td>P2 CN Pur 新:第 4 周观察</td><td>无操作,自然观察</td><td>本周 2 单(6/2+6/7),累计 4 单,CPA 改善到 $58.69</td><td><span class="tag tg">✅ 创单周新高</span></td></tr>
+<tr><td>P2 老 Pur US:能否回到 6+ 单/周</td><td>无操作</td><td>本周 6 单(All Conv),从上周 3 单反弹回区间上沿</td><td><span class="tag tg">✅ 确认震荡常态</span></td></tr>
+<tr><td>P3 时段 04/10/11 是否连续低效</td><td>无操作,自然观察</td><td>04 $4.69 ✅恢复 / 11 $5.03 ✅恢复 / <strong>10 $11.32 仍偏高</strong></td><td><span class="tag to">🟡 04/11 是单周波动,10 待续观</span></td></tr>
+<tr><td>P3 "纯净 ip 机场" 是否有效</td><td>自然观察</td><td>本周未进 Top 搜索词,花费很低,无污染</td><td><span class="tag tg">✅ 无需加否定</span></td></tr>
+</table>
+
+<div class="co ci">
+<strong>5 个上周观察项,全部有明确结论,其中 P1 ISP 上线是本周的最大成果。</strong>这周节奏踩得很准——该上的系列上了,该观察的波动也都验证了。
+</div>
+
+</div></div>
+
+<!-- ============ 二、Campaign 总览 ============ -->
+<div class="sec" id="sec2">
+<h2>📋 二、Campaign 总览:从 4 个扩展到 6 个 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">💰 各 Campaign 花费对比(本周 vs 上周)</div>
+    <canvas id="campCostChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">🛒 各 Campaign Purchase 贡献(All Conv)</div>
+    <canvas id="campPurChart"></canvas>
+  </div>
+</div>
+
+<table>
+<tr><th>Campaign</th><th>本周花费</th><th>本周 Reg(All)</th><th>本周 Pur(All)</th><th>上周 Reg(All)</th><th>上周 Pur(All)</th><th>判断</th></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(老 Reg US)</td><td>$327.02</td><td>65.0</td><td>0</td><td>63.5</td><td>0</td><td><span class="tag tg">🟢 稳定主力</span></td></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(CN Reg)</td><td>$286.01</td><td><strong>112.1</strong></td><td>3.0</td><td>103.0</td><td>6.0</td><td><span class="tag tg">🟢 注册新高(含 ISP 28)</span></td></tr>
+<tr><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$311.51</td><td>25.0</td><td><strong>6.0</strong></td><td>32.5</td><td>3.0</td><td><span class="tag tg">🟢 Purchase 反弹回主力</span></td></tr>
+<tr style="background:#fffdf5"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur 新)🆕</td><td>$124.78</td><td>23.9</td><td>0</td><td>—</td><td>—</td><td><span class="tag tb">🆕 上线首周,Pur learning 中</span></td></tr>
+<tr><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$117.38</td><td>18.0</td><td><strong>2.0</strong></td><td>11.0</td><td>1.0</td><td><span class="tag tg">🟢 第 4 周创新高</span></td></tr>
+</table>
+
+<div class="insight">
+<div class="insight-title">💡 本周三个关键变化</div>
+<p><strong>① 账户从"4 campaign"升级成"6 campaign 矩阵"。</strong>新增 ISP Purchase campaign + CN Register 内的 ISP ad group,本周合计投入 $213.89,带来约 52 个 register。Register 侧立刻就跑出健康 CPA($3-5),证明静态 IP 注册意图是真实且可规模化的。<br><br>
+<strong>② Purchase 来源结构"翻回去了"。</strong>老 Pur US 从上周 3 单反弹到 6 单(占 55%),CN Reg 从 6 单回落到 3 单。这说明上周"CN Reg 成为 Purchase 主力"是单周波动,而非趋势切换——两者本质上在 3-6 单的区间内来回震荡,合计稳定贡献。<br><br>
+<strong>③ CN Pur(260509)第 4 周悄悄创新高。</strong>本周 2 单是它运行以来单周最好,Register 附带也从 11 跳到 18。在 ISP Pur 上线的同时,老 CN Pur 反而走强,说明中文购买流量的盘子在变大。详见 ISP 专题。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 三、Register 系列 ============ -->
+<div class="sec" id="sec3">
+<h2>🚀 三、Register 系列:ISP 注入,刷新历史新高 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">✅</div><div class="v">177.1</div><div class="l">Reg 系列自身注册</div><div class="c up">↑ 6%</div></div>
+  <div class="kpi-card good"><div class="ico">🆕</div><div class="v">28.0</div><div class="l">ISP ad group 注册</div><div class="c up">全新贡献</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$3.46</div><div class="l">Reg 系列 CPA</div><div class="c flat">≈ 持平</div></div>
+  <div class="kpi-card"><div class="ico">💰</div><div class="v">$613.03</div><div class="l">Reg 系列花费</div><div class="c down">↑ 8%</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📈 本周每日 Register 走势(CN vs US)</div>
+    <canvas id="regDailyChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">🏆 Register 关键搜索词 Top(按 CPA)</div>
+    <canvas id="regKwChart"></canvas>
+  </div>
+</div>
+
+<h3>广告组表现</h3>
+<table>
+<tr><th>广告组</th><th>花费</th><th>转化</th><th>CPA</th><th>对比上周</th><th>判断</th></tr>
+<tr><td><strong>dynamic_register中文词_ALL_0414</strong>(CN)</td><td>$196.89</td><td>84.2</td><td>$2.34</td><td>核心 CN 注册引擎</td><td><span class="tag tg">🟢 强势主力</span></td></tr>
+<tr><td><strong>register_proxy软词_US_1229</strong></td><td>$230.68</td><td>46.0</td><td>$5.01</td><td>转化 +15% / CPA 持平</td><td><span class="tag tg">🟢 稳定</span></td></tr>
+<tr style="background:#fffdf5"><td><strong>isp_register中文词_ALL_0602</strong>(ISP 新)🆕</td><td>$89.11</td><td>28.0</td><td>$3.18</td><td>全新上线</td><td><span class="tag tb">🆕 开局健康</span></td></tr>
+<tr><td><strong>register购买意图词_US_0126</strong></td><td>$96.33</td><td>19.0</td><td>$5.07</td><td>转化 -19%</td><td><span class="tag to">🟡 小幅回落</span></td></tr>
+<tr><td><strong>register竞品词_US_0227</strong></td><td>$0.00</td><td>0.0</td><td>—</td><td>仍无投放</td><td><span class="tag ty">💤 休眠</span></td></tr>
+</table>
+
+<div class="insight">
+<div class="insight-title">🌟 CN Register 7 周走势:82 → 86 → 86 → 110 → 81 → 103 → 112</div>
+<p>本周 112 是 7 周新高,且 CPA 维持在 $2.34-$2.55 的健康区间。<strong>新上线的 ISP register ad group(28 单 / CPA $3.18)是本周增量的主力</strong>,它没有稀释整体 CPA,反而验证了静态 IP 用户的注册意图。<br><br>
+<strong>本周 CN 系列高效搜索词:</strong><br>
+• <code>住宅 ip</code>(中文词):CPA $1.42 / 12 转化 ⭐(全周最高效,蝉联)<br>
+• <code>iproyal</code>(竞品):CPA $1.64 / 3.5 转化<br>
+• <code>静态 住宅 ip</code>(ISP 新):CPA $2.48 / 4 转化 🆕<br>
+• <code>静态 ip</code>(ISP 新):CPA $2.27 / 3 转化 🆕<br>
+• <code>住宅 ip</code>(ISP 新):CPA $3.44 / 3 转化 🆕<br><br>
+<strong>US 系列高效搜索词:</strong><br>
+• <code>ip changer</code>(register软词):CPA $3.98 / 2 转化<br>
+• <code>proxy</code>(register购买意图):CPA $8.65 / 2 转化<br>
+• <code>proxy</code>(register软词):CPA $10.05 / 2 转化(US proxy 词本周 CPA 偏高)</p>
+</div>
+
+<h3>本周每日走势</h3>
+<table>
+<tr><th>日期</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>CTR</th><th>CPC</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>6/1 周一</td><td>$106.74</td><td>1,895</td><td>$56.33</td><td>101</td><td>5.33%</td><td>$1.06</td><td>34.0</td><td style="color:#0d904f;font-weight:600">33.66%</td><td style="color:#0d904f;font-weight:600">$3.14</td><td>1.0</td><td>0.99%</td><td>$106.74</td></tr>
+<tr style="background:#fffdf5"><td>6/2 周二 🚀</td><td>$197.21</td><td>2,583</td><td>$76.35</td><td>125</td><td>4.84%</td><td>$1.58</td><td>38.0</td><td>30.40%</td><td>$5.19</td><td style="color:#0d904f;font-weight:600">4.0</td><td>3.20%</td><td>$49.30</td></tr>
+<tr style="background:#fffdf5"><td>6/3 周三 🚀</td><td>$155.06</td><td>2,022</td><td>$76.69</td><td>117</td><td>5.79%</td><td>$1.33</td><td>31.0</td><td>26.50%</td><td>$5.00</td><td>1.0</td><td>0.85%</td><td>$155.06</td></tr>
+<tr style="background:#f5fcf7"><td>6/4 周四 🏆</td><td>$179.59</td><td>3,003</td><td>$59.80</td><td>143</td><td>4.76%</td><td>$1.26</td><td style="color:#0d904f;font-weight:600">46.5</td><td style="color:#0d904f;font-weight:600">32.52%</td><td style="color:#0d904f;font-weight:600">$3.86</td><td style="color:#0d904f;font-weight:600">3.0</td><td>2.10%</td><td>$59.86</td></tr>
+<tr><td>6/5 周五</td><td>$201.96</td><td>2,612</td><td>$77.32</td><td>145</td><td>5.55%</td><td>$1.39</td><td>31.5</td><td>21.72%</td><td>$6.41</td><td>0</td><td>0%</td><td>—</td></tr>
+<tr><td>6/6 周六</td><td>$153.82</td><td>2,233</td><td>$68.89</td><td>124</td><td>5.55%</td><td>$1.24</td><td>31.0</td><td>25.00%</td><td>$4.96</td><td>1.0</td><td>0.81%</td><td>$153.82</td></tr>
+<tr><td>6/7 周日</td><td>$172.32</td><td>2,052</td><td>$83.98</td><td>122</td><td>5.95%</td><td>$1.41</td><td>32.0</td><td>26.23%</td><td>$5.39</td><td>1.0</td><td>0.82%</td><td>$172.32</td></tr>
+</table>
+
+<div class="co cs">
+<strong>每日表关键信号:</strong><br>
+• 🏆 <strong>6/4 周四是本周峰值日</strong>:46.5 Reg + 3 Pur + CVR 32.52% + Reg CPA $3.86,几乎所有注册指标全周最优,也是展示量最大的一天(3,003)<br>
+• 🚀 <strong>6/2 周二 ISP 上线当天即出 4 单 Purchase</strong>(全周购买峰值),说明大改动没有冲击转化,反而当天表现良好<br>
+• ⚠️ <strong>6/5-6/7 周后段注册效率走弱</strong>:Reg CPA 从 $3.86 升到 $5-6,优化转化 CVR 也下滑——需观察这是 ISP 上线初期的流量稀释,还是单纯周末效应(下周判断)<br>
+• 📈 <strong>展示量 +21%、点击 +17%</strong>:ISP 上线后流量盘明显放大,但 CTR 微降 0.19pp 属正常(新流量进入)
+</div>
+
+</div></div>
+
+<!-- ============ 四、Purchase 系列 ============ -->
+<div class="sec" id="sec4">
+<h2>🛒 四、Purchase 系列:老 Pur US 重夺主力 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="ico">📊</div><div class="v">11</div><div class="l">总 Purchase</div><div class="c up">↑ 10%</div></div>
+  <div class="kpi-card"><div class="ico">💵</div><div class="v">$106.06</div><div class="l">购买成本(混合)</div><div class="c down">↑ 6.2%</div></div>
+  <div class="kpi-card good"><div class="ico">📅</div><div class="v">6 天</div><div class="l">有购买的天数</div><div class="c up">/ 7 天</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📅 本周每日 Purchase 按 Campaign 拆分</div>
+    <div class="chart-sub">6/2 ISP 上线当天 4 单是本周峰值</div>
+    <canvas id="purDailyChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 老 Purchase US 5 周走势 — 回到区间上沿</div>
+    <canvas id="purUSChart"></canvas>
+  </div>
+</div>
+
+<div class="co ci">
+<strong>Purchase 本周整体表现:</strong><br>
+✅ <strong>总量稳定:</strong>11 单 vs 上周 10 单,连续 5 周稳在 10-12 单区间(12 → 11 → 10 → 11)<br>
+🔄 <strong>来源结构回摆:</strong>老 Pur US 6 单(55%)重夺主力,CN Reg 回落到 3 单(27%),CN Pur 2 单(18%)。和上周正好对调,验证两者在区间内震荡<br>
+🟢 <strong>有购买天数 6/7 天</strong>(上周 5/7),分布更均匀<br>
+🆕 <strong>ISP Pur 新首周 0 单:</strong>属 learning 期正常(CN Pur 当初也是第 1 周破零),下周是关键观察点<br>
+⚠️ <strong>混合 CPA $106:</strong>偏高主要因 ISP Pur 首周 $124.78 花费 0 产出拉高了分母,剔除 ISP 后老 4 campaign 的 Pur CPA 约 $94.7,与上周持平
+</div>
+
+<h3>本周 Purchase 按 Campaign 拆分</h3>
+<table>
+<tr><th>Campaign</th><th>花费</th><th>Pur(All Conv)</th><th>占比</th><th>说明</th></tr>
+<tr><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$311.51</td><td><strong>6.0</strong></td><td>55%</td><td><span class="tag tg">🟢 本周 Purchase 主力</span></td></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(CN Reg)</td><td>$286.01</td><td>3.0</td><td>27%</td><td><span class="tag to">🟡 回落到区间下沿</span></td></tr>
+<tr><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$117.38</td><td><strong>2.0</strong></td><td>18%</td><td><span class="tag tg">🟢 第 4 周新高</span></td></tr>
+<tr style="background:#fffdf5"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur 新)🆕</td><td>$124.78</td><td>0</td><td>0%</td><td><span class="tag tb">🆕 learning 中</span></td></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(老 Reg US)</td><td>$327.02</td><td>0</td><td>0%</td><td><span class="tag ty">本周未贡献</span></td></tr>
+</table>
+
+<h3>🔎 老 Pur US 5 周 Purchase 走势</h3>
+<table>
+<tr><th>周</th><th>Pur(All)</th><th>判断</th></tr>
+<tr><td>5/4-5/10</td><td>4.5</td><td>区间下沿</td></tr>
+<tr><td>5/11-5/17</td><td>4.0</td><td>区间下沿</td></tr>
+<tr><td>5/18-5/24</td><td>8.0</td><td>区间上沿</td></tr>
+<tr><td>5/25-5/31</td><td>3.0</td><td>区间下沿</td></tr>
+<tr style="background:#f5fcf7;font-weight:600"><td>6/1-6/7</td><td><strong>6.0</strong></td><td>反弹回区间上沿</td></tr>
+</table>
+
+<div class="co cs">
+<strong>老 Pur US 的本质就是"在 3-8 单之间震荡"。</strong>5 周走势 4.5 → 4 → 8 → 3 → 6,没有任何明确趋势,就是 Smart Bidding 在固定预算下的自然波动。<strong>这意味着不要被单周的高/低吓到——上周它 3 单时我们没有恐慌加码,本周它就自己反弹回 6 单。</strong>CPA $38.94 虽然偏高,但短期内无结构性问题,继续让它跑。
+</div>
+
+</div></div>
+
+<!-- ============ 五、ISP 系列上线专题 ============ -->
+<div class="sec" id="sec_isp">
+<h2>🆕 五、ISP 系列上线专题:Register 侧立竿见影,Purchase 侧等 learning <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout">
+<strong>📌 本节背景:</strong>6/2-6/3 上线的 ISP 系列由两块组成 ——① 独立的 <code>isp_purchase_ALL_cn_260602</code> campaign(攻 ISP 购买),② CN Register 下新增 <code>isp_register中文词_ALL_0602</code> ad group(攻 ISP 注册)。目标:承接此前被识别出的"静态 IP / ISP 静态住宅"搜索意图。
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">✅</div><div class="v">52</div><div class="l">ISP 首周带来 Register</div><div class="c up">28 + 24</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$3.18</div><div class="l">ISP register ad group CPA</div><div class="c up">健康</div></div>
+  <div class="kpi-card"><div class="ico">🛒</div><div class="v">0</div><div class="l">ISP Pur campaign 购买</div><div class="c flat">learning 中</div></div>
+  <div class="kpi-card"><div class="ico">💰</div><div class="v">$213.89</div><div class="l">ISP 首周总投入</div><div class="c flat">$89+$125</div></div>
+</div>
+
+<h3>ISP 两块首周表现</h3>
+<table>
+<tr><th>模块</th><th>花费</th><th>展示</th><th>点击</th><th>CTR</th><th>Register</th><th>Purchase</th><th>CPA(reg)</th></tr>
+<tr><td><strong>isp_register中文词_ALL_0602</strong>(注册 ad group)</td><td>$89.11</td><td>—</td><td>—</td><td>—</td><td><strong>28.0</strong></td><td>—</td><td style="color:#0d904f;font-weight:600">$3.18</td></tr>
+<tr><td><strong>isp_purchase_ALL_cn_260602</strong>(购买 campaign)</td><td>$124.78</td><td>1,324</td><td>90</td><td>6.80%</td><td>23.9</td><td>0</td><td>$5.22</td></tr>
+</table>
+
+<div class="insight">
+<div class="insight-title">💡 ISP 上线首周的两个判断</div>
+<p><strong>① Register 侧:立竿见影,意图已验证。</strong>注册 ad group CPA $3.18、购买 campaign 附带 register CPA $5.22,合计 52 个 register。关键的 ISP 搜索词表现:<code>静态 ip</code> $2.27、<code>静态 住宅 ip</code> $2.48、<code>住宅 ip</code> $3.44——全部在健康区间。<strong>这直接证明了之前 GA 数据的判断:静态/ISP 意图真实存在,且能以低 CPA 转化为注册。</strong><br><br>
+<strong>② Purchase 侧:0 单属正常,别急。</strong>ISP Pur campaign 首周 0 购买,看起来"没产出",但这和 CN Pur(260509)当初的轨迹一致——新 campaign 需要 Smart Bidding 积累样本。CN Pur 第 1 周就破零,所以下周(ISP 第 2 周)是关键观察点:<strong>能否出第 1 单 Purchase</strong>。CTR 6.80% 高于账户均值,说明流量质量不差,有出单基础。</p>
+</div>
+
+<h3>CN Pur(260509)第 4 周:与 ISP 并行,反而走强</h3>
+<table>
+<tr><th>指标</th><th>第 1 周</th><th>第 2 周</th><th>第 3 周</th><th>第 4 周 6/1-6/7</th><th>4 周累计</th></tr>
+<tr><td>消耗</td><td>$139.79</td><td>$103.37</td><td>$101.09</td><td>$117.38</td><td>$461.63</td></tr>
+<tr><td>Register 附带</td><td>25</td><td>15</td><td>11</td><td><strong>18</strong></td><td>69</td></tr>
+<tr style="background:#f5fcf7;font-weight:600"><td>Purchase</td><td>1</td><td>0</td><td>1</td><td><strong>2</strong></td><td>4</td></tr>
+<tr><td>Purchase CPA</td><td>$139.79</td><td>—</td><td>$101.09</td><td>$58.69</td><td>$115.41</td></tr>
+</table>
+
+<div class="co cs">
+<strong>CN Pur 第 4 周判断:</strong><br>
+✅ <strong>本周 2 单是它运行以来最好的一周</strong>,Purchase CPA 改善到 $58.69(此前最低 $101)<br>
+✅ <strong>Register 附带从 11 反弹到 18</strong>,流量盘在变大<br>
+🟡 <strong>但要警惕和 ISP Pur 的内耗:</strong>两个 CN purchase campaign 现在并行,搜索词高度重叠(都在抢"住宅 ip / 静态 ip"),下周需要看是否出现互相抢量、推高 CPA 的情况<br><br>
+<strong>战略判断:</strong>ISP Pur 上线后,理想状态是它把"静态 ISP"意图接走,让 CN Pur(260509)更聚焦"通用住宅 + 竞品词"。但首周数据还看不出分工,需要 1-2 周观察两者的搜索词是否自然分流。<strong>如果下周发现两者抢同一批词,可能要用否定词做人工分流。</strong>
+</div>
+
+</div></div>
+
+<!-- ============ 六、设备与时段 ============ -->
+<div class="sec" id="sec5">
+<h2>📱 六、设备与时段 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(this,'tab-device')">📱 设备分布</button>
+  <button class="tab-btn" onclick="switchTab(this,'tab-hour')">🕐 时段分析</button>
+</div>
+
+<div id="tab-device" class="tab-panel active">
+  <div class="chart-wrap">
+    <div class="chart-title">📱 Register 转化的设备分布</div>
+    <canvas id="deviceChart"></canvas>
+  </div>
+
+  <table>
+  <tr><th>设备</th><th>Campaign</th><th>花费</th><th>转化</th><th>CPA</th><th>判断</th></tr>
+  <tr><td>📱 Mobile</td><td>Register US</td><td>$287.97</td><td>55.0</td><td>$5.24</td><td><span class="tag tg">主力</span></td></tr>
+  <tr><td>📱 Mobile</td><td>Register CN</td><td>$230.74</td><td>92.1</td><td>$2.50</td><td><span class="tag tg">最高效</span></td></tr>
+  <tr><td>📱 Mobile</td><td>Purchase US 老</td><td>$195.99</td><td>5.0</td><td>$39.20</td><td><span class="tag to">Mobile Pur 改善</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Purchase US 老</td><td>$112.53</td><td>3.0</td><td>$37.51</td><td><span class="tag to">与 Mobile 趋同</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Register CN</td><td>$43.30</td><td>17.0</td><td>$2.55</td><td><span class="tag tg">健康</span></td></tr>
+  <tr><td>📱 Mobile</td><td>CN Pur</td><td>$50.26</td><td>3.0</td><td>$16.75</td><td><span class="tag tg">Mobile 出单</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Register US</td><td>$36.81</td><td>8.0</td><td>$4.60</td><td><span class="tag tg">健康</span></td></tr>
+  <tr><td>📟 Tablet</td><td>Register CN</td><td>$11.97</td><td>3.0</td><td>$3.99</td><td><span class="tag tg">小但精</span></td></tr>
+  </table>
+
+  <div class="insight">
+  <div class="insight-title">💡 本周设备的关键发现:老 Pur US 的 Mobile/Desktop 差距收窄了</div>
+  <p><strong>本周老 Pur US:</strong>Mobile CPA $39.20 vs Desktop CPA $37.51——<strong>几乎持平</strong>。<br>
+  <strong>上周老 Pur US:</strong>Mobile CPA $118.98 vs Desktop CPA $22.34——差距 5 倍。<br><br>
+  上周报告里我们提出"如果连续 2 周 Mobile 远差于 Desktop,考虑给 Mobile 加 -30% bid"。<strong>本周这个差距完全收窄了,说明上周的极端差距是单周波动,而非稳定模式——所以"给 Mobile 降价"这个动作本周不成立,继续不动是对的。</strong>这也再次印证了"单周数据不动手"的纪律价值。</p>
+  </div>
+</div>
+
+<div id="tab-hour" class="tab-panel">
+  <div class="chart-wrap">
+    <div class="chart-title">🕐 24 小时 CPA 走势</div>
+    <div class="chart-sub">绿色 = 高效区(CPA &lt; $5) / 橙色 = 中等 / 红色 = 低效区(CPA &gt; $10)</div>
+    <canvas id="hourChart"></canvas>
+  </div>
+
+  <h3>🟢 高效时段(CPA &lt; $5)</h3>
+  <table><tr><th>时段</th><th>花费</th><th>点击</th><th>转化</th><th>CPA</th><th>说明</th></tr>
+  <tr><td>18:00 🌟</td><td>$23.00</td><td>27</td><td>10.0</td><td style="color:#0d904f;font-weight:600">$2.30</td><td>全周最高效,蝉联</td></tr>
+  <tr><td>19:00</td><td>$35.35</td><td>35</td><td>11.0</td><td>$3.21</td><td>持续高效</td></tr>
+  <tr><td>22:00</td><td>$32.12</td><td>32</td><td>9.0</td><td>$3.57</td><td>稳定高效</td></tr>
+  <tr><td>07:00</td><td>$26.88</td><td>23</td><td>7.0</td><td>$3.84</td><td>早间高效</td></tr>
+  <tr><td>13:00</td><td>$46.91</td><td>31</td><td>12.0</td><td>$3.91</td><td>午间高效</td></tr>
+  <tr><td>00:00</td><td>$65.52</td><td>47</td><td>16.0</td><td>$4.10</td><td>转化量最大时段</td></tr>
+  <tr><td>23:00</td><td>$31.79</td><td>33</td><td>7.0</td><td>$4.54</td><td>持续改善</td></tr>
+  <tr><td>04:00</td><td>$37.54</td><td>30</td><td>8.0</td><td>$4.69</td><td>上周 $21,本周✅恢复</td></tr>
+  <tr><td>14:00</td><td>$48.83</td><td>45</td><td>10.0</td><td>$4.88</td><td>下午高效</td></tr>
+  </table>
+
+  <h3>🔴 需关注的低效时段</h3>
+  <table><tr><th>时段</th><th>花费</th><th>点击</th><th>转化</th><th>CPA</th><th>对比上周</th></tr>
+  <tr><td>09:00 ⚠️</td><td>$47.46</td><td>34</td><td>3.0</td><td style="color:#d93025;font-weight:600">$15.82</td><td>本周新出现的最低效时段</td></tr>
+  <tr><td>21:00</td><td>$36.76</td><td>28</td><td>3.0</td><td>$12.25</td><td>本周新出现</td></tr>
+  <tr><td>10:00</td><td>$67.93</td><td>37</td><td>6.0</td><td>$11.32</td><td>上周 $14,<strong>连续 2 周偏高</strong></td></tr>
+  <tr><td>05:00</td><td>$43.80</td><td>22</td><td>4.0</td><td>$10.95</td><td>本周新出现</td></tr>
+  </table>
+
+  <div class="co cs">
+  <strong>✅ 上周低效时段大部分回稳,但出现了新的低效点:</strong><br>
+  上周说的 04/11 点本周全部回到正常区间($4-5)。但 09:00 / 21:00 / 05:00 这周新冒出来低效,其中 09:00 单时段花 $47 只产 3 转化最差。<br><br>
+  <strong>唯一值得注意的是 10:00——连续 2 周偏高($14 → $11)。</strong>其余都是单周波动,按纪律先不动。<strong>下周如果 10:00 仍 >$10,可以考虑加 -20% bid;09/05/21 先观察一周再判断。</strong>
+  </div>
+</div>
+
+</div></div>
+
+<!-- ============ 七、下周观察 ============ -->
+<div class="sec" id="sec6">
+<h2>🎯 七、下周观察项 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout">
+<strong>📌 下周(6/8-6/14)主线:ISP 系列进入"验证期"。</strong>ISP register 侧已经证明意图真实,下周的核心是看 ISP Purchase 能否破零、ISP 与 CN Pur 是否内耗。本周刚做完大改动,下周建议保持"观察为主、少动手"。
+</div>
+
+<div class="action-item warn">
+  <div class="head"><span class="priority-tag p1">P1</span> 🆕 ISP Purchase campaign 能否破零</div>
+  <p>ISP Pur 首周 0 单(learning 正常)。下周是第 2 周,关键看:<br>
+  • <code>isp_purchase_ALL_cn_0603</code> ad group 能否出第 1 单 Purchase(参照 CN Pur 当初第 1 周就破零)<br>
+  • CTR 6.80% 不差,有出单基础;如果第 2 周仍 0,再观察第 3 周,暂不调整<br>
+  • <strong>不要在 learning 期清理它的搜索词</strong>,让 Smart Bidding 先积累样本</p>
+</div>
+
+<div class="action-item warn">
+  <div class="head"><span class="priority-tag p1">P1</span> 🔀 ISP Pur 与 CN Pur 是否内耗</div>
+  <p>两个 CN purchase campaign 现在并行,搜索词高度重叠(都抢"住宅 ip / 静态 ip")。下周重点排查:<br>
+  • 对比两者的搜索词报告,看是否抢同一批词、互相推高 CPA<br>
+  • 理想分工:ISP Pur 接"静态/ISP"意图,CN Pur 聚焦"通用住宅 + 竞品词"<br>
+  • <strong>如果确认抢量,用否定词做人工分流</strong>(给 CN Pur 加"静态/isp"否定,引导其聚焦)</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p2">P2</span> 👀 ISP register ad group 是否稳定</div>
+  <p>首周 28 单 / CPA $3.18 很健康,但刚上线 1 周。下周看:<br>
+  • 第 2 周 CPA 能否维持在 $3-5<br>
+  • 如果连续 2 周稳定,可考虑给 ISP ad group 适度加预算权重<br>
+  • <strong>但本周刚上线,不要急着加预算</strong>,先让它跑稳 2 周</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p2">P2</span> 👀 周后段(6/5-6/7)注册效率下滑</div>
+  <p>本周 Reg CPA 从 6/4 的 $3.86 升到周末 $5-6,优化 CVR 也下滑。下周判断:<br>
+  • 是 ISP 上线初期的流量稀释(新流量还没被 Smart Bidding 消化),还是单纯周末效应<br>
+  • 如果下周中段恢复,说明是上线初期波动;如果持续,需排查 ISP 流量质量</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p3">P3</span> 💭 老 Pur US:继续观察震荡,Mobile/Desktop 已趋同</div>
+  <p>本周 6 单回到区间上沿,Mobile CPA $39 / Desktop $38 已收窄。<br>
+  • 上周提的"给 Mobile 降价"想法本周不成立,<strong>放弃这个动作</strong><br>
+  • 老 Pur US 就是 3-8 单区间震荡,继续让它自然跑,不必干预</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p3">P3</span> 💭 时段:10:00 连续 2 周偏高</div>
+  <p>10:00 连续 2 周 >$10($14 → $11)。<br>
+  • 下周仍 >$10 → 加 -20% bid<br>
+  • 09/21/05 点本周新出现的低效,先观察一周确认是否单周波动</p>
+</div>
+
+<h3>本周不建议做的事</h3>
+<div class="co cs">
+✅ <strong>不要在 ISP 上线后立刻叠加其他大改动。</strong>本周已做 82 次变更,让 ISP 上线成为干净、可独立归因的变量<br>
+✅ <strong>不要因 ISP register 首周好就大幅加预算。</strong>让它先跑稳 2 周再说<br>
+✅ <strong>不要急着调 ISP Pur 或 CN Pur。</strong>ISP 刚上线,保持其为独立可观察变量,内耗问题先观察再分流<br>
+✅ <strong>不要给老 Pur US 加 Mobile 降价。</strong>本周 Mobile/Desktop 已趋同,上周的极端差距是单周波动
+</div>
+
+</div></div>
+
+<div style="text-align:center;padding:20px 0;color:#999;font-size:11px">
+IPOasis Google Ads Weekly Report | 2026-06-01 ~ 2026-06-07<br>
+数据来源:Google Ads API · Register 按 conversion_register / All Conv 口径 · Purchase 按 conversion_purchase / All Conv 口径(不与 IPOASIS (web) purchase 子集重复计数)
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.sec h2').forEach(h=>{
+  h.addEventListener('click',()=>h.parentElement.classList.toggle('collapsed'));
+});
+function switchTab(btn,id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+const COL={p:'#1a73e8',g:'#0d904f',r:'#d93025',o:'#e8710a'};
+const tooltipDefault={mode:'index',intersect:false,backgroundColor:'#202124',titleFont:{size:13,weight:'600'},bodyFont:{size:12},padding:10};
+
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',
+  data:{
+    labels:['1月','2月','3月','4月','5月','6月*'],
+    datasets:[
+      {type:'bar',label:'购买数量',data:[11,15,25,32,45,11],backgroundColor:['rgba(13,144,79,.5)','rgba(13,144,79,.6)','rgba(13,144,79,.7)','rgba(13,144,79,.8)','rgba(13,144,79,.9)','rgba(26,115,232,.5)'],borderRadius:6,yAxisID:'y'},
+      {type:'line',label:'购买 CPA ($)',data:[155.32,180.58,127.43,110.16,93.50,106.06],borderColor:COL.r,backgroundColor:'rgba(217,48,37,.1)',borderWidth:3,tension:.3,pointRadius:5,yAxisID:'y1'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{position:'left',title:{display:true,text:'购买数量'},beginAtZero:true},y1:{position:'right',title:{display:true,text:'CPA ($)'},beginAtZero:true,grid:{display:false},ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('trendChart'),{
+  type:'line',
+  data:{
+    labels:['5/11-5/17','5/18-5/24','5/25-5/31','6/1-6/7'],
+    datasets:[
+      {label:'Register(All Conv)',data:[239.5,182.5,210,244],borderColor:COL.g,backgroundColor:'rgba(13,144,79,.1)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointHoverRadius:7},
+      {label:'Purchase(All Conv)',data:[12,11,10,11],borderColor:COL.p,backgroundColor:'rgba(26,115,232,.1)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointHoverRadius:7,yAxisID:'y1'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{position:'left',title:{display:true,text:'Register'},beginAtZero:true},y1:{position:'right',title:{display:true,text:'Purchase'},beginAtZero:true,grid:{display:false},max:20}}}
+});
+
+new Chart(document.getElementById('campCostChart'),{
+  type:'bar',
+  data:{
+    labels:['Reg US','Reg CN','Pur US 老','ISP Pur 新','CN Pur'],
+    datasets:[
+      {label:'本周',data:[327.02,286.01,311.51,124.78,117.38],backgroundColor:COL.p,borderRadius:4},
+      {label:'上周',data:[296.65,271.32,329.70,0,101.09],backgroundColor:'#9ec8ff',borderRadius:4}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y.toFixed(2)}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('campPurChart'),{
+  type:'bar',
+  data:{
+    labels:['Reg US','Reg CN','Pur US 老','ISP Pur 新','CN Pur'],
+    datasets:[
+      {label:'本周 Purchase(All)',data:[0,3,6,0,2],backgroundColor:COL.g,borderRadius:4},
+      {label:'上周 Purchase(All)',data:[0,6,3,0,1],backgroundColor:'#a4d5b9',borderRadius:4}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{beginAtZero:true}}}
+});
+
+new Chart(document.getElementById('regDailyChart'),{
+  type:'line',
+  data:{
+    labels:['6/1 Mon','6/2 Tue','6/3 Wed','6/4 Thu','6/5 Fri','6/6 Sat','6/7 Sun'],
+    datasets:[
+      {label:'CN 系列(含 ISP)',data:[24,22,21,29.5,21.5,18,18],borderColor:COL.r,backgroundColor:'rgba(217,48,37,.1)',borderWidth:2.5,tension:.3,fill:true},
+      {label:'US 系列',data:[10,16,10,17,10,13,14],borderColor:COL.p,backgroundColor:'rgba(26,115,232,.1)',borderWidth:2.5,tension:.3,fill:true}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{beginAtZero:true,title:{display:true,text:'注册转化数'}}}}
+});
+
+new Chart(document.getElementById('regKwChart'),{
+  type:'bar',
+  data:{
+    labels:['住宅 ip(中文)','iproyal','静态 ip(ISP)','静态 住宅 ip(ISP)','住宅 ip(ISP)','ip changer','proxy(购买意图)'],
+    datasets:[{label:'CPA',data:[1.42,1.64,2.27,2.48,3.44,3.98,8.65],backgroundColor:[COL.g,COL.g,COL.g,COL.g,COL.g,COL.g,COL.o],borderRadius:4}]
+  },
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'CPA: $'+c.parsed.x.toFixed(2)}}},scales:{x:{beginAtZero:true,title:{display:true,text:'CPA ($)'},ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('purDailyChart'),{
+  type:'bar',
+  data:{
+    labels:['6/1','6/2','6/3','6/4','6/5','6/6','6/7'],
+    datasets:[
+      {label:'老 Pur US',data:[0,2,1,3,0,0,0],backgroundColor:COL.p,borderRadius:3,stack:'a'},
+      {label:'CN Reg 附带',data:[1,1,0,0,0,1,0],backgroundColor:COL.g,borderRadius:3,stack:'a'},
+      {label:'CN Pur',data:[0,1,0,0,0,0,1],backgroundColor:COL.o,borderRadius:3,stack:'a'},
+      {label:'ISP Pur 新',data:[0,0,0,0,0,0,0],backgroundColor:COL.r,borderRadius:3,stack:'a'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,title:{display:true,text:'Purchase 数'}}}}
+});
+
+new Chart(document.getElementById('purUSChart'),{
+  type:'bar',
+  data:{
+    labels:['5/4-5/10','5/11-5/17','5/18-5/24','5/25-5/31','6/1-6/7'],
+    datasets:[{label:'Purchase US 老',data:[4.5,4,8,3,6],backgroundColor:(c)=>{const v=c.parsed.y;return v>=6?COL.g:v>=4?COL.o:COL.r},borderRadius:5}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' 单'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'购买数'}}}}
+});
+
+new Chart(document.getElementById('deviceChart'),{
+  type:'doughnut',
+  data:{
+    labels:['📱 Mobile Reg CN','📱 Mobile Reg US','🖥️ Desktop Reg CN','🖥️ Desktop Reg US','📟 Tablet Reg CN','📟 Tablet Reg US'],
+    datasets:[{data:[92.1,55,17,8,3,2],backgroundColor:['#34a853','#4285f4','#0d904f','#1a73e8','#fdd663','#fbbc04'],borderWidth:2,borderColor:'#fff'}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}},tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+' 注册'}}}}
+});
+
+const hourData=[4.10,8.75,8.82,7.35,4.69,10.95,9.06,3.84,5.59,15.82,11.32,5.03,8.29,3.91,4.88,9.30,5.53,8.27,2.30,3.21,9.64,12.25,3.57,4.54];
+const hourColors=hourData.map(v=>v<5?COL.g:v<10?COL.o:COL.r);
+new Chart(document.getElementById('hourChart'),{
+  type:'bar',
+  data:{
+    labels:Array.from({length:24},(_,i)=>i.toString().padStart(2,'0')+':00'),
+    datasets:[{label:'CPA',data:hourData,backgroundColor:hourColors,borderRadius:3}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'CPA: $'+c.parsed.y.toFixed(2)}}},scales:{y:{beginAtZero:true,title:{display:true,text:'CPA ($)'},ticks:{callback:v=>'$'+v}},x:{ticks:{maxRotation:90,minRotation:45,font:{size:9}}}}}
+});
+</script>
+</body></html>

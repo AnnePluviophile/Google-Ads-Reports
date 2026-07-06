@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPOasis Google Ads 6月月度分析报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#1a73e8;--g:#0d904f;--r:#d93025;--o:#e8710a;--bg:#f8f9fa;--card:#fff;--bd:#dadce0;--t1:#202124;--t2:#5f6368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.75;padding:32px 16px;font-size:14px}
+.w{max-width:960px;margin:0 auto}
+.hdr{text-align:center;padding:40px 24px;background:linear-gradient(135deg,#2b8fff,#1a73e8 55%,#1558c0);color:#fff;border-radius:16px;margin-bottom:28px}
+.hdr h1{font-size:24px;font-weight:700;margin-bottom:4px}.hdr .sub{font-size:12px;opacity:.8}
+.sec{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:18px;border:1px solid var(--bd)}
+.sec h2{font-size:17px;color:var(--p);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fe}
+.sec h3{font-size:14px;color:var(--t1);margin:20px 0 8px;font-weight:700}
+p{font-size:13px;color:var(--t2);margin-bottom:10px;line-height:1.8}
+strong{color:var(--t1)} em{font-style:normal;color:var(--p);font-weight:600}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12px}
+th{background:#f1f3f4;color:var(--t2);padding:7px 8px;text-align:left;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--bd)}
+td{padding:6px 8px;border-bottom:1px solid #f0f0f0;color:var(--t2)}tr:hover td{background:#f8f9fa}
+.up{color:var(--g);font-weight:600}.dn{color:var(--r);font-weight:600}
+.co{padding:14px 20px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.8}
+.ci{background:#e8f4fd;border-left:4px solid var(--p)}.cw{background:#fff4e5;border-left:4px solid var(--o)}.cs{background:#e6f4ea;border-left:4px solid var(--g)}.cd{background:#fce8e6;border-left:4px solid var(--r)}
+.insight{background:#fffdf5;border:1px solid #fde293;border-radius:8px;padding:16px 20px;margin:14px 0}
+.insight b{color:#b06000;font-size:13px}
+.insight.pos{background:linear-gradient(135deg,#eafaf0,#f5fcf8);border-color:#7fc99b}
+.insight.pos b{color:#0d7a3e}
+.verdict{font-size:15px;font-weight:700;color:var(--t1);margin:12px 0;padding:12px 16px;background:#f0f2f5;border-radius:8px}
+.tg{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600}
+.tg-g{background:#e6f4ea;color:#137333}.tg-r{background:#fce8e6;color:#c5221f}.tg-b{background:#e8f0fe;color:#1967d2}.tg-o{background:#fef3e6;color:#c5600a}
+.chart-box{margin:16px 0;background:#fff;border-radius:8px;padding:16px}
+.chart-box canvas{max-height:280px}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:768px){.chart-row{grid-template-columns:1fr}}
+@media print{body{padding:0}.sec{break-inside:avoid}}
+</style></head><body><div class="w">
+
+<div class="hdr">
+<h1>IPOasis Google Ads 6月月度分析报告</h1>
+<div class="sub">2026年6月1日 — 6月30日 | 数据来源:Google Ads API | 对比5月 | Register/Purchase 均按 All Conv 口径</div>
+</div>
+
+<!-- ============ 一、核心结论 ============ -->
+<div class="sec">
+<h2>一、核心结论</h2>
+<h3>总览</h3>
+<table>
+<tr><th>月份</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>CTR</th><th>CPC</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td><strong>6月</strong></td><td><strong>$5,256</strong></td><td>71,557</td><td>$73.46</td><td>3,953</td><td>5.52%</td><td>$1.33</td><td><strong>1,115</strong></td><td>28.21%</td><td>$4.71</td><td><strong>79.6</strong></td><td>2.01%</td><td>$66.03</td></tr>
+<tr><td>5月</td><td>$4,298</td><td>70,077</td><td>$61.34</td><td>3,427</td><td>4.89%</td><td>$1.25</td><td>906</td><td>26.44%</td><td>$4.74</td><td>46.4</td><td>1.35%</td><td>$92.63</td></tr>
+<tr style="background:#f5fcf7"><td>变化</td><td><span class="dn">+22.3%</span></td><td><span class="up">+2.1%</span></td><td><span class="dn">+19.8%</span></td><td><span class="up">+15.3%</span></td><td><span class="up">+0.63pp</span></td><td><span class="dn">+6.4%</span></td><td><span class="up">+23.1%</span></td><td><span class="up">+1.77pp</span></td><td><span class="up">-0.6%</span></td><td><span class="up">+71.6%</span></td><td><span class="up">+0.66pp</span></td><td><span class="up">-28.7%</span></td></tr>
+</table>
+<p style="font-size:11px;color:#999;margin-top:-4px">注册 = conversion_register All Conv,购买 = conversion_purchase All Conv(不与 IPOASIS (web) purchase 子集重复计数)。注册率/购买率 = 对应转化 / 点击;成本 = 总消耗 / 对应转化(混合口径)。pp = 百分点。</p>
+
+<div class="insight pos">
+<b>6月最重要的事:ISP 系列上线首月即成购买第一引擎,Purchase 月度暴涨 72%</b>
+<p>5 月月报里定下的核心战略——"中文流量真实需求是 ISP/静态,应新建 ISP 系列"——6/2 落地执行,当月立刻兑现。<strong>新建的 ISP Purchase 系列(6/2 上线)不到一整月就贡献 21 个 Purchase、成为全账户购买第一</strong>(单系列 Pur CPA $36);同步在 CN Register 里加的 ISP 中文词广告组,首月就贡献 <strong>227 个注册、CPA $2.42</strong>,是全账户最高效组之一。两者合力把 6 月总 Purchase 从 5 月的 46 推到 <strong>79.6(+72%)</strong>、Purchase CPA 从 $93 压到 <strong>$66(-29%)</strong>。<br><br>
+这不是偶然爆发:5 月发现"用 dynamic 落地页接住了大量找 ISP 的中文流量、导致买不动"的错配问题,6 月用"ISP 落地页 + ISP 关键词"对症下药,错配一修,购买立刻放出来。<strong>连 dynamic 的 CN Pur 也被带动</strong>(Purchase 2.4→10)。</p>
+</div>
+
+<div class="verdict">一句话总结:6 月是"战略兑现月"——ISP 系列上线首月即成购买第一,总 Purchase +72% 创历史新高(80 单)、Pur CPA 降 29% 到 $66,验证了 5 月 GA 数据洞察的正确性。消耗 +22%(主要投给新 ISP 系列 $759)、注册 +23%(ISP 中文词组贡献 227)、单位成本里 Reg CPA 持平、Pur CPA 大降。唯一小瑕疵:CPC 微升 6%(流量结构里高价购买词占比上升所致)。0 跟踪事故,月底(6/22)顺手修好了 ISP 那条被政策限投的广告。</div>
+
+<h3>6月 vs 5月 系列对比(All Conv 口径)</h3>
+<table>
+<tr><th>系列</th><th>6月花费</th><th>5月花费</th><th>6月Reg</th><th>5月Reg</th><th>6月Pur</th><th>5月Pur</th><th>单系列判断</th></tr>
+<tr style="background:#f5fcf7"><td><b>ISP Purchase 新</b>(6/2上线)</td><td>$759</td><td>—</td><td><b>143</b></td><td>—</td><td><b>21</b></td><td>—</td><td><span class="tg tg-g">首月即购买第一,Pur CPA $36</span></td></tr>
+<tr><td><b>CN Register</b></td><td>$1218</td><td>$1218</td><td><b>483</b></td><td>407</td><td>24</td><td>20</td><td><span class="tg tg-g">加 ISP 词组后注册 +19%</span></td></tr>
+<tr><td><b>Purchase US 老</b></td><td>$1368</td><td>$1368</td><td>120</td><td>141</td><td>16.6</td><td>20.5</td><td><span class="tg tg-o">被 ISP 分流,购买回落</span></td></tr>
+<tr><td><b>CN Purchase</b>(dynamic)</td><td>$543</td><td>$344</td><td>92</td><td>51</td><td><b>10</b></td><td>2.4</td><td><span class="tg tg-g">加预算+被带动,2.4→10</span></td></tr>
+<tr><td><b>Register US 老</b></td><td>$1368</td><td>$1368</td><td>277</td><td>307</td><td>8</td><td>3.5</td><td><span class="tg tg-b">附带购买翻倍</span></td></tr>
+</table>
+
+<div class="chart-box"><canvas id="c_overview"></canvas></div>
+</div>
+
+<!-- ============ 二、周度走势 ============ -->
+<div class="sec">
+<h2>二、周度走势:W2 是购买高峰,月末稳态收官</h2>
+
+<table>
+<tr><th>周</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>CTR</th><th>CPC</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td><b>W1 (6/1-7)</b></td><td>$1,164</td><td>16,399</td><td>$70.98</td><td>876</td><td>5.34%</td><td>$1.33</td><td>245</td><td>27.97%</td><td>$4.75</td><td>11</td><td>1.26%</td><td>$105.82</td></tr>
+<tr style="background:#f5fcf7"><td><b>W2 (6/8-14) ⭐</b></td><td>$1,199</td><td>16,723</td><td>$71.72</td><td>967</td><td>5.78%</td><td>$1.24</td><td><b>278.5</b></td><td>28.80%</td><td>$4.31</td><td><b>30</b></td><td>3.10%</td><td><b>$39.98</b></td></tr>
+<tr><td><b>W3 (6/15-21)</b></td><td>$1,302</td><td>16,649</td><td>$78.22</td><td>940</td><td>5.65%</td><td>$1.39</td><td>250.5</td><td>26.65%</td><td>$5.20</td><td>16</td><td>1.70%</td><td>$81.39</td></tr>
+<tr><td><b>W4 (6/22-28)</b></td><td>$1,283</td><td>17,343</td><td>$73.99</td><td>926</td><td>5.34%</td><td>$1.39</td><td>269</td><td>29.05%</td><td>$4.77</td><td>17.6</td><td>1.90%</td><td>$72.91</td></tr>
+<tr><td><b>W5 (6/29-30,2天)</b></td><td>$307</td><td>4,443</td><td>$69.19</td><td>244</td><td>5.49%</td><td>$1.26</td><td>72</td><td>29.51%</td><td>$4.27</td><td>5</td><td>2.05%</td><td>$61.48</td></tr>
+<tr style="background:#f5fcf7"><td><b>6月合计</b></td><td><b>$5,256</b></td><td>71,557</td><td>$73.46</td><td>3,953</td><td>5.52%</td><td>$1.33</td><td><b>1,115</b></td><td>28.21%</td><td>$4.71</td><td><b>79.6</b></td><td>2.01%</td><td>$66.03</td></tr>
+<tr style="background:#fafafa"><td><b>5月合计</b></td><td>$4,298</td><td>70,077</td><td>$61.34</td><td>3,427</td><td>4.89%</td><td>$1.25</td><td>906</td><td>26.44%</td><td>$4.74</td><td>46.4</td><td>1.35%</td><td>$92.63</td></tr>
+</table>
+
+<p style="margin-top:8px"><strong>每周关键事件:</strong></p>
+<ul style="font-size:13px;color:var(--t2);line-height:1.8;padding-left:20px;margin-bottom:16px">
+<li><b>W1(6/1-7):</b>6/2 <b>ISP 系列上线</b>(新建 ISP Purchase 系列 + CN Register 加 ISP 中文词组),新系列冷启动、购买还在爬(11 单),延续 5 月尾部水平</li>
+<li><b>W2(6/8-14)⭐:</b>ISP 系列走出冷启动,<b>全月购买高峰 30 单、Pur CPA 低至 $40</b>,ISP Pur + CN Pur 同步放量,本月最佳一周</li>
+<li><b>W3(6/15-21):</b>6/15 给 ISP Pur($22→$30)和 CN Pur($15→$20)加预算,两条<b>双双进学习期</b>、当周购买回落到 16、CPA 抬到 $81</li>
+<li><b>W4(6/22-28):</b>6/22 修复 ISP Pur 被政策限投的广告 + 6/25 加否定词;<b>ISP Pur 满血复活</b>(购买回到 8),整体回补到 17.6</li>
+<li><b>W5(6/29-30,仅 2 天):</b>月末收尾,日均节奏稳定,Pur CPA $61</li>
+</ul>
+
+<div class="chart-box"><canvas id="c_weekly"></canvas></div>
+
+<div class="insight pos">
+<b>关键趋势:一次"加预算学习期"的完整演示 + ISP 拉动的结构性上行</b>
+<p>6 月的周度曲线比 5 月起伏大,但每次起伏都有清晰归因:<strong>W2 冲到 30 单是 ISP 系列走出冷启动的红利;W3 回落到 16 是 6/15 加预算把 ISP Pur / CN Pur 打进学习期(购买短期掉量);W4 回到 17.6 是学习期结束 + 6/22 修好政策广告。</strong>这条"加预算→学习期阵痛→静养后回升"的路径在 6 月被完整演示了一遍,也成了后续每次调预算的判定模板。<br><br>
+剔除中间的学习期噪声看大盘:<strong>6 月是被 ISP 系列结构性抬升的一个月</strong>——月度 Purchase 从 46 跳到 80,不是靠某一周爆发,而是新增了一条稳定贡献 20+ 购买的 ISP 引擎。</p>
+</div>
+</div>
+
+<!-- ============ 三、Register 系列 ============ -->
+<div class="sec">
+<h2>三、Register 系列:ISP 中文词组上线,CN 引擎再扩容</h2>
+<p>Register 系列 6 月合计花费 <strong>$2,586</strong>(Reg US 老 $1368 + CN Reg $1218,仍近 1:1)、贡献 <strong>760 个注册</strong>(US 277 + CN 483)。<strong>CN 系列继续领跑,且因 6/2 新增 ISP 中文词组,注册从 407 扩到 483(+19%)</strong>。全账户注册 1,115,月度 +23%。</p>
+
+<h3>广告组层级表现(6 月)</h3>
+<table>
+<tr><th>广告组</th><th>花费</th><th>注册</th><th>CPA</th><th>判断</th></tr>
+<tr><td><b>dynamic_register中文词_ALL_0414</b>(CN)</td><td>$671</td><td>256.5</td><td><b>$2.61</b></td><td><span class="tg tg-g">CN 老主力,稳</span></td></tr>
+<tr style="background:#f5fcf7"><td><b>isp_register中文词_ALL_0602</b>(ISP 新,6/2上线)</td><td>$547</td><td>226.6</td><td><b>$2.42</b></td><td><span class="tg tg-g">上线即最高效,占 CN Reg 半壁</span></td></tr>
+<tr><td><b>register_proxy软词_US_1229</b></td><td>$974</td><td>202.5</td><td>$4.81</td><td><span class="tg tg-g">US 稳定主力</span></td></tr>
+<tr><td><b>register购买意图词_US_0126</b></td><td>$389</td><td>74.5</td><td>$5.22</td><td><span class="tg tg-b">US 次主力</span></td></tr>
+</table>
+
+<h3>6 月 Register 关键搜索词</h3>
+<table>
+<tr><th>搜索词</th><th>归属</th><th>花费</th><th>转化(opt)</th><th>CPA</th><th>判断</th></tr>
+<tr><td><b>proxy</b></td><td>软词_US</td><td>$100.67</td><td>20.0</td><td>$5.03</td><td><span class="tg tg-g">US 主力</span></td></tr>
+<tr><td><b>住宅 ip</b></td><td>CN 中文词</td><td>$77.83</td><td>27.0</td><td><b>$2.88</b></td><td><span class="tg tg-g">CN 头号词</span></td></tr>
+<tr><td><b>静态 住宅 ip</b></td><td>CN 中文词</td><td>$61.71</td><td>31.3</td><td><b>$1.97</b></td><td><span class="tg tg-g">ISP 意图词,全月最高效</span></td></tr>
+<tr><td><b>proxy</b>(购买意图组)</td><td>购买意图_US</td><td>$58.28</td><td>9.0</td><td>$6.48</td><td><span class="tg tg-b">CPA 微高</span></td></tr>
+<tr><td><b>住宅 ip</b>(第二组)</td><td>CN 中文词</td><td>$33.83</td><td>20.0</td><td>$1.69</td><td><span class="tg tg-g">极高效</span></td></tr>
+<tr><td><b>iproyal</b></td><td>CN 中文词</td><td>$29.39</td><td>13.5</td><td>$2.18</td><td><span class="tg tg-g">竞品词高效</span></td></tr>
+<tr><td><b>静态 ip</b></td><td>CN 中文词</td><td>$23.76</td><td>12.0</td><td>$1.98</td><td><span class="tg tg-g">ISP 意图,高效</span></td></tr>
+<tr><td><b>ip changer</b></td><td>软词_US</td><td>$22.63</td><td>7.0</td><td>$3.23</td><td><span class="tg tg-g">高效软词</span></td></tr>
+<tr><td><b>socks5</b></td><td>软词_US</td><td>$23.89</td><td>6.0</td><td>$3.98</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>纯净 ip 机场</b></td><td>CN 中文词</td><td>$16.87</td><td>5.0</td><td>$3.37</td><td><span class="tg tg-g">上月观察项,本月转正</span></td></tr>
+</table>
+
+<div class="insight pos">
+<b>Register 系列 6 月的核心变化:ISP 中文词组一上线就成"半壁江山"</b>
+<p><b>① ISP 中文词组(6/2 上线)首月即 227 转化 / CPA $2.42</b>,几乎占了 CN Register 483 注册的一半,且 CPA 比老中文词组($2.61)还低。这直接印证了 5 月的判断——"静态/ISP"中文流量一直存在且高质,过去只是没有专门的词组去接。<strong>把 ISP 意图词单独拎出来做组,立刻把这部分流量高效地转化了。</strong><br><br>
+<b>② ISP 意图词全面转正为高效词:</b>"静态 住宅 ip"($61.71 / 31.3 转化 / <b>CPA $1.97</b>)、"静态 ip"($23.76 / 12 / $1.98)——这些 5 月还只是"信号"的词,6 月成了全账户 CPA 最低的一批转化词。<br><br>
+<b>③ US 端稳定,略有自然回落。</b>Reg US 注册 307→277,同花费下小幅下滑,属正常波动,software 软词组仍是 US 主引擎($4.81)。</p>
+</div>
+</div>
+
+<!-- ============ 四、Purchase 系列 ============ -->
+<div class="sec">
+<h2>四、Purchase 系列:ISP 上线重构了购买结构</h2>
+<p>6 月全账户 Purchase <strong>79.6 单</strong>(5 月 46.4,+72%)。结构上最大的变化:<strong>ISP Purchase 新系列首月即贡献 21 单成为购买第一</strong>,把购买主力从"注册系列附带"重新拉回到"购买系列本身"。</p>
+
+<h3>6 月 Purchase 来源拆解(All Conv,conversion_purchase only)</h3>
+<table>
+<tr><th>Campaign</th><th>6月花费</th><th>Pur 数</th><th>占比</th><th>5月对比</th><th>说明</th></tr>
+<tr><td><b>CN Register</b>(附带)</td><td>$1218</td><td><b>24</b></td><td>30%</td><td>5月 20</td><td><span class="tg tg-g">最大来源,含 ISP 词组带动</span></td></tr>
+<tr style="background:#f5fcf7"><td><b>ISP Purchase 新</b>(主目标)</td><td>$759</td><td><b>21</b></td><td>26%</td><td>—</td><td><span class="tg tg-g">上线首月即第二,Pur CPA $36</span></td></tr>
+<tr><td><b>Pur US 老</b>(主目标)</td><td>$1368</td><td>16.6</td><td>21%</td><td>5月 20.5</td><td><span class="tg tg-o">被 ISP 分流,回落</span></td></tr>
+<tr><td><b>CN Pur</b>(dynamic,主目标)</td><td>$543</td><td>10</td><td>13%</td><td>5月 2.4</td><td><span class="tg tg-g">加预算+被带动,+317%</span></td></tr>
+<tr><td><b>Reg US 老</b>(附带)</td><td>$1368</td><td>8</td><td>10%</td><td>5月 3.5</td><td><span class="tg tg-b">附带购买翻倍</span></td></tr>
+<tr style="background:#f5fcf7"><td><b>6 月合计</b></td><td><b>$5,256</b></td><td><b>79.6</b></td><td>100%</td><td>5月 46.4</td><td><span class="tg tg-g">月度 +72%</span></td></tr>
+</table>
+
+<div class="chart-box"><canvas id="c_purchase_trend"></canvas></div>
+
+<h3>6 月 Purchase 关键搜索词</h3>
+<table>
+<tr><th>搜索词</th><th>归属</th><th>花费</th><th>转化(opt)</th><th>all_conv</th><th>判断</th></tr>
+<tr><td><b>ipoasis</b>(品牌词)</td><td>Pur US 老</td><td>$169.65</td><td>0.6</td><td>3.6</td><td><span class="tg tg-r">品牌词 opt 转化仍低</span></td></tr>
+<tr><td><b>proxy</b></td><td>Pur US 老</td><td>$165.64</td><td>2.0</td><td>13.0</td><td><span class="tg tg-o">主要消耗,all_conv 尚可</span></td></tr>
+<tr><td><b>ipoasis</b>(品牌词)</td><td>ISP Pur 新</td><td>$52.47</td><td>3.5</td><td>9.5</td><td><span class="tg tg-g">ISP 上的品牌词更高效</span></td></tr>
+<tr><td><b>residential proxy</b></td><td>CN Pur</td><td>$47.31</td><td>4.0</td><td>12.0</td><td><span class="tg tg-g">CN Pur 主力购买词</span></td></tr>
+<tr><td><b>residential proxy</b></td><td>Pur US 老</td><td>$39.66</td><td>2.0</td><td>4.0</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>mobile proxy</b></td><td>Pur US 老</td><td>$29.18</td><td>2.0</td><td>5.0</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>美国 住宅 ip</b></td><td>CN Pur</td><td>$21.66</td><td>0.0</td><td>6.0</td><td><span class="tg tg-b">通用住宅意图</span></td></tr>
+<tr><td><b>ipipgo / ipfly / 9proxy</b></td><td>ISP Pur 新</td><td>~$38</td><td>1.0</td><td>~9</td><td><span class="tg tg-o">竞品词,ISP 上有 all_conv</span></td></tr>
+</table>
+
+<div class="insight pos">
+<b>Purchase 系列 6 月的核心洞察:错配一修,购买就放出来了</b>
+<p><b>① ISP Purchase 首月 21 单 / CPA $36,直接验证 5 月的 GA 洞察。</b>5 月发现"中文流量想买 ISP,却被引到 dynamic 落地页,所以买不动";6/2 建了带 ISP 落地页 + ISP 关键词的专门系列,首月就跑出 21 单、CPA $36——<strong>比老 Pur US($82)便宜一半还多</strong>。这是 6 月最有说服力的一条因果链。<br><br>
+<b>② 购买贡献结构从"注册附带主导"回归"购买系列主导"。</b>5 月"注册系列附带购买"占 52%;6 月因 ISP Pur 加入,<strong>购买系列(ISP Pur + Pur US + CN Pur)重新占到 60%(47.6/79.6)</strong>。账户的购买产能从"偶然附带"变回"专门系列可控产出",这是更健康的结构。<br><br>
+<b>③ 连 dynamic 的 CN Pur 也被盘活。</b>CN Pur 购买 2.4→10(+317%),一半是 6/15 加预算、一半是整体 ISP 流量氛围带动。但要注意它单系列 CPA 仍有 $54,且购买按周看仍不稳,是"被带动"而非"自己站起来"。</p>
+</div>
+
+<div class="co cw">
+<b>6 月 Purchase 的几个已处理 / 待处理项:</b><br>
+&bull; <b>已修:</b>6/22 修复 ISP Pur 被政策限投的广告(改文案+落地页+换合规广告),政策标签摘除,购买从 1 回弹到 8<br>
+&bull; <b>待查:</b>品牌词 <code>ipoasis</code> 在 Pur US 老上 $169.65 / opt 转化仅 0.6(all_conv 3.6),连续偏低,需排查落地/追踪(在 ISP Pur 上同词 opt 3.5 反而正常,更像 Pur US 老这条的落地页问题)<br>
+&bull; <b>结构性缺口:</b>订单金额多数未上报 conversion_value,仍用 Pur CPA 替代 ROAS
+</div>
+</div>
+
+<!-- ============ 五、专题 ============ -->
+<div class="sec">
+<h2>五、专题:6 月最重要的一件事——ISP 系列从"计划"到"账户第一引擎"</h2>
+
+<h3>① ISP 上线的完整轨迹(5 月洞察 → 6 月兑现)</h3>
+<table>
+<tr><th>时间</th><th>动作 / 状态</th><th>结果</th></tr>
+<tr><td>5/26</td><td>GA 数据发现:中文 ISP pricing 页仅 2.5% 浏览却贡献 12% 购买,dynamic 页 6% 浏览 0 付费购买</td><td>确认"产品错配",定下 ISP 战略</td></tr>
+<tr><td>6/2</td><td>新建 ISP Purchase 系列 + CN Register 加 ISP 中文词组(ISP 落地页 + ISP 关键词)</td><td>战略落地</td></tr>
+<tr><td>6/8-14</td><td>ISP 系列走出冷启动</td><td>全月购买高峰 30 单 / CPA $40</td></tr>
+<tr><td>6/15</td><td>ISP Pur 加预算 $22→$30(信心加注)</td><td>短期学习期回落,后回升</td></tr>
+<tr><td>6/22</td><td>修复 ISP Pur 政策限投广告</td><td>购买 1→8,政策枷锁解除</td></tr>
+<tr><td>6 月底</td><td>ISP Pur 首月收官</td><td><b>$759 / 143 注册 / 21 购买 / Pur CPA $36 = 购买第一</b></td></tr>
+</table>
+
+<div class="co cs">
+<b>ISP 系列首月成绩单(6/2-6/30,约 4 周):</b><br>
+&bull; <b>ISP Purchase 系列</b>:21 购买、Pur CPA $36(全账户购买系列里最低)<br>
+&bull; <b>ISP Register 中文词组</b>:227 注册、CPA $2.42(全账户最高效组之一)<br>
+&bull; 合计首月即贡献全账户 <b>~40% 的购买增量</b>(6 月 +33 单里,ISP 直接+间接占大头)<br><br>
+<b>启示:5 月月报里"如果某新系列前 2-4 周就明显优于账户平均,应更激进放量验证"的教训,这次做对了</b>——ISP 一发现苗头(W2)就在 6/15 加了预算,虽然吃了一周学习期,但整月拿到了最大化产出。
+</div>
+
+<h3>② 购买 CPA 连续 6 个月单调下降的背后</h3>
+<div class="insight pos">
+<b>$155 → $66,半年砍掉 57%,靠的是"结构优化"不是"堆预算"</b>
+<p>1 月 Pur CPA $155,6 月 $66。这条下降曲线的每一段都有明确动作:3 月建 CN Register(便宜注册池)、4 月止损无效 US 购买系列、5 月发现 ISP 错配、6 月建 ISP 系列接住高意图中文流量。<strong>6 月 -29% 是半年里单月降幅最大的一次</strong>,正是因为 ISP 系列用 $36 的低 CPA 稀释了老 Pur US($82)的高 CPA。<br><br>
+换句话说:购买 CPA 的持续下降,不是把预算堆给便宜渠道,而是<strong>不断找到"意图-产品-落地页"三者对齐的新流量口子</strong>。ISP 是 6 月找到的那个口子。</p>
+</div>
+</div>
+
+<!-- ============ 六、搜索词 ============ -->
+<div class="sec">
+<h2>六、搜索词质量与优化机会</h2>
+
+<h3>6 月 高花费 Top 12</h3>
+<table>
+<tr><th>搜索词</th><th>所在系列</th><th>花费</th><th>转化(opt)</th><th>all_conv</th><th>判断</th></tr>
+<tr><td><b>ipoasis</b></td><td>Pur US 老</td><td>$169.65</td><td>0.6</td><td>3.6</td><td><span class="tg tg-r">品牌词 opt 偏低,待查</span></td></tr>
+<tr><td><b>proxy</b></td><td>Pur US 老</td><td>$165.64</td><td>2.0</td><td>13.0</td><td><span class="tg tg-o">主要消耗</span></td></tr>
+<tr><td><b>proxy</b></td><td>Register US(软词)</td><td>$100.67</td><td>20.0</td><td>22.0</td><td><span class="tg tg-g">Register 主力,高效</span></td></tr>
+<tr><td><b>proxy</b></td><td>Pur US 老(购买意图组)</td><td>$78.55</td><td>2.0</td><td>6.0</td><td><span class="tg tg-o">Purchase 也有贡献</span></td></tr>
+<tr><td><b>住宅 ip</b></td><td>CN Register</td><td>$77.83</td><td>27.0</td><td>28.0</td><td><span class="tg tg-g">CN 头号词</span></td></tr>
+<tr><td><b>静态 住宅 ip</b></td><td>CN Register</td><td>$61.71</td><td>31.3</td><td>32.3</td><td><span class="tg tg-g">ISP 意图,全月最高效</span></td></tr>
+<tr><td><b>proxy</b></td><td>Register US(第三)</td><td>$58.28</td><td>9.0</td><td>9.0</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>ipoasis</b></td><td>ISP Pur 新</td><td>$52.47</td><td>3.5</td><td>9.5</td><td><span class="tg tg-g">ISP 上品牌词正常</span></td></tr>
+<tr><td><b>residential proxy</b></td><td>CN Pur</td><td>$47.31</td><td>4.0</td><td>12.0</td><td><span class="tg tg-g">CN Pur 购买主力</span></td></tr>
+<tr><td><b>residential proxy</b></td><td>Pur US 老</td><td>$39.66</td><td>2.0</td><td>4.0</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>mobile proxy</b></td><td>Pur US 老</td><td>$29.18</td><td>2.0</td><td>5.0</td><td><span class="tg tg-g">高效</span></td></tr>
+<tr><td><b>iproyal</b></td><td>CN Register</td><td>$29.39</td><td>13.5</td><td>13.5</td><td><span class="tg tg-g">竞品词高效</span></td></tr>
+</table>
+
+<div class="insight">
+<b>7 月可执行的搜索词调整:</b>
+<p><b>① 品牌词 <code>ipoasis</code> 在 Pur US 老上是最大浪费嫌疑</b>:$169.65 / opt 0.6 转化,而同一个词在 ISP Pur 上 opt 3.5 正常。这不是品牌词本身的问题,而是 <strong>Pur US 老这条的落地页/追踪问题</strong>——重点查它。<br><br>
+<b>② 低效零转化词(建议加否定):</b>Pur US 老里的 "proxy server" $8.79/0、"http proxies" $9.43/0、"mobile residential proxy" $13.10/0;CN Pur 里的 "购买 ip" $12.08/0、"kookey" $9.30/0、"日本 原生 住宅 ip" $12.55/0。合计约 $65 零转化,可清理。<br><br>
+<b>③ ISP 竞品词观察:</b>"ipipgo""ipfly""9proxy""ipfoxy" 等竞品词在 ISP 系列有 all_conv 但 opt 转化低,先观察一个月,看是否值得单独出价。</p>
+</div>
+</div>
+
+<!-- ============ 七、时段与设备 ============ -->
+<div class="sec">
+<h2>七、时段与设备洞察</h2>
+
+<div class="chart-row">
+<div class="chart-box"><canvas id="c_hourly"></canvas></div>
+<div class="chart-box"><canvas id="c_device"></canvas></div>
+</div>
+
+<h3>高效/低效时段</h3>
+<p><b>最佳时段(CPA 最低):</b>23:00 ($2.68)、22:00 ($3.65)、19:00 ($3.70)、18:00 ($3.85)、12:00 ($4.13)、15:00 ($4.27)、21:00 ($4.50)</p>
+<p><b>相对偏高(CPA &gt; $5.5):</b>05:00 ($7.46)、07:00 ($5.89)、09:00 ($5.86)、01:00 ($5.81)、13:00 ($5.69)、08:00 ($5.62)</p>
+
+<div class="co cs">
+<b>时段对比 5 月:格局延续,无需动手。</b><br>
+6 月时段 CPA 落在 <strong>$2.68-7.46</strong> 的窄区间,和 5 月($3.7-8.2)几乎一致,高低差仅 ~2.8 倍,不存在需要一刀切的低效时段。深夜(23:00 $2.68)和晚间(18-19 点)依旧是高效区,凌晨 5 点最贵但体量不大。<strong>建议维持全时段自然跑,保留 Smart Bidding 探索空间</strong>——这和 5 月的结论一致。
+</div>
+
+<h3>设备分布</h3>
+<table>
+<tr><th>设备</th><th>6月花费</th><th>6月转化</th><th>6月Reg CPA</th><th>5月Reg CPA</th><th>判断</th></tr>
+<tr><td><b>移动</b></td><td>$3,735</td><td>909.5</td><td>$4.34</td><td>$5.12</td><td><span class="tg tg-g">主力,占花费 71%,CPA 再改善</span></td></tr>
+<tr><td><b>桌面</b></td><td>$1,417</td><td>255.1</td><td>$6.21</td><td>$10.93</td><td><span class="tg tg-g">购买高转化(27 单),效率提升</span></td></tr>
+<tr><td><b>平板</b></td><td>$104</td><td>30.0</td><td>$3.79</td><td>$4.26</td><td><span class="tg tg-g">CPA 优,体量小</span></td></tr>
+</table>
+
+<div class="insight">
+<b>设备洞察:移动主导注册,桌面主导购买</b>
+<p><strong>移动</strong>占花费 71%、注册 859.5,是注册的绝对引擎(Mobile CPA $4.34,由 CN 系列拉动)。<strong>但购买上桌面权重明显</strong>:桌面仅占 27% 花费,却贡献 27.1 个购买(占全月 34%),其中 ISP Pur、CN Pur 的购买高度集中在桌面。这和周报里"购买主要来自 Desktop"的观察一致。<br><br>
+<strong>7 月可观察的方向:</strong>若 ISP Pur / CN Pur 的桌面购买优势延续,可考虑对购买系列做桌面侧正向出价倾斜。但当前(7 月初)账户刚做过再营销+预算调整、正在学习期,<strong>设备出价这类新变量应推迟到干净周之后再上</strong>。</p>
+</div>
+</div>
+
+<!-- ============ 八、月度增长轨迹 ============ -->
+<div class="sec">
+<h2>八、月度增长轨迹:6 月创历史新高,半年连涨</h2>
+
+<table>
+<tr><th>月份</th><th>消耗</th><th>Register</th><th>Purchase</th><th>Reg CPA</th><th>Pur CPA</th></tr>
+<tr><td><b>1月</b></td><td>—</td><td>—</td><td>11</td><td>—</td><td>$155</td></tr>
+<tr><td><b>2月</b></td><td>—</td><td>—</td><td>15</td><td>—</td><td>$181</td></tr>
+<tr><td><b>3月</b></td><td>$3,186</td><td>445</td><td>25</td><td>$7.16</td><td>$127</td></tr>
+<tr><td><b>4月</b></td><td>$3,525</td><td>526</td><td>32</td><td>$6.70</td><td>$110</td></tr>
+<tr><td><b>5月</b></td><td>$4,298</td><td>906</td><td>46.4</td><td>$4.74</td><td>$93</td></tr>
+<tr style="background:#f5fcf7"><td><b>6月</b></td><td><b>$5,256</b></td><td><b>1,115</b></td><td><b>79.6</b></td><td><b>$4.71</b></td><td><b>$66</b></td></tr>
+</table>
+
+<div class="chart-box"><canvas id="c_monthly_trend"></canvas></div>
+
+<div class="co cs">
+<b>6 月相比起点(1 月)的增长:</b><br>
+&bull; <b>Purchase 量度增长 +624%</b>(11 → 79.6 单),6 月单月 +72% 是全程最大月度增幅<br>
+&bull; <b>Purchase CPA 改善 57%</b>($155 → $66)<br>
+&bull; <b>注册规模半年翻数倍</b>(3 月 445 → 6 月 1,115)<br><br>
+连续 6 个月单调向上,且每月都是"结构性动作驱动"(建 CN Reg、止损、发现 ISP、建 ISP 系列),不是一时爆发。<strong>6 月把这条曲线推上了历史新高,也基本吃掉了 ISP 这个机会的第一波红利——7 月的增长要靠"放大 ISP + 挖新口子(再营销)"。</strong>
+</div>
+</div>
+
+<!-- ============ 九、7 月行动计划 ============ -->
+<div class="sec">
+<h2>九、7 月行动计划</h2>
+
+<div class="co cs">
+<b>第一优先级:放大已验证的 ISP 引擎(但要有节奏)</b><br><br>
+<b>1. ISP Purchase 系列谨慎放量(P0)</b><br>
+&bull; 首月 21 单 / CPA $36,是全账户最划算的购买系列,值得加预算<br>
+&bull; 但单次加幅控制在 <b>+20-25%</b> 以内,避免像 6/15 那样打进深度学习期<br>
+&bull; 每次加完观察满 2 周(第 1 周学习期掉量正常、第 2 周看是否回升)<br><br>
+<b>2. ISP Register 中文词组继续喂量(P0)</b><br>
+&bull; 227 注册 / $2.42,共用 CN Reg 预算池,若 CN Reg 整体 CPA 仍稳在 $2.5-3 → 可给 CN Reg +20% 预算
+</div>
+
+<div class="co cw">
+<b>第二优先级:7 月已启动的再营销(正在学习期,先冻结读数)</b><br><br>
+<b>3. 再营销观察信号(7/1-7/3 已加,进行中)</b><br>
+&bull; 已给 3 条购买系列加观察受众、并改了 3 条预算(ISP Pur $30→$40、CN Reg $40→$45、Reg US $45→$35)<br>
+&bull; <b>7 月上旬冻结一周不动任何设置</b>,拿第一份干净读数,再决定是否加码 / 是否上展示再营销补漏<br>
+&bull; 受众池已够门槛(30 天注册未购买 search 已过 1,000)<br><br>
+<b>4. Pur US 老:考虑 tCPA 或缩减(P1)</b><br>
+&bull; 6 月被 ISP 分流、购买 20.5→16.6,单系列 CPA $82 是全账户最贵<br>
+&bull; 冻结周结束后,考虑设 tCPA ~$60 或把部分预算挪给 ISP Pur<br>
+&bull; 优先查它的品牌词 <code>ipoasis</code> 落地/追踪问题($170 花费 opt 转化仅 0.6)
+</div>
+
+<div class="co ci">
+<b>中期方向:</b><br>
+&bull; <b>① ROAS 跟踪缺口</b>:仍用 Pur CPA 替代 ROAS。建议技术侧把订单金额上报 conversion_value,7 月能落地就落地<br>
+&bull; <b>② CN Pur 定位</b>:购买 2.4→10 有起色但仍不稳(单系列 CPA $54)。观察 7 月:若持续 &lt;10 单且 CPA &gt;$50,考虑把它的通用住宅词收窄、让位给 ISP<br>
+&bull; <b>③ 展示再营销</b>:作为"注册未购买"人群的补漏渠道,待搜索侧再营销读数出来后再评估是否上(要做图,注意政策)<br>
+&bull; <b>④ 渠道集中风险加剧</b>:Reddit 已于 6 月底暂停,Google Ads 现在是<strong>唯一规模化付费渠道</strong>,集中风险比以往更高;Bing 此前尝试过但<strong>开户没能通过</strong>(账号开不下来),暂时走不通;<strong>SEO 正在推进中</strong>,是当前最现实的第二增长曲线,值得持续投入
+</div>
+</div>
+
+<!-- ============ 十、6 月操作日志 ============ -->
+<div class="sec">
+<h2>附录:6月操作记录与评价</h2>
+<table>
+<tr><th>日期</th><th>操作</th><th>效果</th><th>评价</th></tr>
+<tr style="background:#f5fcf7"><td>6/2</td><td><b>新建 ISP Purchase 系列 + CN Register 加 ISP 中文词组</b>(ISP 落地页 + ISP 关键词)</td><td>首月 ISP Pur 21 购买 / ISP Reg 组 227 注册</td><td><span class="tg tg-g">6 月最重要动作,战略兑现</span></td></tr>
+<tr><td>6/15</td><td>ISP Pur 加预算 $22→$30、CN Pur 加预算 $15→$20</td><td>短期进学习期(W3 购买回落),后回升</td><td><span class="tg tg-o">时机对,ISP Pur 加对了;CN Pur 增量有限</span></td></tr>
+<tr><td>6/22</td><td>修复 ISP Pur 被政策限投的广告(改文案+落地页+换合规广告)</td><td>政策标签摘除,购买 1→8</td><td><span class="tg tg-g">精准修复,立即见效</span></td></tr>
+<tr><td>6/25</td><td>加否定关键词,过滤无效流量</td><td>无负面影响</td><td><span class="tg tg-b">常规优化</span></td></tr>
+</table>
+
+<div class="chart-box"><canvas id="c_daily"></canvas></div>
+
+<div class="co cs">
+<b>6 月运营节奏总评:</b>相比 5 月的"低频优化",6 月是"一次大动作 + 几次小维护"——核心是 6/2 的 ISP 系列上线,其余(6/15 加预算、6/22 修政策、6/25 否定词)都是围绕新系列的配套调优。整月节奏克制、动作都有据可依,把 5 月定下的战略干净地执行落地,拿到了历史最佳月。<br><br>
+<b>7 月主线:</b>放大 ISP(有节奏)+ 读干净再营销数据 + 处理 Pur US 老的高 CPA。核心心态从"找新口子"转向"把已验证的口子做深"。
+</div>
+</div>
+
+<div style="text-align:center;padding:24px 0;color:#999;font-size:11px">IPOasis Google Ads 6月月度分析报告 | 数据来源:Google Ads API(2026-07-06 拉取)· Register/Purchase 均按 All Conv 口径 | Generated by Claude</div>
+</div>
+
+<script>
+var D={
+  dates:["06-01","06-02","06-03","06-04","06-05","06-06","06-07","06-08","06-09","06-10","06-11","06-12","06-13","06-14","06-15","06-16","06-17","06-18","06-19","06-20","06-21","06-22","06-23","06-24","06-25","06-26","06-27","06-28","06-29","06-30"],
+  dailySpend:[106.74,197.21,155.06,179.59,201.96,151.10,172.32,183.53,146.60,225.47,175.74,151.89,154.13,162.03,212.00,217.74,186.91,179.65,179.23,169.28,157.44,207.96,164.54,138.08,178.96,200.83,225.68,167.13,164.91,142.49],
+  dailyReg:[34.0,38.0,31.0,46.5,31.5,32.0,32.0,40.0,23.7,54.3,41.0,48.0,31.5,40.0,42.5,33.0,29.0,37.0,38.0,39.0,32.0,47.0,37.0,34.0,37.0,33.0,50.0,31.0,36.0,36.0],
+  dailyPur:[1,4,1,3,0,1,1,3,3,3,7,7,2,5,3,2,1,5,4,1,0,4.6,3,1,2,2,4,1,1,4],
+  campNames:["Reg US 老","Pur US 老","CN Register","CN Pur","ISP Pur 新"],
+  campDaily:[
+    {label:"Reg US 老",data:[47.36,44.36,45.54,46.21,50.90,38.19,54.46,57.97,39.77,51.11,52.40,50.11,35.92,26.67,39.34,70.37,42.85,47.35,45.96,43.82,49.48,47.91,45.61,44.53,43.24,43.47,44.85,38.62,41.20,37.95]},
+    {label:"Pur US 老",data:[8.14,88.72,41.92,47.34,53.83,25.36,46.19,56.10,52.45,56.81,49.25,26.44,21.97,56.77,77.04,52.17,46.22,41.72,37.38,48.30,38.11,52.95,26.23,34.48,48.87,37.99,63.63,51.70,44.08,36.07]},
+    {label:"CN Register",data:[42.15,42.71,40.00,43.35,44.23,43.45,30.13,31.94,34.42,77.32,43.87,44.52,41.40,29.82,40.55,41.48,38.22,39.21,41.41,42.36,36.95,42.63,38.45,28.37,36.68,38.22,58.12,40.20,33.21,32.89]},
+    {label:"CN Pur",data:[9.09,21.41,23.14,7.09,13.12,22.61,20.91,13.63,8.00,11.14,11.61,9.00,29.57,22.26,20.92,19.90,24.67,22.05,20.35,21.65,17.92,8.25,16.93,16.86,37.84,28.03,22.17,15.54,14.63,12.39]},
+    {label:"ISP Pur 新",data:[0,0,4.46,35.60,39.88,21.49,20.63,23.88,11.95,29.10,18.61,21.81,25.27,26.51,34.15,33.81,34.96,29.32,34.13,13.14,14.98,56.23,37.32,13.85,12.33,53.11,36.92,21.06,31.80,23.19]}
+  ],
+  wLabels:["W1 (6/1-7)","W2 (6/8-14)","W3 (6/15-21)","W4 (6/22-28)","W5 (6/29-30)"],
+  wSpend:[1163.98,1199.39,1302.25,1283.18,307.40],
+  wReg:[245,278.5,250.5,269,72],
+  wPur:[11,30,16,17.6,5],
+  hLabels:["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+  hCPA:[4.75,5.81,5.02,5.04,4.51,7.46,4.71,5.89,5.62,5.86,5.22,4.41,4.13,5.69,4.55,4.27,4.55,4.93,3.85,3.70,4.98,4.50,3.65,2.68],
+  hSpend:[292.04,236.43,253.70,242.10,211.93,182.73,181.45,206.13,241.47,192.44,240.31,251.61,266.68,270.16,256.91,243.13,243.17,211.16,191.60,190.56,213.49,166.65,134.90,135.43],
+  devLabels:["移动","桌面","平板"],
+  devSpend:[3735.01,1417.01,104.18],
+  devConv:[909.5,255.1,30],
+  monthLabels:["1月","2月","3月","4月","5月","6月"],
+  monthPur:[11,15,25,32,46,80],
+  monthPurCPA:[155,181,127,110,93,66],
+  wPurTotal:[11,30,16,17.6,5]
+};
+var P='#1a73e8',G='#0d904f',R='#d93025',O='#e8710a',C=[P,'#4285f4',G,O,R];
+try{
+new Chart(document.getElementById('c_overview'),{type:'line',data:{labels:D.dates,datasets:[
+  {label:'花费($)',data:D.dailySpend,borderColor:P,backgroundColor:'rgba(26,115,232,.08)',fill:true,tension:.3},
+  {label:'Register',data:D.dailyReg,borderColor:G,backgroundColor:'rgba(13,144,79,.08)',fill:false,tension:.3,yAxisID:'y1'},
+  {label:'Purchase',data:D.dailyPur,borderColor:O,fill:false,tension:.3,yAxisID:'y1'}
+]},options:{responsive:true,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom'},title:{display:true,text:'6月每日花费与转化'}},scales:{y:{beginAtZero:true,ticks:{callback:function(v){return '$'+v}}},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false}}}}});
+
+new Chart(document.getElementById('c_weekly'),{type:'bar',data:{labels:D.wLabels,datasets:[
+  {label:'花费($)',data:D.wSpend,backgroundColor:'rgba(26,115,232,.5)',order:2},
+  {label:'Register',data:D.wReg,backgroundColor:'rgba(13,144,79,.5)',order:2,yAxisID:'y1'},
+  {label:'Purchase',data:D.wPur,type:'line',borderColor:O,pointBackgroundColor:O,pointRadius:5,yAxisID:'y2',tension:.3,order:1}
+]},options:{responsive:true,plugins:{legend:{position:'bottom'},title:{display:true,text:'6月周度走势(W5 仅 2 天)'}},scales:{y:{beginAtZero:true,ticks:{callback:function(v){return '$'+v}}},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false}},y2:{display:false,beginAtZero:true,max:40}}}});
+
+new Chart(document.getElementById('c_purchase_trend'),{type:'bar',data:{labels:D.wLabels,datasets:[
+  {label:'Purchase(All Conv)',data:D.wPurTotal,backgroundColor:D.wPurTotal.map(function(v){return v>=25?G:v>=15?O:'#9ec8ff'}),borderRadius:5}
+]},options:{responsive:true,plugins:{legend:{display:false},title:{display:true,text:'6月 Purchase 每周走势(W2 峰值 30 单)'}},scales:{y:{beginAtZero:true,title:{display:true,text:'Purchase 数'}}}}});
+
+new Chart(document.getElementById('c_hourly'),{type:'bar',data:{labels:D.hLabels.map(function(h){return h+':00'}),datasets:[
+  {label:'花费($)',data:D.hSpend,backgroundColor:'rgba(26,115,232,.25)',borderColor:P,borderWidth:1},
+  {label:'CPA($)',data:D.hCPA,type:'line',borderColor:R,pointRadius:3,tension:.2,yAxisID:'y1'}
+]},options:{responsive:true,plugins:{legend:{position:'bottom'},title:{display:true,text:'6月24小时花费与 CPA'}},scales:{y:{beginAtZero:true,ticks:{callback:function(v){return '$'+v}}},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false},ticks:{callback:function(v){return '$'+v}}}}}});
+
+new Chart(document.getElementById('c_device'),{type:'doughnut',data:{labels:D.devLabels,datasets:[{data:D.devSpend,backgroundColor:C}]},options:{responsive:true,plugins:{legend:{position:'bottom'},title:{display:true,text:'6月设备花费分布'}}}});
+
+new Chart(document.getElementById('c_monthly_trend'),{type:'bar',data:{labels:D.monthLabels,datasets:[
+  {label:'Purchase 数',data:D.monthPur,backgroundColor:'rgba(13,144,79,.6)',yAxisID:'y'},
+  {label:'Purchase CPA($)',data:D.monthPurCPA,type:'line',borderColor:R,pointRadius:5,yAxisID:'y1',tension:.3}
+]},options:{responsive:true,plugins:{legend:{position:'bottom'},title:{display:true,text:'月度 Purchase 数 + CPA 走势'}},scales:{y:{beginAtZero:true,title:{display:true,text:'Purchase 数'}},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false},ticks:{callback:function(v){return '$'+v}}}}}});
+
+new Chart(document.getElementById('c_daily'),{type:'line',data:{labels:D.dates,datasets:D.campDaily.map(function(cd,i){return{label:cd.label,data:cd.data,borderColor:C[i],tension:.3,fill:false,borderWidth:2}})},options:{responsive:true,plugins:{legend:{position:'bottom'},title:{display:true,text:'各 campaign 每日花费走势'}},scales:{y:{beginAtZero:true,ticks:{callback:function(v){return '$'+v}}}}}});
+}catch(e){console.error('Chart error:',e);}
+</script>
+</body></html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPOasis Google Ads 周报 7/6-7/12</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#1a73e8;--g:#0d904f;--r:#d93025;--o:#e8710a;--bg:#f8f9fa;--card:#fff;--bd:#dadce0;--t1:#202124;--t2:#5f6368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.75;padding:32px 16px;font-size:14px}
+.ctn{max-width:980px;margin:0 auto}
+.hdr{text-align:center;padding:36px 24px;background:linear-gradient(135deg,#0d904f,#34a853);color:#fff;border-radius:16px;margin-bottom:28px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%)}
+.hdr h1{font-size:24px;margin-bottom:4px;font-weight:700;position:relative}
+.hdr .sub{font-size:13px;opacity:.9;position:relative}
+.sec{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:18px;border:1px solid var(--bd);transition:all .2s}
+.sec:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.sec h2{font-size:18px;color:var(--p);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.sec h2 .toggle{font-size:14px;color:var(--t2);transition:transform .3s}
+.sec.collapsed .body{display:none}
+.sec.collapsed h2 .toggle{transform:rotate(-90deg)}
+.sec h3{font-size:14px;color:var(--t1);margin:20px 0 10px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12px}
+th{background:#f1f3f4;color:var(--t2);padding:8px;text-align:left;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--bd)}
+td{padding:7px 8px;border-bottom:1px solid #f0f0f0;color:var(--t2)}
+tr:hover td{background:#f8f9fa}
+.up{color:var(--g);font-weight:600}.down{color:var(--r);font-weight:600}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.3px}
+.tg{background:#e6f4ea;color:#137333}.tr{background:#fce8e6;color:#c5221f}.tb{background:#e8f0fe;color:#1967d2}.to{background:#fef3e6;color:#c5600a}.ty{background:#f1f3f4;color:#5f6368}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.kpi-card{background:linear-gradient(135deg,#f8f9fa,#fff);padding:18px;border-radius:10px;border:1px solid var(--bd);text-align:center;transition:all .25s;cursor:default}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:var(--p)}
+.kpi-card .ico{font-size:20px;margin-bottom:6px}
+.kpi-card .v{font-size:22px;font-weight:700;color:var(--t1);line-height:1.2}
+.kpi-card .l{font-size:11px;color:var(--t2);margin-top:4px}
+.kpi-card .c{font-size:11px;margin-top:6px;padding:2px 8px;border-radius:10px;display:inline-block}
+.kpi-card .c.up{background:#e6f4ea;color:#137333}
+.kpi-card .c.down{background:#fce8e6;color:#c5221f}
+.kpi-card .c.flat{background:#f1f3f4;color:#5f6368}
+.kpi-card.good{border-color:#e6f4ea;background:linear-gradient(135deg,#f5fcf7,#fff)}
+.kpi-card.good .v{color:var(--g)}
+.kpi-card.bad{border-color:#fce8e6;background:linear-gradient(135deg,#fff7f6,#fff)}
+.kpi-card.bad .v{color:var(--r)}
+.co{padding:14px 20px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.85}
+.ci{background:#e8f4fd;border-left:4px solid var(--p)}
+.cw{background:#fff4e5;border-left:4px solid var(--o)}
+.cs{background:#e6f4ea;border-left:4px solid var(--g)}
+.cr{background:#fce8e6;border-left:4px solid var(--r)}
+p{font-size:13px;color:var(--t2);margin-bottom:10px;line-height:1.85}
+strong{color:var(--t1)} em{font-style:normal;color:var(--p);font-weight:600}
+code{background:#f1f3f4;padding:1px 5px;border-radius:3px;font-size:12px;color:#c5221f}
+.insight{background:#fffdf5;border:1px solid #fde293;border-radius:8px;padding:16px 20px;margin:14px 0}
+.insight-title{font-size:13px;font-weight:700;color:#b06000;margin-bottom:6px}
+.verdict{font-size:14px;font-weight:700;color:var(--t1);margin:10px 0;padding:14px;background:#f5fcf7;border-radius:8px;border-left:4px solid #34a853}
+.chart-wrap{margin:16px 0;background:#fff;padding:18px;border-radius:10px;border:1px solid var(--bd);position:relative}
+.chart-wrap canvas{max-height:300px}
+.chart-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.chart-sub{font-size:11px;color:var(--t2);margin-bottom:8px}
+.chart-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px;margin:14px 0}
+.tab-bar{display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #e8f0fe}
+.tab-btn{padding:8px 14px;font-size:12px;background:transparent;border:none;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-weight:600;transition:all .2s}
+.tab-btn:hover{color:var(--p)}
+.tab-btn.active{color:var(--p);border-bottom-color:var(--p)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.action-item{background:#fff;border-radius:10px;padding:16px 18px;margin:10px 0;border-left:4px solid var(--p);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.action-item.warn{border-left-color:var(--o);background:linear-gradient(90deg,#fff8eb 0%,#fff 100%)}
+.action-item.bad{border-left-color:var(--r);background:linear-gradient(90deg,#fff6f5 0%,#fff 100%)}
+.action-item.ok{border-left-color:var(--g);background:linear-gradient(90deg,#f5fcf7 0%,#fff 100%)}
+.action-item .head{font-weight:700;color:var(--t1);font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.priority-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.priority-tag.p1{background:#e8710a;color:#fff}
+.priority-tag.p2{background:#1a73e8;color:#fff}
+.priority-tag.p3{background:#5f6368;color:#fff}
+.nav{position:fixed;top:20px;right:20px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.1);font-size:11px;z-index:100;max-width:160px}
+.nav a{display:block;color:var(--t2);text-decoration:none;padding:4px 0;border-radius:4px;padding-left:8px;transition:all .15s}
+.nav a:hover{color:var(--p);background:#e8f0fe}
+.callout{background:#e8f0fe;border:1px solid #aecbfa;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:12px;color:#185abc}
+.callout strong{color:#0b3a8a}
+.callout.gr{background:#e6f4ea;border-color:#a8d5b5;color:#137333}
+.callout.gr strong{color:#0b5a2a}
+.callout.wn{background:#fff4e5;border-color:#f6d19a;color:#a5560a}
+.callout.wn strong{color:#7a3e00}
+@media (max-width:780px){.nav{display:none}}
+@media print{body{padding:0;background:#fff}.sec{break-inside:avoid;page-break-inside:avoid}.nav{display:none}}
+</style></head><body>
+
+<div class="nav">
+  <div style="font-weight:700;color:var(--t1);margin-bottom:6px;font-size:12px">目录</div>
+  <a href="#sec0">核心结论</a>
+  <a href="#sec1">本周发生了什么</a>
+  <a href="#sec2">Campaign 总览</a>
+  <a href="#sec3">Register 系列</a>
+  <a href="#sec4">Purchase 系列</a>
+  <a href="#sec_rmk">冻结周判定</a>
+  <a href="#sec5">设备与时段</a>
+  <a href="#sec6">下周观察</a>
+</div>
+
+<div class="ctn">
+<div class="hdr">
+  <h1>📊 IPOasis Google Ads 周度分析报告</h1>
+  <div class="sub">2026-07-06(周一)~ 2026-07-12(周日) &nbsp;|&nbsp; 对比 2026-06-29 ~ 2026-07-05 &nbsp;|&nbsp; 冻结观察周</div>
+</div>
+
+<!-- ============ 核心结论 ============ -->
+<div class="sec" id="sec0">
+<h2>🎯 核心结论 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="verdict">🟢 <strong>这是"冻结周"拿到的第一份干净读数,结论很明确:6/29-7/3 那轮调整整体生效了,但受众信号的证据比预算调整更扎实。</strong>本周(7.6-7.12)账户按计划整周冻结,不动预算、不加受众、不设 tCPA、不调设备出价(账户变更日志只有 7/6 两条 ad 级微调,与杠杆变量无关)。结果:全账户购买(All Conv,仅 <code>conversion_purchase</code>)<strong>30.0 单,较上周 14.0 单 +114.3%</strong>,购买混合成本从 $80.38 砍到 <strong>$46.77(-41.8%)</strong>。判定门槛"<strong>ISP Pur 单周购买 ≥7 单 = 调整成立</strong>"精准踩线达标(5→<strong>7</strong>,但这条系列预算和受众信号是 7/3 一起动的,拆不开);<strong>CN Pur(3→7,+133%)和老 Pur US(3→12,+300%)涨幅比 ISP Pur 还猛,且这两条系列预算全程没动过</strong>,涨幅纯粹来自受众信号,是本周最干净、最能服人的证据(拆解见「五、冻结周判定」③)。注册端同步走强:全账户注册 291.0(+6.2%);但拆开看,预算没动的 Reg US 注册持平(58→58,证明砍 22% 预算没伤到量),预算上调的 Reg CN 虽然注册涨了 14.4%,实际花费却涨了 62.7%(Smart Bidding 单日超投到 2 倍日预算),单价反而从 $2.12 涨到 $3.02,这笔预算目前看不划算,不是简单的"抬价不是坏事"。<strong>另有一笔拖了近 3 周的旧账了结:6/22 查出 isp_purchase_ALL_cn_260602 带政策限制标签(ENABLING_DISHONEST_BEHAVIOR),本次复查确认问题已解除</strong>——当年被标记的 3 条广告已下线,当前在跑的 2 条广告纯净 APPROVED,系列现在的"受限"只是和其他系列一样的正常预算封顶。</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="ico">💰</div><div class="v">$1,402.99</div><div class="l">总消耗</div><div class="c up">↑ 24.7%</div></div>
+  <div class="kpi-card"><div class="ico">👁️</div><div class="v">17,051</div><div class="l">展示</div><div class="c down">↓ 11.4%</div></div>
+  <div class="kpi-card"><div class="ico">🖱️</div><div class="v">1,025</div><div class="l">点击</div><div class="c up">↑ 5.2%</div></div>
+  <div class="kpi-card"><div class="ico">💵</div><div class="v">$1.37</div><div class="l">CPC</div><div class="c down">↑ 18.5%</div></div>
+  <div class="kpi-card good"><div class="ico">✅</div><div class="v">291.0</div><div class="l">注册(All Conv,全账户)</div><div class="c up">↑ 6.2%</div></div>
+  <div class="kpi-card"><div class="ico">💵</div><div class="v">$4.82</div><div class="l">注册成本(混合)</div><div class="c down">↑ 17.4%</div></div>
+  <div class="kpi-card good"><div class="ico">🛒</div><div class="v">30.0</div><div class="l">购买(All Conv,冻结周实测)</div><div class="c up">↑ 114.3%</div></div>
+  <div class="kpi-card good"><div class="ico">💸</div><div class="v">$46.77</div><div class="l">购买成本(混合)</div><div class="c up">↓ 41.8%</div></div>
+</div>
+
+<div class="callout gr">
+<strong>📌 本周 Purchase 30.0 个分布(All Conv,仅 conversion_purchase):</strong>老 Pur US <strong>12</strong>(上周 3,+300%)+ ISP Pur <strong>7</strong>(上周 5,踩线达标)+ CN Pur <strong>7</strong>(上周 3,+133%)+ Reg CN 附带 3(上周 3)+ Reg US 附带 1(上周 0)。三条真正的购买系列全线上涨,且七天里<strong>每天都有购买入账,没有一天是 0</strong>(上周还有 7/1、7/4 两天挂零待回补),数据完整度也比上周干净。
+</div>
+
+<h3>📈 近 5 周转化趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 Register 稳步走高,Purchase 冻结周强势反弹</div>
+  <div class="chart-sub">数据按 All Conv 口径,均为已核实的最终值(6/29-7/5 一周未再回补,数值与原报告一致)</div>
+  <canvas id="trendChart"></canvas>
+</div>
+
+<div class="co cs">
+<strong>这张图说明的事:</strong>Register 五周走势 278.5→250.5→269→274→<strong>291</strong>,冻结周不但没受影响,反而创近 5 周新高;Purchase 五周走势 31→16→17.6→14→<strong>30</strong>,冻结周直接翻倍以上,是近 5 周次高点(仅次于 6/8-6/14 的 31)。<strong>对照上一份报告的判断:6/29-7/5 那周购买回落是"学习期阵痛",本周的强势反弹证明这个判断是对的——阵痛过去了,调整的真实效果在冻结周里被完整地读出来了。</strong></div>
+
+<h3>📈 月度 Purchase 趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 6 月最终 80.6 单收官,7 月前 12 天已达 39 单</div>
+  <div class="chart-sub">6 月为最终值(较此前周报估算的 ~77 略有上修);7 月为 7/1-7/12 月度至今(MTD),月末仍在累积</div>
+  <canvas id="monthlyChart"></canvas>
+</div>
+
+<div class="co cs">
+<strong>月度维度:6 月最终锁定 80.6 单,连续 6 个月单调上行且再创新高。</strong>1月 11 → 2月 15 → 3月 25 → 4月 32 → 5月 45 → <strong>6月 80.6</strong>,购买 CPA 从 $155 一路压到 $65.25。<strong>7 月前 12 天已进账 39 单(CPA $56.95)</strong>,若按当前节奏线性外推,7 月有望冲到 ~100 单、CPA 进一步下探到 $55-60 区间——但这只是基于 12 天的早期信号,不是确定性预测,月中还会有正常波动,不建议现在就按这个数字做决策。</div>
+
+</div></div>
+
+<!-- ============ 一、本周发生了什么 ============ -->
+<div class="sec" id="sec1">
+<h2>📅 一、本周发生了什么:冻结纪律基本守住 + 政策旧账了结 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout gr">
+<strong>📌 本周核心动作:按计划"什么都不动",纪律基本守住。</strong>7/6-7/12 账户变更日志里<strong>只有 2 条记录</strong>,且都是 7/6 当天对 <code>dyn+isp_register_ALL_cn_260413</code> 单条广告的 <code>ad,status</code> 级别微调(常规广告轮换/启停,不涉及创意大改),<strong>没有任何 CAMPAIGN_BUDGET(预算)、CAMPAIGN_CRITERION(受众)或出价策略变更</strong>。这是三周以来最干净的一周,也是本次判定能站得住脚的前提。
+</div>
+
+<h3>账户变更日志(7/6-7/12)</h3>
+<table>
+<tr><th>时间</th><th>操作人</th><th>资源</th><th>动作</th><th>说明</th></tr>
+<tr><td>7/6 09:29</td><td>sales@ipoasis.com</td><td>AD_GROUP_AD</td><td>UPDATE(ad,status)</td><td>CN Reg 系列单条广告状态微调</td></tr>
+<tr><td>7/6 09:41</td><td>sales@ipoasis.com</td><td>AD_GROUP_AD</td><td>UPDATE(ad,status)</td><td>CN Reg 系列单条广告状态微调</td></tr>
+<tr><td colspan="5" style="font-size:11px;color:#999">本周共 2 条变更,均为 ad 级别、非杠杆变量;预算/受众/tCPA/设备出价全程未动</td></tr>
+</table>
+
+<h3>🔍 ISP Pur 政策复查:问题已解除(6/22 首次发现 → 7/13 复查)</h3>
+<table>
+<tr><th>检查项</th><th>6/22 首次复查</th><th>7/13 本次复查</th></tr>
+<tr style="background:#fff8ec"><td>广告审核状态</td><td>部分在跑广告带 <code>ENABLING_DISHONEST_BEHAVIOR</code> / <code>APPROVED_LIMITED</code></td><td style="background:#f5fcf7">该 3 条广告已 <strong>REMOVED</strong>(不再投放);当前 2 条 ENABLED 广告均为 <strong>APPROVED</strong>,无任何政策标签</td></tr>
+<tr><td>Campaign primary_status</td><td>LIMITED,原因含政策相关信号</td><td style="background:#f5fcf7">LIMITED,reasons=<code>['BUDGET_CONSTRAINED']</code>,与 Reg US / Reg CN / 老 Pur US / CN Pur <strong>完全同款</strong>,纯预算封顶</td></tr>
+<tr><td>结论</td><td>政策限制影响放量,需跟进</td><td style="background:#f5fcf7"><span class="tag tg">✅ 问题已解决</span> 当前限制只是正常的预算天花板,不再是政策问题</td></tr>
+</table>
+<div class="co cs">
+<strong>这条拖了近 3 周的观察项可以正式结项了。</strong>6/22 发现的政策标签挂在的是几条已被替换下线的旧广告,当前正在投放的 2 条创意是纯净的。ISP Pur 现在"跑不满"完全是因为预算设置(和账户里其他每一条在投系列一样),不需要再单独追踪政策合规问题,只需按正常的预算/出价逻辑来看这条系列。</div>
+
+<h3>上周观察项的执行情况</h3>
+<table>
+<tr><th>上周观察项</th><th>本周状态</th><th>结果</th><th>评价</th></tr>
+<tr style="background:#f5fcf7"><td>P1 全账户冻结一周,不动任何设置</td><td>基本守住</td><td>仅 2 条 ad 级微调,预算/受众/出价零变更</td><td><span class="tag tg">✅ 达成</span></td></tr>
+<tr style="background:#f5fcf7"><td>P1 ISP Pur 能否走出学习期回升到 ≥7 单</td><td>精准踩线</td><td>购买 5→<strong>7</strong>,单系列 CPA $48.92→$39.92</td><td><span class="tag tg">✅ 达标,判定调整成立</span></td></tr>
+<tr style="background:#f5fcf7"><td>P2 读再营销信号的第一份干净数据</td><td>效果显著</td><td>三条购买系列全线上涨,老 Pur US +300% 最亮眼</td><td><span class="tag tg">✅ 达成,超预期</span></td></tr>
+<tr><td>P2 品牌词 ipoasis 仍偏低</td><td>转化翻倍</td><td>本周 <code>ipoasis</code> 花 $42.84 / 约 4.0 conv(上周 $42.57 / 2.0),成本持平、转化翻倍</td><td><span class="tag tg">🟢 明显改善</span></td></tr>
+<tr><td>P3 待冻结周结束后再排的动作(tCPA / Desktop 出价 / register购买意图词CPA)</td><td>按计划推迟</td><td>本周未做任何相关调整,留到下周评估</td><td><span class="tag ty">⚪ 按计划推迟</span></td></tr>
+</table>
+
+</div></div>
+
+<!-- ============ 二、Campaign 总览 ============ -->
+<div class="sec" id="sec2">
+<h2>📋 二、Campaign 总览:购买全面反弹,三条购买系列同步走强 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>本周 vs 上周 大盘对比</h3>
+<table>
+<tr><th>时间</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>点击率</th><th>点击成本</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>本周(7.6-7.12)</td><td>$1,402.99</td><td>17,051</td><td>$82.28</td><td>1,025</td><td>6.01%</td><td>$1.37</td><td>291.0</td><td>28.39%</td><td>$4.82</td><td>30.0</td><td>2.93%</td><td>$46.77</td></tr>
+<tr><td>上周(6.29-7.5)</td><td>$1,125.35</td><td>19,234</td><td>$58.51</td><td>974</td><td>5.06%</td><td>$1.16</td><td>274.0</td><td>28.13%</td><td>$4.11</td><td>14.0</td><td>1.44%</td><td>$80.38</td></tr>
+<tr style="background:#f8f9fa"><td><strong>变化</strong></td><td class="up">↑24.7%</td><td class="down">↓11.4%</td><td class="down">↑40.6%</td><td class="up">↑5.2%</td><td class="up">↑0.95pp</td><td class="down">↑18.5%</td><td class="up">↑6.2%</td><td class="up">↑0.26pp</td><td class="down">↑17.4%</td><td class="up">↑114.3%</td><td class="up">↑1.49pp</td><td class="up">↓41.8%</td></tr>
+</table>
+<p style="font-size:11px;color:#999">口径说明:消耗为全账户总额,不拆 Register/Purchase 各自花费;注册率=注册/点击,购买率=购买/点击;注册成本=总消耗/注册数,购买成本=总消耗/购买数(混合口径);金额类指标用百分比,比率类指标用百分点(pp)。</p>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">💰 各 Campaign 花费对比(本周 vs 上周)</div>
+    <canvas id="campCostChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">🛒 各 Campaign Purchase 贡献(All Conv)</div>
+    <canvas id="campPurChart"></canvas>
+  </div>
+</div>
+
+<table>
+<tr><th>Campaign</th><th>本周花费</th><th>本周 Reg(All)</th><th>本周 Pur(All)</th><th>上周 Reg</th><th>上周 Pur</th><th>判断</th></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(Reg CN)</td><td>$380.19</td><td>125.8</td><td>3.0</td><td>110.0</td><td>3.0</td><td><span class="tag to">🟡 注册创新高但 CPA 涨 42.5%,预算加得不划算</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$345.17</td><td>33.0</td><td><strong>12.0</strong></td><td>18.0</td><td>3.0</td><td><span class="tag tg">🟢 冻结周最大惊喜(+300%)</span></td></tr>
+<tr style="background:#fff8ec"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur)</td><td>$279.42</td><td>50.2</td><td><strong>7.0</strong></td><td>66.0</td><td>5.0</td><td><span class="tag tg">🟢 精准踩线达标,判定调整生效</span></td></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(Reg US)</td><td>$258.41</td><td>58.0</td><td>1.0</td><td>58.0</td><td>0.0</td><td><span class="tag tg">🟢 预算-22%后连续两周注册持平</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$139.80</td><td>24.0</td><td><strong>7.0</strong></td><td>22.0</td><td>3.0</td><td><span class="tag tg">🟢 购买翻倍以上(+133%)</span></td></tr>
+</table>
+
+<div class="insight">
+<div class="insight-title">💡 一眼看懂本周结构</div>
+<p><strong>① 三条真正的购买系列(ISP Pur / CN Pur / 老 Pur US)全线走强,合计购买 5+3+3=11 → 7+7+12=26,涨了 136%。</strong>这三条系列本周预算都没再动,唯一共同变量是 7/1-7/3 加的观察受众,叠加一整个不受打扰的干净周,涨幅直接兑现。<strong>老 Pur US 的 +300% 尤其值得记一笔</strong>:这条系列本周预算完全没变,涨幅纯粹来自受众信号 + 冻结期的稳定投放。<em style="font-style:normal;color:var(--t2);font-size:12px">(注:ISP Pur 的预算在 7/3 已经上调过,不是纯受众样本,不能和老 Pur US / CN Pur 同等看待,详细拆分见「五、冻结周判定」③)</em><br><br>
+<strong>② 注册端总量创近 5 周新高(291.0),但两条系列的预算调整效果正好相反。</strong>Reg CN 花费涨到 $380.19(+62.7%)是 7/3 那次预算上调($40→$45)第一次吃满整整 7 天(上周只有 3 天生效),注册量随之涨到 125.8(全账户最大量引擎),<strong>但花费涨幅(62.7%)远超注册涨幅(14.4%),单个注册成本从 $2.12 涨到 $3.02(+42.5%),这笔预算目前算下来不划算</strong>。Reg US 预算 -22% 后连续第二周注册持平在 58 且花费还降了,验证削减确实削的是低效增量,方向是对的。两条一升一降的预算调整,效果并不对称。<br><br>
+<strong>③ 唯一要留意的是 ISP Pur 注册端的回落(66.0→50.2,-23.9%),但购买同时上涨(5→7)。</strong>大概率是转化结构在往"高意图买家"偏移(Smart Bidding 在观察受众信号加持下更愿意为购买出价),而不是流量本身变差,继续观察即可,不用现在处理。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 三、Register 系列 ============ -->
+<div class="sec" id="sec3">
+<h2>🚀 三、Register 系列:五周新高,冻结周完全没受影响 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">✅</div><div class="v">291.0</div><div class="l">全账户注册(All Conv)</div><div class="c up">↑ 6.2%</div></div>
+  <div class="kpi-card good"><div class="ico">🇨🇳</div><div class="v">125.8</div><div class="l">Reg CN 注册</div><div class="c up">↑ 14.4%</div></div>
+  <div class="kpi-card"><div class="ico">🇺🇸</div><div class="v">58.0</div><div class="l">Reg US 注册(预算-22%后持平)</div><div class="c flat">→ 0%</div></div>
+  <div class="kpi-card"><div class="ico">💵</div><div class="v">$4.82</div><div class="l">混合 Reg CPA</div><div class="c down">↑ 17.4%</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📈 本周每日 Register 走势(全账户)</div>
+    <canvas id="regDailyChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">🏆 Register 广告组 CPA(按花费)</div>
+    <canvas id="regKwChart"></canvas>
+  </div>
+</div>
+
+<h3>广告组表现(按花费)</h3>
+<table>
+<tr><th>广告组</th><th>花费</th><th>转化</th><th>CPA</th><th>判断</th></tr>
+<tr style="background:#f5fcf7"><td><strong>isp_register中文词_ALL_0602</strong>(ISP)</td><td>$245.45</td><td>82.8</td><td>$2.97</td><td><span class="tag tg">🟢 最大量组,全账户最高效之一</span></td></tr>
+<tr><td><strong>register_proxy软词_US_1229</strong></td><td>$147.26</td><td>35.0</td><td>$4.21</td><td><span class="tag tg">🟢 US 主力,CPA 持稳</span></td></tr>
+<tr><td><strong>dynamic_register中文词_ALL_0414</strong>(CN)</td><td>$134.73</td><td>42.0</td><td>$3.21</td><td><span class="tag tg">🟢 稳健,略高于上周($2.04)但仍健康</span></td></tr>
+<tr><td><strong>register购买意图词_US_0126</strong></td><td>$108.88</td><td>22.0</td><td>$4.95</td><td><span class="tag tg">🟢 CPA 回落(上周 $7.17)</span></td></tr>
+<tr><td><strong>register竞品词_US_0227</strong> 🆕</td><td>$2.28</td><td>1.0</td><td>$2.28</td><td><span class="tag ty">⚪ 新增小样本,待观察</span></td></tr>
+</table>
+
+<div class="co cs">
+<strong>注册端本周是全账户表现最稳、且创新高的板块,完全没被冻结/受众调整波及。</strong>五个在投组里四个 CPA 在 $2-5 的健康区,<strong>isp_register 组 82.8 转化 / $2.97</strong> 继续是最大量引擎;<strong>register购买意图词_US CPA 从上周的 $7.17 回落到 $4.95</strong>,上周的抬头是单周波动,已经修复。新出现的 <code>register竞品词_US_0227</code> 广告组样本极小(1 转化),先记录、不下结论。<strong>值得记一笔:混合注册成本从 $4.11 涨到 $4.82(+17.4%)</strong>,CPM/CPC 全线走高是一部分原因(Smart Bidding 追购买连带抬价),但主要拖累是 <strong>Reg CN 自己的预算上调($40→$45)带来的单价上涨(CPA $2.12→$3.02)</strong>,不完全是"连带效应"这么简单,详见「二、Campaign 总览」和「五、冻结周判定」的拆解,下周继续观察 Reg CN 效率能否回落。</div>
+
+<h3>本周每日走势(12 指标)</h3>
+<table>
+<tr><th>日期</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>CTR</th><th>CPC</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>7/6 周一</td><td>$230.64</td><td>2,954</td><td>$78.08</td><td>152</td><td>5.15%</td><td>$1.52</td><td>41.0</td><td>26.97%</td><td>$5.63</td><td style="color:#0d904f;font-weight:600">6.0</td><td>3.95%</td><td>$38.44</td></tr>
+<tr><td>7/7 周二</td><td>$254.13</td><td>3,077</td><td>$82.62</td><td>178</td><td>5.79%</td><td>$1.43</td><td>53.0</td><td>29.78%</td><td>$4.80</td><td style="color:#0d904f;font-weight:600">6.0</td><td>3.37%</td><td>$42.36</td></tr>
+<tr><td>7/8 周三</td><td>$206.55</td><td>2,062</td><td>$100.17</td><td>143</td><td>6.94%</td><td>$1.44</td><td>52.0</td><td>36.36%</td><td>$3.97</td><td>3.0</td><td>2.10%</td><td>$68.85</td></tr>
+<tr><td>7/9 周四</td><td>$189.34</td><td>2,190</td><td>$86.46</td><td>149</td><td>6.80%</td><td>$1.27</td><td>43.0</td><td>28.86%</td><td>$4.40</td><td>5.0</td><td>3.36%</td><td>$37.87</td></tr>
+<tr><td>7/10 周五</td><td>$189.08</td><td>2,040</td><td>$92.69</td><td>132</td><td>6.47%</td><td>$1.43</td><td>41.0</td><td>31.06%</td><td>$4.61</td><td style="color:#0d904f;font-weight:600">6.0</td><td>4.55%</td><td>$31.51</td></tr>
+<tr><td>7/11 周六</td><td>$172.24</td><td>2,401</td><td>$71.74</td><td>145</td><td>6.04%</td><td>$1.19</td><td>35.0</td><td>24.14%</td><td>$4.92</td><td>2.0</td><td>1.38%</td><td>$86.12</td></tr>
+<tr><td>7/12 周日</td><td>$161.00</td><td>2,327</td><td>$69.19</td><td>126</td><td>5.42%</td><td>$1.28</td><td>26.0</td><td>20.63%</td><td>$6.19</td><td>2.0</td><td>1.59%</td><td>$80.50</td></tr>
+</table>
+
+<div class="co ci">
+<strong>每日表关键信号:</strong><br>
+• <strong>七天全部有购买入账,没有一天挂零</strong>,比上周(两天待回补)干净得多,数据完整度高<br>
+• 注册每天稳定在 26-53 区间,周初(7/6-7/9)明显强于周末(7/11-7/12),符合以往周内节奏<br>
+• 🟢 <strong>周初三天(7/6-7/8)购买合计 15 单</strong>,是全周购买的主要贡献时段<br>
+• ⚠️ <strong>7/12(周日)注册成本抬到 $6.19</strong>,全周最高,展示/点击也是全周低点之一,单日波动先观察</div>
+
+</div></div>
+
+<!-- ============ 四、Purchase 系列 ============ -->
+<div class="sec" id="sec4">
+<h2>🛒 四、Purchase 系列:三条系列全面反弹,门槛判定达标 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">📊</div><div class="v">30.0</div><div class="l">总 Purchase(All Conv)</div><div class="c up">↑ 114.3%</div></div>
+  <div class="kpi-card good"><div class="ico">💸</div><div class="v">$46.77</div><div class="l">购买成本(混合)</div><div class="c up">↓ 41.8%</div></div>
+  <div class="kpi-card good"><div class="ico">📅</div><div class="v">7 / 7 天</div><div class="l">有购买的天数(全周无空档)</div><div class="c up">数据完整</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📅 本周每日 Purchase(全账户)</div>
+    <div class="chart-sub">七天全部有购买,周初(7/6-7/8)是主要贡献时段</div>
+    <canvas id="purDailyChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 ISP Pur 近 5 周走势</div>
+    <div class="chart-sub">6/15 加预算掉到 1 → 静养回到 8 → 6/29 再动回踩到 5 → 冻结周回升到 7,踩线达标</div>
+    <canvas id="ispPurChart"></canvas>
+  </div>
+</div>
+
+<div class="co cs">
+<strong>Purchase 本周拆解:</strong><br>
+🟢 <strong>总量 30.0 vs 上周 14.0,+114.3%</strong>,且七天全部有真实入账,不含未回补的 0,是这几周里数据质量最干净的一次<br>
+🟢 <strong>ISP Pur 7 单 / 单系列 CPA $39.92</strong>($279.42 / 7),较上周 $48.92 明显改善,<strong>精准命中"≥7 单 = 调整成立"的判定门槛</strong>,同一剧本 6/15 那次也是"回踩后静养回升",本次再次验证<br>
+🟢 <strong>CN Pur 7 单(+133%)/ 单系列 CPA $19.97</strong>:从上周 $42.81 大幅改善,小预算高回报<br>
+🟢 <strong>老 Pur US 12 单(+300%)/ 单系列 CPA $28.76</strong>:本周涨幅最大的系列,且预算全程未动,涨幅纯粹来自 7/1 加的观察受众 + 一整个不受打扰的干净周<br>
+🟡 <strong>混合 CPA $46.77 仍高于 Register 板块</strong>,但已是近 5 周最优水平</div>
+
+<h3>本周 Purchase 按 Campaign 拆分</h3>
+<table>
+<tr><th>Campaign</th><th>花费</th><th>Pur(All Conv)</th><th>上周</th><th>单系列 CPA</th><th>说明</th></tr>
+<tr style="background:#f5fcf7"><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$345.17</td><td><strong>12.0</strong></td><td>3</td><td>$28.76</td><td><span class="tag tg">🟢 冻结周最大惊喜(+300%)</span></td></tr>
+<tr style="background:#fff8ec"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur)</td><td>$279.42</td><td><strong>7.0</strong></td><td>5</td><td>$39.92</td><td><span class="tag tg">🟢 精准踩线达标</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$139.80</td><td><strong>7.0</strong></td><td>3</td><td>$19.97</td><td><span class="tag tg">🟢 翻倍以上,小预算高效</span></td></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(CN Reg 附带)</td><td>$380.19</td><td>3.0</td><td>3</td><td>—</td><td><span class="tag ty">⚪ 附带购买,持平</span></td></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(Reg US 附带)</td><td>$258.41</td><td>1.0</td><td>0</td><td>—</td><td><span class="tag tg">🟢 附带转化回补</span></td></tr>
+</table>
+
+<div class="insight" style="background:#f5fcf7;border-color:#a8d5b5">
+<div class="insight-title" style="color:#137333">✅ 门槛判定:调整成立,冻结周任务完成</div>
+<p>上一份报告设下的判定门槛是"ISP Pur 单周购买 ≥7 单 = 调整成立"。本周实测 <strong>7 单</strong>,精准踩线达标。更进一步,CN Pur(+133%)和老 Pur US(+300%)的涨幅都明显超过 ISP Pur,说明<strong>再营销观察受众的效果不是 ISP Pur 一条系列的偶然波动,而是三条购买系列的共同信号</strong>——尤其老 Pur US 本周预算完全未动,涨幅纯粹是受众信号在一个不受打扰的干净周里充分发挥作用的证据。<br><br>
+<strong>需要诚实标注的一点:这是第一个干净周的读数,不是多周验证。</strong>老 Pur US +300% 这种幅度的单周跳升,统计上样本仍然偏小(3→12),不排除部分是正常波动叠加信号效应。建议再跑一个冻结周或至少半冻结周,确认这个水平能否维持,再决定是否进一步加码预算或扩大再营销覆盖面。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 五、冻结周判定 ============ -->
+<div class="sec" id="sec_rmk">
+<h2>🎯 五、冻结周判定:受众信号证据扎实,预算调整效果不一,建议再验证一周再加码 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout gr">
+<strong>📌 背景回顾:</strong>6/29-7/3 期间做过两组调整:①7/3 改了 3 条预算(ISP Pur $30→$40、CN Reg $40→$45、Reg US $45→$35);②7/1-7/3 分三天给 3 条购买系列(老 Pur US / CN Pur / ISP Pur)各加了 2 条再营销观察受众。因为两组变量叠在同几天,当周(6/29-7/5)数据读不干净,于是把 7/6-7/12 整周冻结,专门用来读一份干净数据。本节把冻结周的结果和判定门槛对齐。
+</div>
+
+<h3>① 三条购买系列:冻结周表现 vs 判定门槛</h3>
+<table>
+<tr><th>系列</th><th>门槛/背景</th><th>6/22 那周</th><th>6/29 那周(受扰动)</th><th>7/6 冻结周(实测)</th><th>判定</th></tr>
+<tr style="background:#f5fcf7"><td><strong>ISP Pur</strong></td><td>预算+受众双动,门槛 ≥7 单</td><td>8</td><td>5</td><td><strong>7</strong></td><td><span class="tag tg">✅ 达标,调整成立</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>CN Pur</strong></td><td>仅加受众,预算未动</td><td>0</td><td>3</td><td><strong>7</strong></td><td><span class="tag tg">✅ +133%,信号生效</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>老 Pur US</strong></td><td>仅加受众,预算未动</td><td>2.56</td><td>3</td><td><strong>12</strong></td><td><span class="tag tg">✅ +300%,信号生效最强</span></td></tr>
+</table>
+<div class="co cs">
+<strong>三条系列全部达标或超预期,其中两条(CN Pur、老 Pur US)本周预算完全没动。</strong>这一点很关键:如果涨幅只出现在动过预算的 ISP Pur 身上,还可以怀疑是预算堆出来的量;但 CN Pur 和老 Pur US 只加了观察受众、预算原封不动,涨幅照样比 ISP Pur 更猛,<strong>说明再营销观察受众信号本身就在起作用,不是预算的副作用</strong>。</div>
+
+<h3>② 预算调整(7/3 生效)本周复盘</h3>
+<table>
+<tr><th>系列</th><th>调整</th><th>幅度</th><th>本周花费</th><th>本周产出</th><th>判断</th></tr>
+<tr style="background:#fff8ec"><td><strong>ISP Pur</strong></td><td>$30 → $40</td><td>+33%</td><td>$279.42</td><td>购买 5→7,CPA $48.92→$39.92</td><td><span class="tag to">🟡 量价改善,但同期也加了受众,不能单独归功给预算</span></td></tr>
+<tr style="background:#fff8ec"><td><strong>CN Reg</strong></td><td>$40 → $45</td><td>+12.5%</td><td>$380.19(实际花费+62.7%)</td><td>注册 110→125.8(+14.4%),CPA $2.12→$3.02(+42.5%)</td><td><span class="tag to">🟡 量涨但效率变差,目前看不划算</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>Reg US</strong></td><td>$45 → $35</td><td>-22%</td><td>$258.41</td><td>注册 58→58,持平</td><td><span class="tag tg">🟢 连续两周验证:削减未伤量</span></td></tr>
+</table>
+<div class="co cw">
+<strong>预算调整这块不能一刀切说"全部验证成功",要拆开看:</strong>Reg US 砍预算(-22%)连续两周注册持平在 58、花费还降了,证明砍掉的确实是低效增量,这条判断站得住;<strong>但 CN Reg 加预算(+12.5%)换来的是注册量 +14.4%,实际花费却因为 Smart Bidding 单日超投(7/7 单日花到 $90,正好 2 倍日预算)涨了 +62.7%,算下来单个注册成本反而从 $2.12 涨到 $3.02(+42.5%)</strong>,目前看这笔预算加得不划算(Register 是漏斗顶指标、边际收益本来就低,问题不算严重,但值得下周继续盯,不宜再加);ISP Pur 加预算(+33%)同期又叠加了受众信号,量价确实双升,但涨幅里预算和受众各占多少拆不出来,只能整体记"调整有效",不能说是预算单独的功劳。</div>
+
+<h3>③ 变量归因矩阵:哪些系列的结论能信,哪些不能</h3>
+<p style="font-size:12px;color:#999">6/29-7/3 那几天预算和受众信号叠在同一批系列上一起动,读数天然不干净。冻结周本身只保证"这周没有新变量",解决不了"7/3 之前那批变量互相打架"的问题。按账户变更日志(<code>change_event</code>,非凭记忆)逐条核对,7/3 前后一共 3 条预算变更 + 3 条受众变更,正好把 5 条主力系列分成"能干净归因"和"不能"两类:</p>
+<table>
+<tr><th>Campaign</th><th>预算是否变过(7/3)</th><th>是否加了受众(7/1-7/3)</th><th>能否干净归因</th></tr>
+<tr style="background:#f5fcf7"><td><strong>老 Pur US</strong></td><td>否,全程 $45</td><td>是(7/1)</td><td><span class="tag tg">✅ 纯受众信号,+300% 可信</span></td></tr>
+<tr style="background:#f5fcf7"><td><strong>CN Pur</strong></td><td>否,全程 $20</td><td>是(7/2)</td><td><span class="tag tg">✅ 纯受众信号,+133% 可信</span></td></tr>
+<tr style="background:#fff8ec"><td><strong>ISP Pur</strong></td><td>是,$30→$40</td><td>是(7/3)</td><td><span class="tag to">⚠️ 两个变量叠加,+40% 拆不开</span></td></tr>
+<tr><td><strong>CN Reg</strong></td><td>是,$40→$45</td><td>否</td><td><span class="tag tb">🔵 纯预算(升),CPA 反而变差</span></td></tr>
+<tr><td><strong>Reg US</strong></td><td>是,$45→$35</td><td>否</td><td><span class="tag tb">🔵 纯预算(降),量没受伤</span></td></tr>
+</table>
+<div class="co ci">
+<strong>整合看:</strong>三条 Purchase 系列里,真正能当"受众信号有效"铁证的是<strong>老 Pur US 和 CN Pur</strong>,这两条预算全程没碰过,涨幅还比预算+受众都动了的 ISP Pur 更大,足以说明信号本身在起效,不是钱堆出来的。ISP Pur 那 40% 的涨幅,预算和受众各占多少没法从数据里拆出来,只能整体记一笔"调整有效",不能单独归功给受众信号。两条 Register 系列正好是"纯预算"的反向对照组:Reg US 证明了砍预算基本无损,Reg CN 证明了加预算不一定划算,涨的量抵不上多花的钱,单价反而更贵了。<strong>一句话总结:受众信号这条线的证据,比预算调整这条线的证据更干净、更站得住脚。</strong></div>
+
+<div class="insight">
+<div class="insight-title">💡 冻结周复盘的四条结论</div>
+<p><strong>① 判定门槛达标,调整整体成立,但功劳不能都记在"预算"头上。</strong>ISP Pur 精准踩线到 7 单,但这条系列预算和受众信号是一起动的,拆不开;真正干净的证据来自老 Pur US(+300%)和 CN Pur(+133%)这两条预算全程没碰过的系列,涨幅比 ISP Pur 更大,说明起作用的主要是受众信号,不是多花的钱。<br><br>
+<strong>② 预算调整这条线要分开看,不能一刀切说"全部验证成功"。</strong>Reg US 砍预算(-22%)连续两周注册持平,砍得对;CN Reg 加预算(+12.5%)换来注册 +14.4%、但实际花费涨了 62.7%(单日超投拉高),算下来单价反而贵了 42.5%,这笔预算目前看不划算,下周继续观察,如果趋势不变要考虑回调。<br><br>
+<strong>③ 冻结纪律本身也验证有效。</strong>本周只有 2 条不相关的 ad 级微调,没有再叠加新变量,这是能拿到干净读数、做出可信判定的前提,如果这周又手痒调了什么,这份判定就又要作废重来。<br><br>
+<strong>④ 下一步不是立刻加码,而是再确认一周,且要分开验证。</strong>老 Pur US +300% 这种幅度的单周跳升,样本仍偏小(3→12);购买系列的预算/受众继续按兵不动,保持"纯受众"的干净样本;CN Reg 的预算先不追加,看看效率能不能回来。确认信号水平能稳住、CN Reg 效率恢复,再决定后续动作。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 六、设备与时段 ============ -->
+<div class="sec" id="sec5">
+<h2>📱 六、设备与时段 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(this,'tab-device')">📱 设备分布</button>
+  <button class="tab-btn" onclick="switchTab(this,'tab-hour')">🕐 时段分析</button>
+</div>
+
+<div id="tab-device" class="tab-panel active">
+  <div class="chart-wrap">
+    <div class="chart-title">📱 Register 转化的设备分布</div>
+    <canvas id="deviceChart"></canvas>
+  </div>
+  <table>
+  <tr><th>设备</th><th>Campaign</th><th>花费</th><th>转化</th><th>CPA</th><th>判断</th></tr>
+  <tr><td>📱 Mobile</td><td>Reg CN</td><td>$302.63</td><td>94.2</td><td>$3.21</td><td><span class="tag tg">最大量引擎,稳</span></td></tr>
+  <tr><td>📱 Mobile</td><td>Reg US</td><td>$236.46</td><td>55.0</td><td>$4.30</td><td><span class="tag tg">注册主力</span></td></tr>
+  <tr style="background:#f5fcf7"><td>🖥️ Desktop</td><td>ISP Pur</td><td>$192.34</td><td><strong>7.0</strong></td><td>$27.48</td><td><span class="tag tg">ISP Pur 购买主要在 Desktop</span></td></tr>
+  <tr style="background:#f5fcf7"><td>🖥️ Desktop</td><td>老 Pur US</td><td>$176.21</td><td><strong>9.0</strong></td><td>$19.58</td><td><span class="tag tg">老 Pur US 购买以 Desktop 为主</span></td></tr>
+  <tr style="background:#f5fcf7"><td>📱 Mobile</td><td>老 Pur US</td><td>$160.19</td><td><strong>4.0</strong></td><td>$40.05</td><td><span class="tag tg">Mobile 也开始出量</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Reg CN</td><td>$71.25</td><td>28.0</td><td>$2.54</td><td><span class="tag tg">健康</span></td></tr>
+  <tr style="background:#f5fcf7"><td>🖥️ Desktop</td><td>CN Pur</td><td>$74.52</td><td><strong>10.0</strong></td><td>$7.45</td><td><span class="tag tg">CN Pur 购买以 Desktop 为主</span></td></tr>
+  <tr><td>📱 Mobile</td><td>ISP Pur</td><td>$86.37</td><td>1.0</td><td>$86.37</td><td><span class="tag to">Mobile 转化少,偏贵</span></td></tr>
+  <tr><td>📱 Mobile</td><td>CN Pur</td><td>$64.33</td><td>3.0</td><td>$21.44</td><td><span class="tag ty">Mobile 出量,但不及 Desktop</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Reg US</td><td>$21.95</td><td>3.0</td><td>$7.32</td><td><span class="tag to">偏高但样本小</span></td></tr>
+  </table>
+  <div class="insight">
+  <div class="insight-title">💡 设备端:购买依旧高度集中在 Desktop,但 Mobile 开始有起色</div>
+  <p>三条购买系列(ISP Pur / CN Pur / 老 Pur US)的转化<strong>依旧以 Desktop 为主</strong>,延续了此前几周的一致信号。变化是<strong>老 Pur US 的 Mobile 端本周也出了 4 单(上周几乎为 0)</strong>,说明这条系列的反弹不只是 Desktop 单侧拉动。注册端格局照旧:<strong>Mobile Reg CN 仍是最高效引擎</strong>(94.2 注册 / $3.21)。<strong>暗示:若下周再验证一遍冻结效果依旧稳定,可以考虑对购买系列做 Desktop 侧的正向出价调整</strong>,但本周判定刚出炉,建议先按兵不动一周再动手。</p>
+  </div>
+</div>
+
+<div id="tab-hour" class="tab-panel">
+  <div class="chart-wrap">
+    <div class="chart-title">🕐 24 小时 CPA 走势</div>
+    <div class="chart-sub">绿色 = 高效区(CPA &lt; $5) / 橙色 = 中等 / 红色 = 低效区(CPA &gt; $10)</div>
+    <canvas id="hourChart"></canvas>
+  </div>
+  <h3>🟢 本周最高效时段</h3>
+  <table><tr><th>时段</th><th>CPA</th><th>说明</th></tr>
+  <tr><td>19:00 🌟</td><td style="color:#0d904f;font-weight:600">$3.66</td><td>全周最高效</td></tr>
+  <tr><td>16:00 / 1:00 / 18:00 / 23:00</td><td>$4.50 / $4.20 / $4.87 / $4.85</td><td>下午到深夜多个高效点</td></tr>
+  <tr><td>9:00</td><td style="color:#0d904f;font-weight:600">$5.28</td><td>继续保持健康(上上周曾是问题时段)</td></tr>
+  </table>
+  <h3>🟡 本周新出现的偏高时段(需要留意,冻结期不处理)</h3>
+  <table><tr><th>时段</th><th>CPA</th><th>对比</th></tr>
+  <tr><td>10:00</td><td style="color:#d93025;font-weight:600">$12.46</td><td>全天最高,上周同时段远低于此</td></tr>
+  <tr><td>4:00</td><td style="color:#d93025;font-weight:600">$12.11</td><td>凌晨时段,样本小,单周波动概率大</td></tr>
+  <tr><td>17:00</td><td style="color:#e8710a;font-weight:600">$10.92</td><td>刚超过 $10 分界线</td></tr>
+  </table>
+  <div class="co cw">
+  <strong>🟡 本周出现 3 个 CPA &gt; $10 的时段(4:00 / 10:00 / 17:00),是近几周里首次超过 3 个。</strong>不算严重(此前几周最高也到过 $22-48),且冻结期本来就不该动设备/时段出价,<strong>这周先记录、不处理</strong>。如果下周(非冻结期)这几个时段依旧偏高,再考虑做定向的时段出价调整。</div>
+</div>
+
+</div></div>
+
+<!-- ============ 七、下周观察 ============ -->
+<div class="sec" id="sec6">
+<h2>🎯 七、下周观察项 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout gr">
+<strong>📌 下周主线:判定已经达标,但不要立刻大幅加码。</strong>冻结周证明了预算+受众调整生效,三条购买系列全线反弹。下一步<strong>不是马上追加预算或扩大受众</strong>,而是用一个相对干净的周再验证一次这个水平能不能稳住,尤其老 Pur US +300% 这种幅度的单周跳升需要二次确认。稳住了,再考虑加码。
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p1">P1</span> ✅ 用一个干净周再验证冻结结论</div>
+  <p>本周三条购买系列全部达标或超预期,但样本仍是"一个干净周"。<strong>购买系列(ISP Pur / CN Pur / 老 Pur US)的预算和受众继续按兵不动</strong>,让这个水平再跑一周;如果下周仍能稳定在 ISP Pur ≥6-7 单、CN Pur/老 Pur US 维持中高单位数,才真正确认这不是单周噪声,再讨论是否加码。</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p1">P1</span> ✅ ISP Pur 政策问题已解决,可以从"每周复查清单"移除</div>
+  <p>本次复查确认 6/22 发现的政策标签挂在已下线的旧广告上,当前在跑广告纯净 APPROVED,系列的"受限"只是正常预算封顶。<strong>不需要再每周专项复查</strong>,以后随常规 primary_status 巡检一起看即可,除非又出现新的 ENABLING_DISHONEST_BEHAVIOR 之类的标签。</p>
+</div>
+
+<div class="action-item warn">
+  <div class="head"><span class="priority-tag p2">P2</span> 🔍 CN Reg 预算调整效率变差,先不追加,观察一周再判断要不要回调</div>
+  <p>7/3 CN Reg 预算 $40→$45(+12.5%)满周生效后,注册量涨了 14.4%,但实际花费涨了 62.7%(单日超投拉高),单个注册成本从 $2.12 涨到 $3.02(+42.5%)。这不是单纯的"Smart Bidding 连带抬价",是这条系列自己的预算调整效率打了折扣。Register 边际收益本来就低,暂不建议现在就回调,但<strong>下周先不要再给这条加预算</strong>,如果 CPA 继续走高,要考虑把 $45 调回 $40 附近。</p>
+</div>
+
+<div class="action-item warn">
+  <div class="head"><span class="priority-tag p2">P2</span> 🕐 3 个新出现的高 CPA 时段(4:00 / 10:00 / 17:00)</div>
+  <p>本周首次出现 3 个 CPA &gt; $10 的时段。冻结期不处理,但记录在案;如果下周(视冻结节奏决定是否解除)依旧偏高,可考虑对这几个时段做定向的负向出价调整。</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p3">P3</span> 💭 待"二次验证周"结束后再排的动作</div>
+  <p>以下都<strong>推迟到下一个观察周结束、确认冻结结论稳定后</strong>再评估:<br>
+  • 购买系列 Desktop 侧的正向出价调整(本周 Desktop 转化依旧占大头);<br>
+  • 老 Pur US 是否值得单独设 tCPA(冲刺更高购买量);<br>
+  • register竞品词_US 新广告组的样本积累(目前仅 1 转化)。</p>
+</div>
+
+<h3>本周不建议做的事</h3>
+<div class="co cs">
+✅ <strong>不要因为冻结周达标就立刻大幅加预算/扩受众。</strong>老 Pur US +300% 样本还小,先用一个干净周二次确认<br>
+✅ <strong>不要再把 ISP Pur 政策标签当成待办事项反复排查。</strong>本次复查已确认问题解除,只需常规巡检<br>
+✅ <strong>不要现在处理 4:00/10:00/17:00 的高 CPA 时段。</strong>先记录,等冻结节奏结束后再决定是否出手<br>
+✅ <strong>不要再给 CN Reg 加预算。</strong>上一次加预算(+12.5%)换来的是单价涨 42.5%,目前是不划算的,先观察不追加,别用"购买效率整体改善"当理由继续加码这一条<br>
+✅ <strong>但也不用现在就砍 Reg US 或老 Pur US / CN Pur 的预算。</strong>Reg US 已验证削减无损,另外两条购买系列这次涨幅是干净的受众信号证据,不该被 CN Reg 的问题连累</div>
+
+</div></div>
+
+<div style="text-align:center;padding:20px 0;color:#999;font-size:11px">
+IPOasis Google Ads Weekly Report | 2026-07-06 ~ 2026-07-12(冻结观察周)<br>
+数据来源:Google Ads API(2026-07-13 拉取,已通过账户级/campaign 级双路径交叉核对)· Register 按 conversion_register / All Conv · Purchase 按 conversion_purchase / All Conv(不与 IPOASIS (web) purchase 子集重复计数)
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.sec h2').forEach(h=>{
+  h.addEventListener('click',()=>h.parentElement.classList.toggle('collapsed'));
+});
+function switchTab(btn,id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+const COL={p:'#1a73e8',g:'#0d904f',r:'#d93025',o:'#e8710a'};
+const tooltipDefault={mode:'index',intersect:false,backgroundColor:'#202124',titleFont:{size:13,weight:'600'},bodyFont:{size:12},padding:10};
+
+new Chart(document.getElementById('trendChart'),{
+  type:'line',
+  data:{labels:['6/8-6/14','6/15-6/21','6/22-6/28','6/29-7/5','7/6-7/12'],
+    datasets:[
+      {label:'Register(All Conv)',data:[278.5,250.5,269.0,274.0,291.0],borderColor:COL.g,backgroundColor:'rgba(13,144,79,.1)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointHoverRadius:7},
+      {label:'Purchase(All Conv)',data:[31.0,16.0,17.56,14.0,30.0],borderColor:COL.p,backgroundColor:'rgba(26,115,232,.1)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointHoverRadius:7,yAxisID:'y1'}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{position:'left',title:{display:true,text:'Register'},beginAtZero:true},y1:{position:'right',title:{display:true,text:'Purchase'},beginAtZero:true,grid:{display:false},max:35}}}
+});
+
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',
+  data:{labels:['1月','2月','3月','4月','5月','6月','7月(至7/12)'],
+    datasets:[
+      {type:'bar',label:'购买数量',data:[11,15,25,32,45,80.6,39],backgroundColor:['rgba(13,144,79,.4)','rgba(13,144,79,.5)','rgba(13,144,79,.6)','rgba(13,144,79,.7)','rgba(13,144,79,.85)','rgba(13,144,79,1)','rgba(26,115,232,.55)'],borderRadius:6,yAxisID:'y'},
+      {type:'line',label:'购买 CPA ($)',data:[155.32,180.58,127.43,110.16,93.50,65.25,56.95],borderColor:COL.r,backgroundColor:'rgba(217,48,37,.1)',borderWidth:3,tension:.3,pointRadius:5,yAxisID:'y1'}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{position:'left',title:{display:true,text:'购买数量'},beginAtZero:true},y1:{position:'right',title:{display:true,text:'CPA ($)'},beginAtZero:true,grid:{display:false},ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('campCostChart'),{
+  type:'bar',
+  data:{labels:['Reg US','CN Reg','Pur US 老','ISP Pur','CN Pur'],
+    datasets:[
+      {label:'本周',data:[258.41,380.19,345.17,279.42,139.80],backgroundColor:COL.p,borderRadius:4},
+      {label:'上周',data:[274.58,233.73,243.99,244.61,128.44],backgroundColor:'#9ec8ff',borderRadius:4}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y.toFixed(2)}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('campPurChart'),{
+  type:'bar',
+  data:{labels:['Reg US','CN Reg','Pur US 老','ISP Pur','CN Pur'],
+    datasets:[
+      {label:'本周 Purchase(All)',data:[1,3,12,7,7],backgroundColor:COL.g,borderRadius:4},
+      {label:'上周 Purchase(All)',data:[0,3,3,5,3],backgroundColor:'#a8d5b5',borderRadius:4}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{beginAtZero:true}}}
+});
+
+new Chart(document.getElementById('regDailyChart'),{
+  type:'line',
+  data:{labels:['7/6 Mon','7/7 Tue','7/8 Wed','7/9 Thu','7/10 Fri','7/11 Sat','7/12 Sun'],
+    datasets:[
+      {label:'全账户注册(All Conv)',data:[41,53,52,43,41,35,26],borderColor:COL.g,backgroundColor:'rgba(13,144,79,.12)',borderWidth:2.5,tension:.3,fill:true,pointRadius:4}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:tooltipDefault},scales:{y:{beginAtZero:true,title:{display:true,text:'注册转化数'}}}}
+});
+
+new Chart(document.getElementById('regKwChart'),{
+  type:'bar',
+  data:{labels:['isp_register中文词','dynamic_register中文词','register_proxy软词','register购买意图词','register竞品词(新)'],
+    datasets:[{label:'CPA',data:[2.97,3.21,4.21,4.95,2.28],backgroundColor:[COL.g,COL.g,COL.g,COL.g,'#9aa0a6'],borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'CPA: $'+c.parsed.x.toFixed(2)}}},scales:{x:{beginAtZero:true,title:{display:true,text:'CPA ($)'},ticks:{callback:v=>'$'+v}}}}
+});
+
+new Chart(document.getElementById('purDailyChart'),{
+  type:'bar',
+  data:{labels:['7/6','7/7','7/8','7/9','7/10','7/11','7/12'],
+    datasets:[{label:'Purchase(All Conv)',data:[6,6,3,5,6,2,2],backgroundColor:COL.g,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' 单'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Purchase 数'}}}}
+});
+
+new Chart(document.getElementById('ispPurChart'),{
+  type:'bar',
+  data:{labels:['6/8-6/14','6/15-6/21','6/22-6/28','6/29-7/5','7/6-7/12'],
+    datasets:[{label:'ISP Pur 购买',data:[10,3,8,5,7],backgroundColor:(c)=>{const v=c.parsed.y;return v>=7?COL.g:v>=4?COL.o:COL.r},borderRadius:5}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' 单'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'购买数'}}}}
+});
+
+new Chart(document.getElementById('deviceChart'),{
+  type:'doughnut',
+  data:{labels:['📱 Mobile Reg CN','📱 Mobile Reg US','🖥️ Desktop Reg CN','🖥️ Desktop Reg US'],
+    datasets:[{data:[94.2,55.0,28.0,3.0],backgroundColor:['#34a853','#4285f4','#0d904f','#1a73e8'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}},tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+' 注册'}}}}
+});
+
+const hourData=[7.74,4.20,8.14,5.62,12.11,6.54,7.66,5.20,6.53,5.28,12.46,7.17,5.02,6.17,9.84,6.91,4.50,10.92,4.87,3.66,5.76,6.40,8.10,4.85];
+const hourColors=hourData.map(v=>v<5?COL.g:v<10?COL.o:COL.r);
+new Chart(document.getElementById('hourChart'),{
+  type:'bar',
+  data:{labels:Array.from({length:24},(_,i)=>i.toString().padStart(2,'0')+':00'),
+    datasets:[{label:'CPA',data:hourData,backgroundColor:hourColors,borderRadius:3}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'CPA: $'+c.parsed.y.toFixed(2)}}},scales:{y:{beginAtZero:true,title:{display:true,text:'CPA ($)'},ticks:{callback:v=>'$'+v}},x:{ticks:{maxRotation:90,minRotation:45,font:{size:9}}}}}
+});
+</script>
+</body></html>

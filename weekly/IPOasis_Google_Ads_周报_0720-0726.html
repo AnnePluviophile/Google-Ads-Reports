@@ -1,0 +1,609 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPOasis Google Ads 周报 7/20-7/26</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#1a73e8;--g:#0d904f;--r:#d93025;--o:#e8710a;--bg:#f8f9fa;--card:#fff;--bd:#dadce0;--t1:#202124;--t2:#5f6368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.75;padding:32px 16px;font-size:14px}
+.ctn{max-width:980px;margin:0 auto}
+.hdr{text-align:center;padding:36px 24px;background:linear-gradient(135deg,#1a73e8,#5b9bf0);color:#fff;border-radius:16px;margin-bottom:28px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%)}
+.hdr h1{font-size:24px;margin-bottom:4px;font-weight:700;position:relative}
+.hdr .sub{font-size:13px;opacity:.9;position:relative}
+.sec{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:18px;border:1px solid var(--bd);transition:all .2s}
+.sec:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.sec h2{font-size:18px;color:var(--p);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.sec h2 .toggle{font-size:14px;color:var(--t2);transition:transform .3s}
+.sec.collapsed .body{display:none}
+.sec.collapsed h2 .toggle{transform:rotate(-90deg)}
+.sec h3{font-size:14px;color:var(--t1);margin:20px 0 10px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12px}
+th{background:#f1f3f4;color:var(--t2);padding:8px;text-align:left;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--bd)}
+td{padding:7px 8px;border-bottom:1px solid #f0f0f0;color:var(--t2)}
+tr:hover td{background:#f8f9fa}
+.up{color:var(--g);font-weight:600}.down{color:var(--r);font-weight:600}.flat{color:var(--t2);font-weight:600}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.3px}
+.tg{background:#e6f4ea;color:#137333}.tr{background:#fce8e6;color:#c5221f}.tb{background:#e8f0fe;color:#1967d2}.to{background:#fef3e6;color:#c5600a}.ty{background:#f1f3f4;color:#5f6368}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.kpi-card{background:linear-gradient(135deg,#f8f9fa,#fff);padding:18px;border-radius:10px;border:1px solid var(--bd);text-align:center;transition:all .25s;cursor:default}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:var(--p)}
+.kpi-card .ico{font-size:20px;margin-bottom:6px}
+.kpi-card .v{font-size:22px;font-weight:700;color:var(--t1);line-height:1.2}
+.kpi-card .l{font-size:11px;color:var(--t2);margin-top:4px}
+.kpi-card .c{font-size:11px;margin-top:6px;padding:2px 8px;border-radius:10px;display:inline-block}
+.kpi-card .c.up{background:#e6f4ea;color:#137333}
+.kpi-card .c.down{background:#fce8e6;color:#c5221f}
+.kpi-card .c.flat{background:#f1f3f4;color:#5f6368}
+.kpi-card.warn{border-color:#fde9c8;background:linear-gradient(135deg,#fffaf0,#fff)}
+.kpi-card.warn .v{color:var(--o)}
+.kpi-card.bad{border-color:#fce8e6;background:linear-gradient(135deg,#fff7f6,#fff)}
+.kpi-card.bad .v{color:var(--r)}
+.kpi-card.good{border-color:#e6f4ea;background:linear-gradient(135deg,#f5fcf7,#fff)}
+.kpi-card.good .v{color:var(--g)}
+.co{padding:14px 20px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.85}
+.ci{background:#e8f4fd;border-left:4px solid var(--p)}
+.cw{background:#fff4e5;border-left:4px solid var(--o)}
+.cs{background:#e6f4ea;border-left:4px solid var(--g)}
+.cr{background:#fce8e6;border-left:4px solid var(--r)}
+p{font-size:13px;color:var(--t2);margin-bottom:10px;line-height:1.85}
+strong{color:var(--t1)} em{font-style:normal;color:var(--p);font-weight:600}
+code{background:#f1f3f4;padding:1px 5px;border-radius:3px;font-size:12px;color:#c5221f}
+.insight{background:#fffdf5;border:1px solid #fde293;border-radius:8px;padding:16px 20px;margin:14px 0}
+.insight-title{font-size:13px;font-weight:700;color:#b06000;margin-bottom:6px}
+.verdict{font-size:14px;font-weight:700;color:var(--t1);margin:10px 0;padding:14px;background:#fff8ec;border-radius:8px;border-left:4px solid var(--o)}
+.chart-wrap{margin:16px 0;background:#fff;padding:18px;border-radius:10px;border:1px solid var(--bd);position:relative}
+.chart-wrap canvas{max-height:300px}
+.chart-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.chart-sub{font-size:11px;color:var(--t2);margin-bottom:8px}
+.chart-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px;margin:14px 0}
+.tab-bar{display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #e8f0fe}
+.tab-btn{padding:8px 14px;font-size:12px;background:transparent;border:none;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-weight:600;transition:all .2s}
+.tab-btn:hover{color:var(--p)}
+.tab-btn.active{color:var(--p);border-bottom-color:var(--p)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.action-item{background:#fff;border-radius:10px;padding:16px 18px;margin:10px 0;border-left:4px solid var(--p);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.action-item.warn{border-left-color:var(--o);background:linear-gradient(90deg,#fff8eb 0%,#fff 100%)}
+.action-item.bad{border-left-color:var(--r);background:linear-gradient(90deg,#fff6f5 0%,#fff 100%)}
+.action-item.ok{border-left-color:var(--g);background:linear-gradient(90deg,#f5fcf7 0%,#fff 100%)}
+.action-item .head{font-weight:700;color:var(--t1);font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.priority-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.priority-tag.p1{background:#e8710a;color:#fff}
+.priority-tag.p2{background:#1a73e8;color:#fff}
+.priority-tag.p3{background:#5f6368;color:#fff}
+.nav{position:fixed;top:20px;right:20px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.1);font-size:11px;z-index:100;max-width:160px}
+.nav a{display:block;color:var(--t2);text-decoration:none;padding:4px 0;border-radius:4px;padding-left:8px;transition:all .15s}
+.nav a:hover{color:var(--p);background:#e8f0fe}
+.callout{background:#e8f0fe;border:1px solid #aecbfa;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:12px;color:#185abc}
+.callout strong{color:#0b3a8a}
+.callout.gr{background:#e6f4ea;border-color:#a8d5b5;color:#137333}
+.callout.gr strong{color:#0b5a2a}
+.callout.wn{background:#fff4e5;border-color:#f6d19a;color:#a5560a}
+.callout.wn strong{color:#7a3e00}
+@media (max-width:780px){.nav{display:none}}
+@media print{body{padding:0;background:#fff}.sec{break-inside:avoid;page-break-inside:avoid}.nav{display:none}}
+</style></head><body>
+
+<div class="nav">
+  <div style="font-weight:700;color:var(--t1);margin-bottom:6px;font-size:12px">目录</div>
+  <a href="#sec0">核心结论</a>
+  <a href="#sec1">本周发生了什么</a>
+  <a href="#sec1b">购买骤降排查</a>
+  <a href="#sec2">Campaign 总览</a>
+  <a href="#sec3">Register 系列</a>
+  <a href="#sec4">Purchase 系列</a>
+  <a href="#sec_trackb">Track B 上线进展</a>
+  <a href="#sec5">设备与时段</a>
+  <a href="#sec6">下周观察</a>
+</div>
+
+<div class="ctn">
+<div class="hdr">
+  <h1>📊 IPOasis Google Ads 周度分析报告</h1>
+  <div class="sub">2026-07-20(周一)~ 2026-07-26(周日) &nbsp;|&nbsp; 对比 2026-07-13 ~ 2026-07-19</div>
+</div>
+
+<!-- ============ 核心结论 ============ -->
+<div class="sec" id="sec0">
+<h2>🎯 核心结论 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="verdict">
+🔴 <strong>本周购买骤降 -54.2%，是近两个月最差的一周；但已定位到具体触发点，不是账户整体出问题。</strong>
+<ul style="margin:10px 0 0 20px;font-weight:400">
+<li style="margin-bottom:6px">全账户购买(仅 <code>conversion_purchase</code>)<strong>11.0 单</strong>，较上周 24.0 单 <strong>-54.2%</strong>；购买成本从 $58.65 涨到 <strong>$107.49(+83.3%)</strong></li>
+<li style="margin-bottom:6px">三条购买系列(老 Pur US、ISP Pur、CN Pur)<strong>全部下滑</strong>：分别 -60%、-42.9%、-60%，不是单条系列的问题</li>
+<li style="margin-bottom:6px">花费反而降了 16.0%、点击涨了 6.4%，说明<strong>不是流量减少</strong>，问题在转化端；周三(7.22)全站注册也同步走低，判定为真实的转化环节异常，不是数据缺口</li>
+<li style="margin-bottom:6px">✅ <strong>已排查清楚，问题被定位到一个很具体的点</strong>：不是关键词改动（时间对不上，下滑在改词前2天就开始了），不是流量下滑（点击展示都正常甚至更高），而是<strong>“Static Residential - 1 IPs”这一个产品、且仅限google-UTM来源</strong>的转化率出了问题（同产品的direct流量完全正常），详见「二、购买骤降排查」</li>
+<li style="margin-bottom:6px">周四(7.24)开始已有回暖迹象（周日单日购买回升到3单），但全周合计仍被周中的低谷拖累</li>
+<li>🆕 <strong>Track B(展示再营销)于7.24正式上线</strong>，系列「再营销_All_Visitors_EN_260724」已投放两天，量级正在爬坡，详见「六、Track B 上线进展」</li>
+</ul>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card good"><div class="ico">💰</div><div class="v">$1,182.42</div><div class="l">总消耗</div><div class="c down">↓ 16.0%</div></div>
+  <div class="kpi-card"><div class="ico">👁️</div><div class="v">20,109</div><div class="l">展示</div><div class="c up">↑ 16.4%</div></div>
+  <div class="kpi-card"><div class="ico">🖱️</div><div class="v">1,070</div><div class="l">点击</div><div class="c up">↑ 6.4%</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$1.11</div><div class="l">CPC</div><div class="c up">↓ 20.7%</div></div>
+  <div class="kpi-card"><div class="ico">✅</div><div class="v">273.0</div><div class="l">注册(All Conv,全账户)</div><div class="c down">↓ 7.7%</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$4.33</div><div class="l">注册成本(混合)</div><div class="c up">↓ 9.0%</div></div>
+  <div class="kpi-card bad"><div class="ico">🛒</div><div class="v">11.0</div><div class="l">购买(All Conv,未回补前初读)</div><div class="c down">↓ 54.2%</div></div>
+  <div class="kpi-card bad"><div class="ico">💸</div><div class="v">$107.49</div><div class="l">购买成本(混合)</div><div class="c down">↑ 83.3%</div></div>
+</div>
+
+<div class="callout wn">
+<strong>📌 本周 Purchase 11.0 个分布(All Conv,仅 conversion_purchase)：</strong>老 Pur US <strong>2</strong>(上周5，-60%)+ ISP Pur <strong>4</strong>(上周7，-42.9%)+ CN Pur <strong>2</strong>(上周5，-60%)+ Reg CN/Reg US 附带各 2/1。逐日看，7.21-7.24连续四天每天只有1单，是全周的低谷期，7.25(2单)、7.26(3单)已经在回暖，方向是往好走，但绝对量还没追回来。
+</div>
+
+<h3>📈 近 6 周转化趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 Register 基本走稳，Purchase 本周跌到 6 周最低</div>
+  <div class="chart-sub">Purchase 六周数值均为当周首次报告时的读数(fresh 口径)，不含后续回补；Register 为 All Conv</div>
+  <canvas id="trendChart"></canvas>
+</div>
+
+<div class="co cr">
+<strong>这张图说明的事：</strong>Purchase 六周走势 17.6→14→17.6→30→24→<strong>11</strong>，本周直接跌到系列观察以来的最低点，比二次验证周(7.13-7.19)的回落又深了一层。Register 基本稳定在270-296区间波动，本周273.0在正常范围内，<strong>说明账户流量和注册端的健康度没有被这次异常波及，问题精确地卡在“购买”这一个环节</strong>，跟「二、购买骤降排查」里定位到的“某个产品+某个来源”结论是吻合的。</div>
+
+<h3>📈 月度 Purchase 趋势</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 7 月前 26 天已到 83 单，节奏比 6 月略慢</div>
+  <div class="chart-sub">6 月为最终值；7 月为 7/1-7/26 月度至今(MTD)，月末仍在累积</div>
+  <canvas id="monthlyChart"></canvas>
+</div>
+
+<div class="co ci">
+<strong>月度维度看，本周的骤降还没有严重到拖垮整月节奏：</strong>7 月前 26 天已经 83 单，按目前节奏推算月末大概率能达到接近甚至持平 6 月的 80.6 单，但如果本周的低谷不能在下周完全修复，月末达标会更悬。这是本周问题需要抓紧定位、而不是“再等等看”的原因。</div>
+
+</div></div>
+
+<!-- ============ 一、本周发生了什么 ============ -->
+<div class="sec" id="sec1">
+<h2>📅 一、本周发生了什么：一次关键词微调、ISP Pur 落地页改回产品页 + Track B 从0到1建成上线 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout wn">
+<strong>📌 本周有三类账户操作，性质各不相同：</strong>7.22下午对老Pur US/CN Pur两条系列的关键词匹配方式微调（已排查，跟购买骤降无关）；7.23上午把ISP Pur的落地页从官网首页改回了产品页（方向上是合理动作，但时间点上解释不了本周的下滑起点）；以及Track B(展示再营销)从建系列到正式投放的完整搭建过程，是本周最大的正向进展。
+</div>
+
+<h3>账户变更日志(7/20-7/26，共28条)</h3>
+<table>
+<tr><th>时间</th><th>操作人</th><th>资源</th><th>动作</th><th>性质</th></tr>
+<tr><td>7/22 15:17-15:21</td><td>sales@ipoasis.com</td><td>老Pur US / CN Pur 广告组关键词</td><td>REMOVE/UPDATE/CREATE</td><td><span class="tag to">关键词匹配方式微调（去空耗词）</span></td></tr>
+<tr><td>7/22 10:56</td><td>sales@ipoasis.com</td><td>系列预算/系列</td><td>CREATE</td><td><span class="tag ty">Track B 早期草稿（后未采用）</span></td></tr>
+<tr style="background:#e8f4fd"><td>7/23 10:00</td><td>sales@ipoasis.com</td><td>ISP Pur 广告组关键词</td><td>CREATE ×2</td><td><span class="tag tb">新增关键词：isp proxy / hongkong isp</span></td></tr>
+<tr style="background:#e8f4fd"><td>7/23 10:09</td><td>sales@ipoasis.com</td><td>ISP Pur 广告最终到达网址</td><td>UPDATE</td><td><span class="tag tb">落地页从官网首页改回产品页</span></td></tr>
+<tr><td>7/24 14:14-14:34</td><td>sales@ipoasis.com</td><td>广告素材资源</td><td>CREATE ×8</td><td><span class="tag tb">Track B 图片/文案素材上传</span></td></tr>
+<tr><td>7/24 16:38</td><td>sales@ipoasis.com</td><td>再营销_All_Visitors_EN_260724</td><td>系列/广告组/广告 CREATE</td><td><span class="tag tg">Track B 正式建成上线</span></td></tr>
+</table>
+
+<h3>📌 ISP Pur 落地页改回产品页：方向合理，但不是本周下滑的“解药”，也未必是“病因”</h3>
+<table>
+<tr><th>项</th><th>内容</th></tr>
+<tr><td>改动内容</td><td>系列 <code>isp_purchase_ALL_cn_260602</code>(ISP Pur)，最终到达网址从 <code>ipoasis.com/zh</code>(官网首页) 改为 <code>ipoasis.com/zh/proxy/static-residential</code>(产品页)</td></tr>
+<tr><td>改动动机</td><td>该产品页此前曾因触发广告政策限制改用首页兜底，这次趁ISP Pur出现空耗后改回产品页</td></tr>
+<tr><td>政策状态核实</td><td>该广告组历史上用产品页链接的旧广告版本审核状态均为<code>APPROVED_LIMITED</code>(受限批准)；<strong>本次新启用的广告审核状态是干净的 <code>APPROVED</code></strong>，目前没有受限问题</td></tr>
+<tr><td>时间线核对</td><td>ISP Pur购买在7.20就已走低、7.21-7.22连续挂零，<strong>均早于7.23上午的这次改动</strong>，所以不是本周下滑的起因；改动后(7.23-7.26)购买仍是1、0、1、0零散出现，样本太小暂看不出明显改善</td></tr>
+<tr><td>同一时间点(7.23 10:00)的另一个改动</td><td>同一个广告组还新增了2个关键词：<code>isp proxy</code>、<code>hongkong isp</code>。截至7.26，<code>isp proxy</code>已产生130次展示、17次点击、$23.57花费、6次注册(暂无购买)；<code>hongkong isp</code>暂无展示。跟落地页URL改动是同一时间点、同一操作人，但属于两件独立的事(新增关键词 ≠ 定向条件调整)</td></tr>
+</table>
+<div class="co cs">
+<strong>整体评价：这是一个方向正确、长期看大概率对账户有益的动作，只是不能算作“挽救本周下滑”的措施，也不构成“造成下滑”的原因——它跟本周的购买异常几乎是两件平行的事。</strong>产品页通常比笼统的首页更利于转化，且政策限制目前已经解除，继续沿用这个版本是合理的；只是需要注意，同一广告组里目前还有一条指向<code>zh-Hant</code>(繁体首页)的广告在同时启用，建议确认这条是否需要一并统一，避免流量被分流到两个不同承接页。</div>
+
+<h3>⚠️ 7.22关键词微调，已确认跟本周购买骤降无关</h3>
+<p>本周最容易被误会的一点：购买骤降(周中)跟关键词改动(7.22下午)时间点很接近，但拉出改动的精确时间戳核实后，可以排除：</p>
+<table>
+<tr><th>时间线</th><th>事件</th></tr>
+<tr><td>7.20(周一)</td><td>google-UTM来源真实成交已经开始走弱（6单，低于上周同期水平）</td></tr>
+<tr><td>7.21(周二)</td><td>持续走弱（7单）</td></tr>
+<tr><td>7.22(周三) <strong>15:17-15:21</strong></td><td>关键词匹配方式改动发生在这个时间点</td></tr>
+</table>
+<div class="co ci">
+<strong>下滑在关键词改动发生的两天前就已经开始了，不可能是这次改动导致的。</strong>这次改动本身也只是清理个别空耗、低转化的匹配词，改动范围很窄，核实后予以排除。</div>
+
+</div></div>
+
+<!-- ============ 一.5、购买骤降排查 ============ -->
+<div class="sec" id="sec1b">
+<h2>🔍 二、购买骤降排查：从“全站异常”一路收窄到“一个产品+一个来源” <span class="toggle">▼</span></h2>
+<div class="body">
+
+<p>本周购买骤降的排查横跨了好几天，逐步收窄范围，过程和结论如下：</p>
+
+<h3>① 起点：7.22周三，GA4口径显示全站注册大幅下滑</h3>
+<div class="co cw">
+GA4口径最初显示7.22注册环比基线-41.8%，但流量(活跃用户)是上涨的，初步判断问题不在广告投放本身，而在转化环节。
+</div>
+
+<h3>② 用后台真实数据库交叉核实，排除了“纯GA4统计误差”的可能</h3>
+<table>
+<tr><th>核实项</th><th>发现</th><th>结论</th></tr>
+<tr><td>后台真实注册数(非GA4估算)</td><td>7.22确实是近14天里全天最低的一天(41 vs 前12天日均约57)</td><td><span class="tag to">确认是真实下滑，不是统计误差</span></td></tr>
+<tr><td>按来源拆分</td><td>google-UTM、direct等各渠道同步走低，不是单一来源的问题</td><td><span class="tag tg">排除“广告定向出问题”</span></td></tr>
+<tr><td>按周三跟周三比(过去7周)</td><td>7.22是这7周里表现最差的一个周三，上午下午都垫底</td><td><span class="tag to">确认是真实异常，不是周内正常波动</span></td></tr>
+<tr><td>具体小时“归零”排查</td><td>最初怀疑14点/20点两个时段是技术性中断，但核查过去59天发现“活跃时段归零”其实很常见(83%的天数都出现过)，5.30甚至比7.22更严重</td><td><span class="tag ty">此前判断过度解读，予以收回</span></td></tr>
+</table>
+
+<h3>③ 关键突破：定位到具体是哪个产品、哪个来源出的问题</h3>
+<p>把本周(7.20-7.22)跟上周同期做真实订单对比，发现问题高度集中：</p>
+<table>
+<tr><th>维度</th><th>上周同期</th><th>本周</th><th>变化</th></tr>
+<tr><td>全站真实成交单(全部产品全部来源)</td><td>53单</td><td>40单</td><td class="down">-24.5%</td></tr>
+<tr><td>google-UTM来源真实成交单</td><td>32单</td><td>17单</td><td class="down">-46.9%</td></tr>
+<tr style="background:#fff6f5"><td><strong>“Static Residential - 1 IPs”产品，仅google-UTM来源</strong></td><td>20单</td><td>4单</td><td class="down"><strong>-80%</strong></td></tr>
+<tr><td>同一产品，direct(直接访问)来源</td><td>5单</td><td>7单</td><td class="up">+40%</td></tr>
+</table>
+<div class="co cr">
+<strong>核心发现：跌幅几乎全部集中在“Static Residential - 1 IPs”这一个产品的google-UTM来源上，同一产品的direct流量反而是涨的。</strong>如果是产品页面或结账系统本身坏了，不管从哪个渠道进来都应该一样买不了，但direct的人照买不误——说明产品和结账流程本身是好的，问题出在“这条广告落地页(带google-UTM追踪参数的版本)”这一段。进一步核实该产品对应广告组的展示/点击数据，本周(1436次展示/77次点击)其实比上周(1301/73)还多，排除了“广告没抢到量”的可能。
+</div>
+
+<div class="insight" style="background:#fff8ec;border-color:#f6d19a">
+<div class="insight-title" style="color:#a5560a">💡 目前的结论和待办</div>
+<p><strong>结论：</strong>广告投放量正常，问题大概率出在“Static Residential - 1 IPs”这个产品、带google-UTM参数的落地页链路上(可能是价格加载异常、追踪参数触发页面报错、或自动优惠码校验失败导致下单卡住)。<br><br>
+<strong>待办：</strong>需要实测该产品广告的实际落地页链接，走一遍从点击到下单支付的完整流程，确认具体卡在哪一步。这一步是本周尚未完成、下周需要优先处理的事项，见「八、下周观察」。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 二、Campaign 总览 ============ -->
+<div class="sec" id="sec2">
+<h2>📋 三、Campaign 总览：三条购买系列全部下滑 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>本周 vs 上周 大盘对比</h3>
+<table>
+<tr><th>时间</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>点击率</th><th>点击成本</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>本周(7.20-7.26)</td><td>$1,182.42</td><td>20,109</td><td>$58.80</td><td>1,070</td><td>5.32%</td><td>$1.11</td><td>273.0</td><td>25.51%</td><td>$4.33</td><td>11.0</td><td>1.03%</td><td>$107.49</td></tr>
+<tr><td>上周(7.13-7.19)</td><td>$1,407.61</td><td>17,271</td><td>$81.50</td><td>1,006</td><td>5.82%</td><td>$1.40</td><td>295.8</td><td>29.40%</td><td>$4.76</td><td>24.0</td><td>2.39%</td><td>$58.65</td></tr>
+<tr style="background:#f8f9fa"><td><strong>变化</strong></td><td class="up">↓16.0%</td><td class="up">↑16.4%</td><td class="up">↓27.9%</td><td class="up">↑6.4%</td><td class="down">↓0.50pp</td><td class="up">↓20.7%</td><td class="down">↓7.7%</td><td class="down">↓3.89pp</td><td class="up">↓9.0%</td><td class="down">↓54.2%</td><td class="down">↓1.36pp</td><td class="down">↑83.3%</td></tr>
+</table>
+<p style="font-size:11px;color:#999">口径说明：消耗为全账户总额，不拆Register/Purchase各自花费；注册率=注册/点击，购买率=购买/点击；上周数据为当时首次报告的读数(已核实无回补漂移)，本周为当周首读，未来仍会有小幅回补。</p>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">💰 各 Campaign 花费对比(本周 vs 上周)</div>
+    <canvas id="campCostChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">🛒 各 Campaign Purchase 贡献(All Conv)</div>
+    <canvas id="campPurChart"></canvas>
+  </div>
+</div>
+
+<table>
+<tr><th>Campaign</th><th>本周花费</th><th>本周 Reg(All)</th><th>本周 Pur(All)</th><th>上周 Reg</th><th>上周 Pur</th><th>判断</th></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(Reg CN)</td><td>$302.95</td><td>114.7</td><td>2.0</td><td>145.2</td><td>5.0</td><td><span class="tag tr">🔴 花费降、注册也降，附带购买跟着跌</span></td></tr>
+<tr style="background:#fff6f5"><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$231.10</td><td>19.0</td><td><strong>2.0</strong></td><td>26.0</td><td>5.0</td><td><span class="tag tr">🔴 花费大降38.8%，购买跌60%</span></td></tr>
+<tr style="background:#fff6f5"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur)</td><td>$246.23</td><td>58.0</td><td><strong>4.0</strong></td><td>50.5</td><td>7.0</td><td><span class="tag tr">🔴 注册涨了，购买仍跌42.9%</span></td></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(Reg US)</td><td>$241.70</td><td>50.3</td><td>1.0</td><td>47.0</td><td>2.0</td><td><span class="tag ty">⚪ 注册微涨，附带购买略降</span></td></tr>
+<tr style="background:#fff6f5"><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$146.92</td><td>31.0</td><td><strong>2.0</strong></td><td>32.0</td><td>5.0</td><td><span class="tag tr">🔴 花费持平，购买跌60%</span></td></tr>
+</table>
+
+<div class="insight">
+<div class="insight-title">💡 一眼看懂本周结构</div>
+<p><strong>① 三条购买系列合计 2+4+2=8，上周是 5+7+5=17，跌了 52.9%，跟「二、购买骤降排查」里定位的“某产品+google-UTM”问题是一致的：</strong>三条系列都在卖这个产品线，同步受影响。<br><br>
+<strong>② 花费全线收缩，是Smart Bidding对近期转化转弱的自然反应。</strong>老 Pur US 花费降38.8%、Reg CN 降5.8%，出价策略在购买不好的情况下自动收紧了投放，这是系统自我保护机制，不是人为调整。<br><br>
+<strong>③ 注册端相对稳定，ISP Pur、Reg US 的注册甚至还在涨，进一步印证问题只出在“购买”这个环节，不是流量或注册功能坏了。</strong></p>
+</div>
+
+</div></div>
+
+<!-- ============ 三、Register 系列 ============ -->
+<div class="sec" id="sec3">
+<h2>🚀 四、Register 系列：小幅回落，但仍在正常区间 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="ico">✅</div><div class="v">273.0</div><div class="l">全账户注册(All Conv)</div><div class="c down">↓ 7.7%</div></div>
+  <div class="kpi-card"><div class="ico">🇨🇳</div><div class="v">114.7</div><div class="l">Reg CN 注册</div><div class="c down">↓ 21.0%</div></div>
+  <div class="kpi-card good"><div class="ico">🇺🇸</div><div class="v">50.3</div><div class="l">Reg US 注册</div><div class="c up">↑ 7.0%</div></div>
+  <div class="kpi-card good"><div class="ico">💵</div><div class="v">$4.33</div><div class="l">混合 Reg CPA</div><div class="c up">↓ 9.0%</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📈 本周每日 Register 走势(全账户)</div>
+    <canvas id="regDailyChart"></canvas>
+  </div>
+</div>
+
+<div class="co ci">
+<strong>注册端本周有小幅回落(-7.7%)，但仍在过去几周27x-296的正常波动区间内，且Reg CPA还降了9.0%，量价关系是健康的。</strong>7.22(周三)当天注册明显走低(28.0，全周最低)，正是「二、购买骤降排查」里定位的异常日，但从周内走势看，7.23起就已经回升到39-45的正常水平，说明注册端的异常只持续了一天，恢复得比购买端快。</div>
+
+<h3>本周每日走势(12 指标)</h3>
+<table>
+<tr><th>日期</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>CTR</th><th>CPC</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>7/20 周一</td><td>$135.79</td><td>2,247</td><td>$60.43</td><td>112</td><td>4.98%</td><td>$1.21</td><td>36.5</td><td>32.59%</td><td>$3.72</td><td>2.0</td><td>1.79%</td><td>$67.90</td></tr>
+<tr><td>7/21 周二</td><td>$155.66</td><td>2,453</td><td>$63.46</td><td>155</td><td>6.32%</td><td>$1.00</td><td>42.5</td><td>27.42%</td><td>$3.66</td><td style="color:#d93025;font-weight:600">1.0</td><td>0.65%</td><td>$155.66</td></tr>
+<tr style="background:#fff6f5"><td>7/22 周三</td><td>$189.07</td><td>2,275</td><td>$83.11</td><td>153</td><td>6.73%</td><td>$1.24</td><td style="color:#d93025;font-weight:600">28.0</td><td>18.30%</td><td>$6.75</td><td style="color:#d93025;font-weight:600">1.0</td><td>0.65%</td><td>$189.07</td></tr>
+<tr><td>7/23 周四</td><td>$216.02</td><td>2,618</td><td>$82.52</td><td>161</td><td>6.15%</td><td>$1.34</td><td>45.0</td><td>27.95%</td><td>$4.80</td><td style="color:#d93025;font-weight:600">1.0</td><td>0.63%</td><td>$214.17</td></tr>
+<tr><td>7/24 周五</td><td>$147.64</td><td>2,683</td><td>$55.03</td><td>145</td><td>5.40%</td><td>$1.02</td><td>39.0</td><td>26.90%</td><td>$3.79</td><td style="color:#d93025;font-weight:600">1.0</td><td>0.68%</td><td>$148.93</td></tr>
+<tr><td>7/25 周六</td><td>$160.41</td><td>3,271</td><td>$49.04</td><td>174</td><td>5.32%</td><td>$0.92</td><td>42.0</td><td>24.14%</td><td>$3.82</td><td>2.0</td><td>1.15%</td><td>$80.20</td></tr>
+<tr style="background:#f5fcf7"><td>7/26 周日</td><td>$177.82</td><td>4,562</td><td>$38.98</td><td>170</td><td>3.73%</td><td>$1.05</td><td>40.0</td><td>23.53%</td><td>$4.45</td><td style="color:#0d904f;font-weight:600">3.0</td><td>1.76%</td><td>$59.27</td></tr>
+</table>
+
+<div class="co cw">
+<strong>每日表关键信号：</strong><br>
+• 🔴 <strong>7.21-7.24连续四天，每天购买都只有1单</strong>，是全周的低谷期，跟「二、购买骤降排查」定位的异常窗口完全吻合<br>
+• 🟢 <strong>7.25、7.26购买回升到2、3单</strong>，7.26(周日)是全周单日最高，购买成本也降到$59.27，是全周除周一外表现最好的一天<br>
+• 7.22当天注册(28.0)、购买(1.0)、购买成本($189.07)三项同时是全周最差，是本周最反常的一天，跟前面的调查结论一致<br>
+• 展示量7.26(4562)明显高于其他几天，但CTR反而降到3.73%(全周最低)，可能是自然流量占比上升稀释了CTR，绝对点击量(170)没有减少</div>
+
+</div></div>
+
+<!-- ============ 四、Purchase 系列 ============ -->
+<div class="sec" id="sec4">
+<h2>🛒 五、Purchase 系列：三条系列同步走弱，周末已现回暖 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="kpi-grid">
+  <div class="kpi-card bad"><div class="ico">📊</div><div class="v">11.0</div><div class="l">总 Purchase(All Conv)</div><div class="c down">↓ 54.2%</div></div>
+  <div class="kpi-card bad"><div class="ico">💸</div><div class="v">$107.49</div><div class="l">购买成本(混合)</div><div class="c down">↑ 83.3%</div></div>
+  <div class="kpi-card good"><div class="ico">📅</div><div class="v">7 / 7 天</div><div class="l">有购买的天数(全周无空档)</div><div class="c up">数据完整</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-wrap">
+    <div class="chart-title">📅 本周每日 Purchase(全账户)</div>
+    <div class="chart-sub">7.21-7.24连续四天单日1单，7.25起回暖</div>
+    <canvas id="purDailyChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 三条购买系列近 6 周走势</div>
+    <div class="chart-sub">本周三条系列同步下滑，此前几周相对分化的走势本周罕见地一致</div>
+    <canvas id="purCampTrendChart"></canvas>
+  </div>
+</div>
+
+<div class="co cr">
+<strong>Purchase 本周拆解：</strong><br>
+🔴 <strong>总量 11.0 vs 上周 24.0，-54.2%</strong>，是有观察记录以来最差的一周，七天全部有真实入账，不是数据缺口<br>
+🔴 <strong>老 Pur US 2 单(-60%)/ 单系列 CPA $115.55</strong>：预算自动收缩38.8%，购买仍腰斩<br>
+🔴 <strong>ISP Pur 4 单(-42.9%)/ 单系列 CPA $61.56</strong>：三条系列里跌幅相对最小，但仍明显走弱，此前“连续两周精准卡线7单”的稳定纪录本周被打破<br>
+🔴 <strong>CN Pur 2 单(-60%)/ 单系列 CPA $73.46</strong>：花费持平，购买同步腰斩<br>
+🟢 <strong>但7.25、7.26两天已经回暖(2单、3单)</strong>，好于周中(7.21-7.24)连续四天的单日1单，方向是往好走的</div>
+
+<h3>本周 Purchase 按 Campaign 拆分</h3>
+<table>
+<tr><th>Campaign</th><th>花费</th><th>Pur(All Conv)</th><th>上周</th><th>单系列 CPA</th><th>说明</th></tr>
+<tr style="background:#fff6f5"><td><strong>dynamic_purchase_US_260116</strong>(老 Pur US)</td><td>$231.10</td><td><strong>2.0</strong></td><td>5</td><td>$115.55</td><td><span class="tag tr">🔴 跌幅最大，CPA翻倍还多</span></td></tr>
+<tr style="background:#fff8ec"><td><strong>isp_purchase_ALL_cn_260602</strong>(ISP Pur)</td><td>$246.23</td><td><strong>4.0</strong></td><td>7</td><td>$61.56</td><td><span class="tag tr">🔴 稳定纪录被打破，但相对最抗跌</span></td></tr>
+<tr style="background:#fff6f5"><td><strong>dynamic_purchase_ALL_cn_260509</strong>(CN Pur)</td><td>$146.92</td><td><strong>2.0</strong></td><td>5</td><td>$73.46</td><td><span class="tag tr">🔴 同步腰斩</span></td></tr>
+<tr><td><strong>dyn+isp_register_ALL_cn_260413</strong>(CN Reg 附带)</td><td>$302.95</td><td>2.0</td><td>5</td><td>—</td><td><span class="tag ty">⚪ 附带购买减少</span></td></tr>
+<tr><td><strong>dynamic_register_US_251011</strong>(Reg US 附带)</td><td>$241.70</td><td>1.0</td><td>2</td><td>—</td><td><span class="tag ty">⚪ 附带购买减少</span></td></tr>
+</table>
+
+<div class="insight" style="background:#fce8e6;border-color:#f5b5b0">
+<div class="insight-title" style="color:#c5221f">🔴 判定：三条购买系列首次出现“全部同步下滑”，且已定位到共同的触发点</div>
+<p>过去几周，三条购买系列的表现经常是分化的(有的涨有的跌)，本周罕见地<strong>全部同步下滑</strong>，这个“一致性”本身就是重要线索——指向一个三条系列共同受影响的因素，而不是各自独立的偶发波动。结合「二、购买骤降排查」的结论，这个共同因素大概率就是三条系列都在售卖的<strong>“Static Residential - 1 IPs”产品，在google-UTM来源的转化链路上出现的具体问题</strong>。<br><br>
+<strong>好消息是范围已经收窄到可以直接验证的程度：</strong>不需要怀疑账户整体健康度，只需要实测这一条产品链路的落地页和结账流程，找到具体卡点。这比上一份报告“归因延迟+样本噪音”的模糊判断要明确得多，下周有清晰的验证动作可以执行。</p>
+</div>
+
+</div></div>
+
+<!-- ============ Track B 上线进展 ============ -->
+<div class="sec" id="sec_trackb">
+<h2>🆕 六、Track B（展示再营销）上线进展 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout gr">
+<strong>📌 本周完成从0到1：Track B从系列搭建到正式投放，2天内全部完成。</strong>系列名「再营销_All_Visitors_EN_260724」，2026.7.24正式上线，是本周除购买排查外最大的正向进展。<strong>3条创意里先上了2条(Free-Trial、Alternative)，折扣类考虑到账户风险(去年投PMAX后账户曾被封、展示网络本身政策风险也偏高)谨慎起见暂缓了一天</strong>，预计今天(7.27)补齐上线。
+</div>
+
+<h3>系列结构</h3>
+<table>
+<tr><th>配置项</th><th>设置</th></tr>
+<tr><td>系列类型</td><td>Display(展示网络)</td></tr>
+<tr><td>受众定向</td><td>All visitors (AdWords)(system-defined)，单一受众信号，未叠加人群特征/关键字/主题/展示位置</td></tr>
+<tr><td>优化型定位</td><td>关闭，保持受众信号纯净</td></tr>
+<tr><td>语言</td><td>仅英语(素材为全英文)</td></tr>
+<tr><td>地区</td><td>通投，不做地域限制</td></tr>
+<tr><td>广告组结构</td><td>1个广告组，3条自适应展示广告(按创意角度分广告，不按受众分广告组)</td></tr>
+<tr><td>广告格式选项</td><td>关闭自动美化素材、关闭自动生成视频，保留原生广告格式；CTA文字与自定义颜色均手动指定，允许发布商覆盖颜色的场景下继续投放</td></tr>
+</table>
+
+<h3>3条广告的创意方向</h3>
+<table>
+<tr><th>类型</th><th>核心卖点</th><th>CTA</th><th>本周上线状态</th></tr>
+<tr><td>Free-Trial类</td><td>免费试用引导注册(100MB免费流量)</td><td>Get 100MB Free / Start With 100MB Free</td><td><span class="tag tg">已上线(7.24)</span></td></tr>
+<tr><td>Alternative类</td><td>从其他代理商切换过来(强调80M+ IP、195地区的规模优势)</td><td>Start Switching / Make the Switch</td><td><span class="tag tg">已上线(7.24)</span></td></tr>
+<tr><td>折扣类</td><td>15% Off(8.5折)专属折扣，纯意象素材+简短文案</td><td>Claim 15% Off</td><td><span class="tag to">暂缓，预计7.27上线</span></td></tr>
+</table>
+<div class="co ci">
+<strong>折扣类暂缓是谨慎的判断，不是问题：</strong>主要顾虑不是折扣码操作层面的问题，而是账户层面的风险控制——去年投PMAX广告后账户曾被封过，展示网络本身的政策风险也偏高，所以周五发布时选择先上Free-Trial和Alternative这两条相对稳妥的创意，折扣类涉及优惠码这种更容易被判定为违规的元素，多观察几天确认账户状态和素材都没问题再上，预计今天(7.27)可以补齐。目前「目前投放数据」里的展示/点击都只来自这2条广告，不含折扣类。</div>
+
+<h3>目前投放数据(7.24上线，数据仍在早期爬坡)</h3>
+<table>
+<tr><th>日期</th><th>展示</th><th>点击</th><th>花费</th></tr>
+<tr><td>7/24(上线首日)</td><td>—</td><td>—</td><td>数据尚未产生(当天下午晚些时候才建成)</td></tr>
+<tr><td>7/25</td><td>843</td><td>15</td><td>$2.47</td></tr>
+<tr><td>7/26</td><td>2,052</td><td>26</td><td>$11.05</td></tr>
+</table>
+<div class="co ci">
+<strong>目前还处于投放早期，量级正常爬坡(展示量7.25→7.26涨了1.4倍)，暂无转化数据，样本太小不具备参考意义。</strong>下周会有更完整的一周数据，届时可以开始评估这批“All visitors”受众信号的实际效果，这也是轨道B验证测试的第一份真实读数来源。</div>
+
+</div></div>
+
+<!-- ============ 五、设备与时段 ============ -->
+<div class="sec" id="sec5">
+<h2>📱 七、设备与时段 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(this,'tab-device')">📱 设备分布</button>
+  <button class="tab-btn" onclick="switchTab(this,'tab-hour')">🕐 时段分析</button>
+</div>
+
+<div id="tab-device" class="tab-panel active">
+  <table>
+  <tr><th>设备</th><th>Campaign</th><th>花费</th><th>转化</th><th>CPA</th><th>判断</th></tr>
+  <tr><td>📱 Mobile</td><td>Reg CN</td><td>$266.11</td><td>101.7</td><td>$2.62</td><td><span class="tag tg">最大量引擎，效率健康</span></td></tr>
+  <tr><td>📱 Mobile</td><td>Reg US</td><td>$200.12</td><td>40.3</td><td>$4.97</td><td><span class="tag ty">注册主力</span></td></tr>
+  <tr style="background:#fff8ec"><td>🖥️ Desktop</td><td>ISP Pur</td><td>$155.68</td><td><strong>4.0</strong></td><td>$38.92</td><td><span class="tag to">ISP Pur购买全部来自Desktop，Mobile本周挂零</span></td></tr>
+  <tr style="background:#fff6f5"><td>🖥️ Desktop</td><td>老 Pur US</td><td>$139.76</td><td><strong>0.0</strong></td><td>—</td><td><span class="tag tr">老 Pur US的Desktop购买本周挂零</span></td></tr>
+  <tr style="background:#fff6f5"><td>🖥️ Desktop</td><td>CN Pur</td><td>$94.13</td><td><strong>2.0</strong></td><td>$47.07</td><td><span class="tag ty">CN Pur购买仍集中在Desktop</span></td></tr>
+  <tr style="background:#fff6f5"><td>📱 Mobile</td><td>老 Pur US</td><td>$91.34</td><td><strong>2.0</strong></td><td>$45.67</td><td><span class="tag ty">老Pur US购买改由Mobile贡献</span></td></tr>
+  <tr style="background:#fff8ec"><td>📱 Mobile</td><td>ISP Pur</td><td>$87.44</td><td><strong>0.0</strong></td><td>—</td><td><span class="tag tr">ISP Pur的Mobile购买本周挂零</span></td></tr>
+  <tr><td>📱 Mobile</td><td>CN Pur</td><td>$49.47</td><td><strong>0.0</strong></td><td>—</td><td><span class="tag tr">CN Pur的Mobile购买本周挂零</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Reg US</td><td>$35.58</td><td>8.0</td><td>$4.45</td><td><span class="tag tg">效率不错</span></td></tr>
+  <tr><td>🖥️ Desktop</td><td>Reg CN</td><td>$30.51</td><td>10.0</td><td>$3.05</td><td><span class="tag tg">健康</span></td></tr>
+  </table>
+  <div class="insight" style="background:#fce8e6;border-color:#f5b5b0">
+  <div class="insight-title" style="color:#c5221f">💡 设备端：购买端出现多处“挂零”，比单纯的数字下滑更值得关注</div>
+  <p><strong>老 Pur US 的Desktop购买、ISP Pur 的Mobile购买、CN Pur 的Mobile购买，本周都是0单</strong>，上周这几个设备+系列的组合都是有产出的。这种“某个设备端购买完全消失”的模式，跟「二、购买骤降排查」里“落地页链路问题”的判断是吻合的——如果确实是某个带追踪参数的落地页出故障，不同设备受影响的表现本来就可能不均匀，这条也建议在下周实测落地页时一并在Desktop和Mobile两端分别测试。</p>
+  </div>
+</div>
+
+<div id="tab-hour" class="tab-panel">
+  <div class="chart-wrap">
+    <div class="chart-title">🕐 24 小时 CPA 走势</div>
+    <div class="chart-sub">绿色 = 高效区(CPA &lt; $5) / 橙色 = 中等 / 红色 = 低效区(CPA &gt; $10)</div>
+    <canvas id="hourChart"></canvas>
+  </div>
+  <h3>🟢 本周最高效时段</h3>
+  <table><tr><th>时段</th><th>CPA</th><th>说明</th></tr>
+  <tr><td>8:00 🌟</td><td style="color:#0d904f;font-weight:600">$2.82</td><td>全周最高效</td></tr>
+  <tr><td>16:00 / 18:00 / 4:00 / 13:00</td><td>$2.60 / $2.96 / $3.35 / $3.27</td><td>多个高效点集中在午后和傍晚</td></tr>
+  </table>
+  <h3>🟡 本周偏高时段</h3>
+  <table><tr><th>时段</th><th>CPA</th><th>对比</th></tr>
+  <tr><td>0:00</td><td style="color:#e8710a;font-weight:600">$8.03</td><td>全周较高，样本小</td></tr>
+  <tr><td>7:00 / 12:00 / 9:00 / 20:00</td><td style="color:#e8710a;font-weight:600">$7.53 / $6.12 / $6.06 / $5.83</td><td>均在$5-8区间，但都没超过$10</td></tr>
+  </table>
+  <div class="co cs">
+  <strong>🟢 本周24个时段全部控制在$10以内，是近几周里时段效率最平稳的一周</strong>，没有出现此前报告里$14-22的极端低效时段。这跟本周整体花费收缩、Smart Bidding主动收紧投放有关，时段结构本身没有问题，晚上时段依旧维持高效，可以继续沿用现有节奏。</div>
+</div>
+
+</div></div>
+
+<!-- ============ 六、下周观察 ============ -->
+<div class="sec" id="sec6">
+<h2>🎯 八、下周观察项 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="callout wn">
+<strong>📌 下周主线：验证并修复“Static Residential - 1 IPs + google-UTM”这条具体链路，同时继续跟进Track B投放数据积累。</strong>本周的问题排查已经收窄到可执行的程度，下周的核心任务是把这个具体问题验证清楚并推动修复，而不是继续大范围排查。
+</div>
+
+<div class="action-item bad">
+  <div class="head"><span class="priority-tag p1">P1</span> 🔴 实测“Static Residential - 1 IPs”广告的落地页链路</div>
+  <p>现在已经有明确的URL可以直接测：<code>ipoasis.com/zh/proxy/static-residential</code>(ISP Pur刚改回来的产品页)。直接点击对应广告(或复制这个最终到达网址)，分别在Desktop和Mobile两端走一遍从落地页到下单支付的完整流程，确认具体卡在哪一步(价格加载、追踪参数报错、优惠码校验等)，找到后尽快推动修复。这是本周排查的直接后续，也是当前最高优先级事项。</p>
+</div>
+
+<div class="action-item warn">
+  <div class="head"><span class="priority-tag p1">P1</span> 🟡 7.27-7.28左右回头核对本周(7.20-7.26)的回补终值</div>
+  <p>参考此前几周的归因延迟规律，回头核对这段窗口的最终数字，确认11.0单是否会随时间上修，避免把“暂未回补的低读数”误判成“问题比实际更严重”。</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p2">P2</span> ✅ Track B 继续跑量，积累完整一周数据</div>
+  <p>目前只有2天数据，样本太小。下周可以看到接近完整一周的投放表现，届时评估All visitors这个受众信号的实际转化效果，判断是否需要调整素材权重或预算。</p>
+</div>
+
+<div class="action-item ok">
+  <div class="head"><span class="priority-tag p2">P2</span> ✅ 老客复购再营销(轨道D)、账户消耗门槛跟踪继续推进</div>
+  <p>Customer Match名单和账户消耗门槛(距$50,000还差一段距离)的跟踪不受本周问题影响，正常按节奏推进。</p>
+</div>
+
+</div></div>
+
+</div>
+
+<script>
+function switchTab(btn, id) {
+  const bar = btn.parentElement;
+  bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const panels = bar.parentElement.querySelectorAll('.tab-panel');
+  panels.forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+document.querySelectorAll('.sec h2').forEach(h => {
+  h.addEventListener('click', () => h.parentElement.classList.toggle('collapsed'));
+});
+
+new Chart(document.getElementById('trendChart'), {
+  type: 'line',
+  data: {
+    labels: ['6.22-6.28','6.29-7.5','7.6-7.12','7.13-7.19','7.20-7.26'],
+    datasets: [
+      {label:'Register', data:[269,274,291,295.8,273], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,.08)', fill:true, tension:.3, yAxisID:'y'},
+      {label:'Purchase', data:[14,17.6,30,24,11], borderColor:'#e8710a', backgroundColor:'rgba(232,113,10,.1)', fill:true, tension:.3, yAxisID:'y1'}
+    ]
+  },
+  options: {responsive:true, scales:{y:{position:'left',title:{display:true,text:'Register'}}, y1:{position:'right',title:{display:true,text:'Purchase'},grid:{drawOnChartArea:false}}}}
+});
+
+new Chart(document.getElementById('monthlyChart'), {
+  type: 'bar',
+  data: {
+    labels:['2月','3月','4月','5月','6月','7月(MTD)'],
+    datasets:[{label:'Purchase', data:[15,25,32,45,80.6,83], backgroundColor:'#1a73e8'}]
+  },
+  options:{responsive:true, plugins:{legend:{display:false}}}
+});
+
+new Chart(document.getElementById('campCostChart'), {
+  type:'bar',
+  data:{
+    labels:['Reg CN','老 Pur US','ISP Pur','Reg US','CN Pur'],
+    datasets:[
+      {label:'本周', data:[302.95,231.10,246.23,241.70,146.92], backgroundColor:'#1a73e8'},
+      {label:'上周', data:[321.62,377.67,311.81,256.42,140.09], backgroundColor:'#dadce0'}
+    ]
+  },
+  options:{responsive:true}
+});
+
+new Chart(document.getElementById('campPurChart'), {
+  type:'bar',
+  data:{
+    labels:['老 Pur US','ISP Pur','CN Pur'],
+    datasets:[
+      {label:'本周', data:[2,4,2], backgroundColor:'#d93025'},
+      {label:'上周', data:[5,7,5], backgroundColor:'#dadce0'}
+    ]
+  },
+  options:{responsive:true}
+});
+
+new Chart(document.getElementById('regDailyChart'), {
+  type:'line',
+  data:{
+    labels:['7/20','7/21','7/22','7/23','7/24','7/25','7/26'],
+    datasets:[{label:'Register', data:[36.5,42.5,28,45,39,42,40], borderColor:'#0d904f', backgroundColor:'rgba(13,144,79,.1)', fill:true, tension:.3}]
+  },
+  options:{responsive:true}
+});
+
+new Chart(document.getElementById('purDailyChart'), {
+  type:'bar',
+  data:{
+    labels:['7/20','7/21','7/22','7/23','7/24','7/25','7/26'],
+    datasets:[{label:'Purchase', data:[2,1,1,1,1,2,3], backgroundColor:function(ctx){const v=ctx.raw; return v<=1?'#d93025':'#e8710a';}}]
+  },
+  options:{responsive:true, plugins:{legend:{display:false}}}
+});
+
+new Chart(document.getElementById('purCampTrendChart'), {
+  type:'line',
+  data:{
+    labels:['6.22-6.28','6.29-7.5','7.6-7.12','7.13-7.19','7.20-7.26'],
+    datasets:[
+      {label:'老 Pur US', data:[2.6,12,12,5,2], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,.08)', fill:false, tension:.3},
+      {label:'ISP Pur', data:[8,5,7,7,4], borderColor:'#0d904f', backgroundColor:'rgba(13,144,79,.08)', fill:false, tension:.3},
+      {label:'CN Pur', data:[0,7,7,5,2], borderColor:'#e8710a', backgroundColor:'rgba(232,113,10,.08)', fill:false, tension:.3}
+    ]
+  },
+  options:{responsive:true}
+});
+
+new Chart(document.getElementById('hourChart'), {
+  type:'bar',
+  data:{
+    labels:['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+    datasets:[{label:'CPA', data:[8.03,5.55,4.25,4.87,3.35,4.41,4.44,7.53,2.82,6.06,4.80,4.27,6.12,3.27,4.42,3.92,2.60,3.57,2.96,3.40,5.83,4.06,2.84,4.83],
+      backgroundColor: function(ctx){const v=ctx.raw; return v<5?'#0d904f':(v<10?'#e8710a':'#d93025');}}]
+  },
+  options:{responsive:true, plugins:{legend:{display:false}}}
+});
+</script>
+</body></html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPOasis Google Ads 月度报告 2026年9月</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#1a73e8;--g:#0d904f;--r:#d93025;--o:#e8710a;--bg:#f8f9fa;--card:#fff;--bd:#dadce0;--t1:#202124;--t2:#5f6368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t1);line-height:1.75;padding:32px 16px;font-size:14px}
+.ctn{max-width:980px;margin:0 auto}
+.hdr{text-align:center;padding:36px 24px;background:linear-gradient(135deg,#1a73e8,#5b9bf0);color:#fff;border-radius:16px;margin-bottom:28px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%)}
+.hdr h1{font-size:24px;margin-bottom:4px;font-weight:700;position:relative}
+.hdr .sub{font-size:13px;opacity:.9;position:relative}
+.sec{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:18px;border:1px solid var(--bd);transition:all .2s}
+.sec:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.sec h2{font-size:18px;color:var(--p);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.sec h2 .toggle{font-size:14px;color:var(--t2);transition:transform .3s}
+.sec.collapsed .body{display:none}
+.sec.collapsed h2 .toggle{transform:rotate(-90deg)}
+.sec h3{font-size:14px;color:var(--t1);margin:20px 0 10px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12px}
+th{background:#f1f3f4;color:var(--t2);padding:8px;text-align:left;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--bd)}
+td{padding:7px 8px;border-bottom:1px solid #f0f0f0;color:var(--t2)}
+tr:hover td{background:#f8f9fa}
+.up{color:var(--g);font-weight:600}.down{color:var(--r);font-weight:600}.flat{color:var(--t2);font-weight:600}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.3px}
+.tg{background:#e6f4ea;color:#137333}.tr{background:#fce8e6;color:#c5221f}.tb{background:#e8f0fe;color:#1967d2}.to{background:#fef3e6;color:#c5600a}.ty{background:#f1f3f4;color:#5f6368}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.kpi-card{background:linear-gradient(135deg,#f8f9fa,#fff);padding:18px;border-radius:10px;border:1px solid var(--bd);text-align:center;transition:all .25s;cursor:default}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:var(--p)}
+.kpi-card .ico{font-size:20px;margin-bottom:6px}
+.kpi-card .v{font-size:22px;font-weight:700;color:var(--t1);line-height:1.2}
+.kpi-card .l{font-size:11px;color:var(--t2);margin-top:4px}
+.kpi-card .c{font-size:11px;margin-top:6px;padding:2px 8px;border-radius:10px;display:inline-block}
+.kpi-card .c.up{background:#e6f4ea;color:#137333}
+.kpi-card .c.down{background:#fce8e6;color:#c5221f}
+.kpi-card .c.flat{background:#f1f3f4;color:#5f6368}
+.kpi-card.warn{border-color:#fde9c8;background:linear-gradient(135deg,#fffaf0,#fff)}
+.kpi-card.warn .v{color:var(--o)}
+.kpi-card.bad{border-color:#fce8e6;background:linear-gradient(135deg,#fff7f6,#fff)}
+.kpi-card.bad .v{color:var(--r)}
+.kpi-card.good{border-color:#e6f4ea;background:linear-gradient(135deg,#f5fcf7,#fff)}
+.kpi-card.good .v{color:var(--g)}
+.co{padding:14px 20px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.85}
+.ci{background:#e8f4fd;border-left:4px solid var(--p)}
+.cw{background:#fff4e5;border-left:4px solid var(--o)}
+.cs{background:#e6f4ea;border-left:4px solid var(--g)}
+.cr{background:#fce8e6;border-left:4px solid var(--r)}
+p{font-size:13px;color:var(--t2);margin-bottom:10px;line-height:1.85}
+strong{color:var(--t1)} em{font-style:normal;color:var(--p);font-weight:600}
+code{background:#f1f3f4;padding:1px 5px;border-radius:3px;font-size:12px;color:#c5221f}
+.verdict{font-size:14px;font-weight:700;color:var(--t1);margin:10px 0;padding:14px;background:#fff4e5;border-radius:8px;border-left:4px solid var(--o)}
+.verdict ul{margin:10px 0 0 20px;font-weight:400}
+.verdict li{margin-bottom:6px}
+.chart-wrap{margin:16px 0;background:#fff;padding:18px;border-radius:10px;border:1px solid var(--bd);position:relative}
+.chart-wrap canvas{max-height:300px}
+.chart-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.chart-sub{font-size:11px;color:var(--t2);margin-bottom:8px}
+.action-item{background:#fff;border-radius:10px;padding:16px 18px;margin:10px 0;border-left:4px solid var(--p);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.action-item.warn{border-left-color:var(--o);background:linear-gradient(90deg,#fff8eb 0%,#fff 100%)}
+.action-item.bad{border-left-color:var(--r);background:linear-gradient(90deg,#fff6f5 0%,#fff 100%)}
+.action-item.ok{border-left-color:var(--g);background:linear-gradient(90deg,#f5fcf7 0%,#fff 100%)}
+.action-item .head{font-weight:700;color:var(--t1);font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.priority-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.priority-tag.p1{background:#e8710a;color:#fff}
+.priority-tag.p2{background:#1a73e8;color:#fff}
+.priority-tag.p3{background:#5f6368;color:#fff}
+.nav{position:fixed;top:20px;right:20px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.1);font-size:11px;z-index:100;max-width:160px}
+.nav a{display:block;color:var(--t2);text-decoration:none;padding:4px 0;border-radius:4px;padding-left:8px;transition:all .15s}
+.nav a:hover{color:var(--p);background:#e8f0fe}
+.nav a.active{color:var(--p);background:#e8f0fe;font-weight:700;border-left:3px solid var(--p);padding-left:5px}
+.callout{background:#e8f0fe;border:1px solid #aecbfa;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:12px;color:#185abc}
+.callout strong{color:#0b3a8a}
+.callout.gr{background:#e6f4ea;border-color:#a8d5b5;color:#137333}
+.callout.gr strong{color:#0b5a2a}
+.callout.wn{background:#fff4e5;border-color:#f6d19a;color:#a5560a}
+.callout.wn strong{color:#7a3e00}
+.chip{display:inline-block;padding:1px 6px;border-radius:8px;font-size:10px;font-weight:700;margin-left:5px;vertical-align:1px}
+.chip-good{background:#e6f4ea;color:#137333}
+.chip-bad{background:#fce8e6;color:#c5221f}
+.chip-flat{background:#f1f3f4;color:#5f6368}
+@media (max-width:780px){.nav{display:none}}
+@media print{body{padding:0;background:#fff}.sec{break-inside:avoid;page-break-inside:avoid}.nav{display:none}}
+</style></head><body>
+
+<div class="nav">
+  <div style="font-weight:700;color:var(--t1);margin-bottom:6px;font-size:12px">目录</div>
+  <a href="#sec0">核心结论</a>
+  <a href="#sec1">月度总览</a>
+  <a href="#sec2">周度走势</a>
+  <a href="#sec3">Register</a>
+  <a href="#sec4">Purchase</a>
+  <a href="#sec5">专题：购买缺口拆解</a>
+  <a href="#sec6">品牌词与搜索词</a>
+  <a href="#sec7">设备与时段</a>
+  <a href="#sec8">市场竞价</a>
+  <a href="#sec9">10 月行动计划</a>
+  <a href="#sec10">附录：口径与操作记录</a>
+</div>
+
+<div class="ctn">
+<div class="hdr">
+  <h1>📊 IPOasis Google Ads 月度分析报告</h1>
+  <div class="sub">2026-09-01 ~ 2026-09-30 &nbsp;|&nbsp; 对比 2026-08-01 ~ 2026-08-31 &nbsp;|&nbsp; 附 10.1-10.4 开局参考</div>
+</div>
+
+<!-- ============ 核心结论 ============ -->
+<div class="sec" id="sec0">
+<h2>🎯 核心结论 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="verdict">
+<div style="color:#8a8f98;font-size:12px;margin-bottom:6px">标记含义：🟠 问题 · 🟢 亮点 · 🟡 待验证</div>
+🟠 <strong>9 月一句话：多花了 21% 的钱，买回的单反而少 24%，购买成本从 $51 一路涨到 $81；好消息是 10 月前 4 天已经回落到 $56。这个月是「竞价涨价」和「自家转化走弱」的双杀，不是单方面的问题。</strong>
+<ul>
+<li>🟠 <strong>为什么贵：</strong>竞价涨价和转化走弱同时发生。CPM +43.4% 而点击量基本没变，纯粹是曝光进货价涨了；同时注册率、购买率双双下滑，两边各贡献了一半毛病</li>
+<li>🟠 <strong>最大的单一缺口是 Mobile：</strong>购买 58.0→21.1(−64%)，「有流量不出单」；Desktop 反而微涨。拆因见第五节专题</li>
+<li>🟢 <strong>结构里有钱花对了地方：</strong>9.2 上新的英文系列首月购买成本 $63.18，好于大盘 $81；高意图词约 $251 换 11 单（约 $22.8/单）；品牌词 8 单 CPA $51.5。反面对照的泛词黑洞（residential proxy $201.41 换 0 单）在第六节</li>
+<li>🟡 <strong>10 月开局回到 $55.77，先别急着乐观：</strong>10.1-10.4 只有 4 天样本，其中 11 单还集中在 10.2 一天，要等 10.5-10.11 验证周确认</li>
+</ul>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="ico">💰</div><div class="v">$7,309.57</div><div class="l">总消耗</div><div class="c down">↑ 20.7%</div></div>
+  <div class="kpi-card"><div class="ico">👁️</div><div class="v">89,812</div><div class="l">展示</div><div class="c flat">↓ 15.9%</div></div>
+  <div class="kpi-card bad"><div class="ico">📡</div><div class="v">$81.39</div><div class="l">CPM</div><div class="c down">↑ 43.4%</div></div>
+  <div class="kpi-card"><div class="ico">🖱️</div><div class="v">4,210</div><div class="l">点击</div><div class="c flat">↑ 0.9%</div></div>
+  <div class="kpi-card warn"><div class="ico">✅</div><div class="v">826.2</div><div class="l">注册(All Conv)</div><div class="c down">↓ 12.2%</div></div>
+  <div class="kpi-card warn"><div class="ico">💵</div><div class="v">$8.85</div><div class="l">注册成本（混合）</div><div class="c down">↑ 37.4%</div></div>
+  <div class="kpi-card bad"><div class="ico">🛒</div><div class="v">90.1</div><div class="l">购买（仅 conversion_purchase）</div><div class="c down">↓ 23.8%</div></div>
+  <div class="kpi-card bad"><div class="ico">💸</div><div class="v">$81.12</div><div class="l">购买成本（混合）</div><div class="c down">↑ 58.3%</div></div>
+</div>
+
+<h3>📈 月度趋势（6月 - 10.4）</h3>
+<div class="chart-wrap">
+  <div class="chart-title">📊 消耗四个月连涨、购买 9 月掉头向下；10 月前 4 天购买成本回到 $56</div>
+  <div class="chart-sub">10.1-10.4 仅 4 天（浅色柱），仅供方向参考；9 月数值为 10.8 读数，仍可能小幅回补</div>
+  <canvas id="trendChart"></canvas>
+</div>
+
+<div class="co cs">
+<strong>10 月开局先记一笔：</strong>10.1-10.4 购买 15.9 单、购买成本 $55.77、CPM $67.98（低于 9 月的 $81.39）。如果验证周守住，9 月的恶化更可能是「月度波动 + 竞价脉冲」而非趋势性衰退；如果验证周掉回去，就要按第五节的 Mobile 拆因往下走。
+</div>
+
+</div></div>
+
+<!-- ============ 一、月度总览 ============ -->
+<div class="sec" id="sec1">
+<h2>📋 一、月度总览：多花 $1,251，购买少 28.1 单 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>9 月 vs 8 月 大盘对比</h3>
+<table>
+<tr><th>时间</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>点击率</th><th>点击成本</th><th>注册</th><th>注册率</th><th>注册成本</th><th>购买</th><th>购买率</th><th>购买成本</th></tr>
+<tr><td>2026年9月</td><td>$7,309.57</td><td>89,812</td><td>$81.39</td><td>4,210</td><td>4.69%</td><td>$1.74</td><td>826.2</td><td>19.62%</td><td>$8.85</td><td>90.1</td><td>2.14%</td><td>$81.12</td></tr>
+<tr><td>2026年8月（回补后）</td><td>$6,058.21</td><td>106,773</td><td>$56.74</td><td>4,173</td><td>3.91%</td><td>$1.45</td><td>941.0</td><td>22.55%</td><td>$6.44</td><td>118.2</td><td>2.83%</td><td>$51.27</td></tr>
+<tr style="background:#f8f9fa"><td><strong>变化</strong></td><td class="down">↑20.7%</td><td class="flat">↓15.9%</td><td class="down">↑43.4%</td><td class="flat">↑0.9%</td><td class="up">↑0.78pp</td><td class="down">↑20.0%</td><td class="down">↓12.2%</td><td class="down">↓2.93pp</td><td class="down">↑37.4%</td><td class="down">↓23.8%</td><td class="down">↓0.69pp</td><td class="down">↑58.3%</td></tr>
+</table>
+
+<div class="co ci">
+<strong>📌 数据口径：</strong>①注册 = <code>IPOASIS (web) conversion_register</code> 的 All Conversions，购买 = <code>IPOASIS (web) conversion_purchase</code> 的 All Conversions，两者是账户仅有的两个购买/注册转化操作，不叠加 <code>IPOASIS (web) purchase</code>（前者子集，会重复计）；②9 月购买 90.1 为 10.8 读数（拉数当天 89.1，次日回补 +1.0），历史周/月仍会小幅回补；③8 月为回补后终值口径；④注册率/购买率 = 转化/点击。
+</div>
+
+<h3>逐月大盘(2026.6-10)</h3>
+<table>
+<tr><th>月份</th><th>消耗</th><th>展示</th><th>CPM</th><th>点击</th><th>注册</th><th>注册成本</th><th>购买</th><th>购买成本</th></tr>
+<tr><td>6月</td><td>$5,256.19</td><td>71,557</td><td>$73.45</td><td>3,953</td><td>1,115.0</td><td>$4.71</td><td>91.6</td><td>$57.41</td></tr>
+<tr><td>7月</td><td>$5,783.85</td><td>100,649</td><td>$57.47</td><td>4,622</td><td>1,281.0</td><td>$4.52</td><td>119.8</td><td>$48.27</td></tr>
+<tr><td>8月</td><td>$6,058.21</td><td>106,773</td><td>$56.74</td><td>4,173</td><td>941.0</td><td>$6.44</td><td>118.2</td><td>$51.27</td></tr>
+<tr style="background:#fff7f6"><td><strong>9月</strong></td><td><strong>$7,309.57</strong></td><td>89,812</td><td><strong>$81.39</strong></td><td>4,210</td><td>826.2</td><td>$8.85</td><td><strong>90.1</strong></td><td><strong>$81.12</strong></td></tr>
+<tr><td>10.1-10.4（参考）</td><td>$885.97</td><td>13,033</td><td>$67.98</td><td>577</td><td>108.8</td><td>$8.14</td><td>15.9</td><td>$55.77</td></tr>
+</table>
+
+<div class="co ci">
+<strong>这张表说明的事：</strong>消耗从 6 月起 $5,256→$5,784→$6,058→$7,309 四个月连涨，9 月涨幅陡增；CPM 在 6-8 月横在 $57-73 后 9 月跳到 $81。购买成本 $48→$51→$81，9 月是近四个月最差；注册成本 $4.5→$8.85 翻了近一倍。10 月前 4 天 CPM 回落到 $68、购买成本 $55.77，两头的压力都在缓解。
+</div>
+
+</div></div>
+
+<!-- ============ 二、周度走势 ============ -->
+<div class="sec" id="sec2">
+<h2>📅 二、周度走势：9.14 周脉冲 33 单，9.21 周塌到 14 单，10 月回暖 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<table>
+<tr><th>时间</th><th>消耗</th><th>CPM</th><th>点击</th><th>点击成本</th><th>点击率</th><th>注册</th><th>注册成本</th><th>购买</th><th>购买成本</th></tr>
+<tr><td>9.1-9.6（6天）</td><td>$1,512.66</td><td>$88.88</td><td>919</td><td>$1.65</td><td>5.40%</td><td>191.0</td><td>$7.92</td><td>16.5</td><td>$91.68</td></tr>
+<tr><td>9.7-9.13</td><td>$1,654.02</td><td>$76.04</td><td>986</td><td>$1.68</td><td>4.53%</td><td>192.0</td><td>$8.61</td><td>20.5</td><td>$80.68</td></tr>
+<tr style="background:#f5fcf7"><td>9.14-9.20</td><td>$1,778.86</td><td>$77.01</td><td>984</td><td>$1.81</td><td>4.26%</td><td>180.0</td><td>$9.88</td><td><strong>33.0</strong></td><td><strong>$53.90</strong></td></tr>
+<tr style="background:#fff7f6"><td>9.21-9.27</td><td>$1,763.93</td><td>$88.63</td><td>964</td><td>$1.83</td><td>4.84%</td><td>187.0</td><td>$9.43</td><td><strong>14.0</strong></td><td><strong>$126.00</strong></td></tr>
+<tr><td>9.28-9.30（3天）</td><td>$600.11</td><td>$74.66</td><td>357</td><td>$1.68</td><td>4.44%</td><td>76.2</td><td>$7.88</td><td>6.1</td><td>$98.18</td></tr>
+<tr style="background:#f5fcf7"><td>10.1-10.4（4天，参考）</td><td>$885.97</td><td>$67.98</td><td>577</td><td>$1.54</td><td>4.43%</td><td>108.8</td><td>$8.14</td><td><strong>15.9</strong></td><td><strong>$55.77</strong></td></tr>
+</table>
+
+<div class="chart-wrap">
+  <div class="chart-title">📊 购买的周节奏：脉冲 → 塌方 → 回暖</div>
+  <div class="chart-sub">深蓝=9.14-9.20 全月峰值（33 单）；红=9.21-9.30 塌方段（14+6.1 单）；绿=10.1-10.4 回暖（15.9 单，其中 11 单来自 10.2 一天）；浅蓝=常态周</div>
+  <canvas id="weekChart"></canvas>
+</div>
+
+<div class="co ci">
+<strong>节奏解读：</strong>①消耗每周稳定在 $1,500-1,780，9 月不存在「某周狂烧钱」；②注册五段全在 180-192 一线（9.28-9.30 折日均 25.4 还是全月最高），注册盘是稳的；③波动全部集中在购买：33→14 的塌方与 10 月的回暖都是购买端自己的事；④9.14-9.20 的 33 单被双周报确认为中文购买系列的脉冲（两周后 ISP Pur 11→7→3、CN Pur 12→2→3 的退潮已经坐实），9.21 周的 14 单才是真实水位。
+</div>
+
+</div></div>
+
+<!-- ============ 三、Register 系列 ============ -->
+<div class="sec" id="sec3">
+<h2>✅ 三、Register：缺口 90% 来自老系列，新 ATC 系列补位 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<p style="color:#8a8f98;font-size:12px;margin:0 0 8px">注：注册数按 conversion_register 的 all_conversions 口径统计，购买系列 isp_purchase 附带产生的注册（43.5 个）也计入本表，合计才能与后台总注册对齐。</p>
+<table>
+<tr><th>系列</th><th>9月消耗</th><th>环比</th><th>注册</th><th>环比</th><th>注册成本</th><th>展示份额</th><th>预算损失</th><th>备注</th></tr>
+<tr><td>dyn+isp_register_ALL_cn_260413</td><td>$1,369.68</td><td class="flat">持平</td><td>213.3</td><td class="down">350→213</td><td class="down">$6.42（8月$3.91）</td><td>13.3%（8月16.6%）</td><td>16.8%</td><td>注册主力，钱没少花单少 39%</td></tr>
+<tr><td>dynamic_register_US_251011_1209重启</td><td>$618.77</td><td class="up">↓41.6%</td><td>101.0</td><td class="down">196→101</td><td class="up">$6.13（8月$5.41）</td><td>10.0%</td><td>23.6%</td><td>$20 日预算打满（日均$20.6 vs 8月$34.2）</td></tr>
+<tr><td>ATC_US_en_260902（9.2 新）</td><td>$580.98</td><td class="tag tb">新增</td><td>123.0</td><td class="up">+123.0</td><td class="up">$4.72</td><td>13.3%</td><td>29.7%</td><td>全账户注册成本最低，本职加购</td></tr>
+<tr><td>isp_purchase_US_en_260902（9.2 新，附带）</td><td>$575.69</td><td class="tag tb">新增</td><td>43.5</td><td class="up">+43.5</td><td>$13.23</td><td>10.0%</td><td>22.7%</td><td>购买系列附带注册，成本偏高可接受</td></tr>
+</table>
+
+<div class="co ci">
+<strong>三个机制要分清：</strong>①<strong>ALL_cn 注册系列</strong>的恶化是「同样的钱、注册率掉了」：花费 $1,369.68 一分没变，注册 350→213，注册成本 $3.91→$6.42，同时展示份额 16.6%→13.3%（竞价里能拿到的曝光在缩）。它 CPC 只有 $0.88，是账户里最便宜的流量，问题出在流量到注册的转化环节；②<strong>Reg US</strong> 的下降是「预算机械变小」：日预算 $20，9 月日均花费 $20.6 贴顶跑满，8 月日均 $34.2，花费腰斩一半以上是预算口径变化，注册成本 $5.41→$6.13 只涨 13%，效率没坏；③<strong>新 ATC 系列</strong> $4.72 的注册成本是全账户最低，即便只看注册，这条系列也已经是账户性价比最高的注册来源之一。
+</div>
+
+</div></div>
+
+<!-- ============ 四、Purchase 系列 ============ -->
+<div class="sec" id="sec4">
+<h2>🛒 四、Purchase：三条主力全线「花更多买更少」，新英文系列是唯一增量 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<table>
+<tr><th>系列</th><th>9月消耗</th><th>环比</th><th>购买</th><th>购买成本</th><th>附带注册</th><th>点击成本</th><th>备注</th></tr>
+<tr style="background:#fff7f6"><td>dynamic_purchase_US_260116（老 Pur US）</td><td>$1,649.21</td><td class="down">↑21.3%</td><td>23.0（8月32）</td><td class="down">$71.70（8月$42.5）</td><td>57.5</td><td>$5.81</td><td>账户最贵流量，恶化最猛(+69%)</td></tr>
+<tr style="background:#fff7f6"><td>isp_purchase_ALL_cn_260602</td><td>$1,601.95</td><td class="down">↑31.7%</td><td>27.0（8月37.2）</td><td class="down">$59.33（8月$32.7）</td><td>144.7</td><td>$2.31</td><td>品牌词 7 单挂在这条系列</td></tr>
+<tr style="background:#fff7f6"><td>dynamic_purchase_ALL_cn_260509(CN Pur)</td><td>$913.30</td><td class="down">↑29.7%</td><td>20.0（8月28）</td><td class="down">$45.67（8月$25.2）</td><td>143.2</td><td>$1.83</td><td>三条里最便宜，但恶化幅度最大(+82%)</td></tr>
+<tr style="background:#f5fcf7"><td>isp_purchase_US_en_260902（9.2 新）</td><td>$575.69</td><td class="tag tb">新增</td><td>9.1</td><td class="up">$63.18</td><td>43.5</td><td>$3.60</td><td>首月即好于 9 月大盘($81.12)</td></tr>
+<tr><td>ATC_US_en_260902（9.2 新，附带）</td><td>$580.98</td><td class="tag tb">新增</td><td>4.0</td><td>$145.24</td><td>123.0</td><td>$1.11</td><td>本职加购，购买是副产品</td></tr>
+</table>
+
+<h3>购买端结构（90.1 单去向）</h3>
+<table>
+<tr><th>系列角色</th><th>购买</th><th>占比</th><th>消耗</th><th>说明</th></tr>
+<tr><td>三条主力购买系列</td><td>70.0</td><td>77.7%</td><td>$4,164.46</td><td>全部同比恶化 +69~82%</td></tr>
+<tr><td>英文新系列（9.2 上线）</td><td>13.1</td><td>14.5%</td><td>$1,156.67</td><td>9 月唯一的结构增量，占总消耗 15.8%</td></tr>
+<tr><td>注册系列附带购买</td><td>7.0</td><td>7.8%</td><td>$1,988.45</td><td>ALL_cn 注册 6 + Reg US 1，顺带的</td></tr>
+</table>
+
+<div class="co cr">
+<strong>主力三系列的共同画像：</strong>消耗 +21~32%、购买 −28~29%、CPA +69~82%。三条系列没有任何一条是「少花钱所以少出单」，全是「加钱买贵了」。叠加第五节的设备拆解，9 月购买端的问题是系统性的：竞价变贵 + Mobile 转化塌掉 + 泛词低效，三个因素叠在一起。10 月的验证周如果继续差，动作应该是「结构调整」（砍泛词、把预算让给高意图词和新系列）而不是「继续加钱」。
+</div>
+
+<div class="co cs">
+<strong>新系列的两个信号：</strong>①ISP Pur EN 首月 $63.18/单，已经跑进主力三系列的「8 月水位」区间，英文购买端是可以做出效率的；②ATC 系列 BIS（预算损失）29.7% 是全账户最高，$20 日预算明显不够它花，验证周后如果加购效率保持，它是第一条值得加预算的候选。
+</div>
+
+</div></div>
+
+<!-- ============ 五、专题：购买缺口拆解 ============ -->
+<div class="sec" id="sec5">
+<h2>🔬 五、专题：少掉的 28.1 单购买去哪了 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<p>8 月购买 118.2，9 月 90.1，缺口 28.1 单。按设备拆，缺口的来源非常集中：</p>
+
+<h3>设备维度的缺口</h3>
+<table>
+<tr><th>设备</th><th>8月购买</th><th>9月购买</th><th>增减</th><th>8月购买率</th><th>9月购买率</th><th>8月购买成本</th><th>9月购买成本</th></tr>
+<tr><td>Desktop</td><td>59.2</td><td><strong>68.0</strong></td><td class="up">+8.8</td><td>5.37%</td><td>4.96%</td><td>$42.01</td><td>$56.48</td></tr>
+<tr style="background:#fff7f6"><td>Mobile</td><td><strong>58.0</strong></td><td>21.1</td><td class="down">−36.9</td><td>1.95%</td><td class="down">0.76%</td><td>$60.15</td><td class="down">$160.27</td></tr>
+<tr><td>Tablet</td><td>1.0</td><td>1.0</td><td class="flat">持平</td><td>1.12%</td><td>1.27%</td><td>$83.54</td><td>$85.37</td></tr>
+<tr style="background:#f8f9fa"><td><strong>合计</strong></td><td><strong>118.2</strong></td><td><strong>90.1</strong></td><td class="down">−28.1</td><td>2.83%</td><td>2.14%</td><td>$51.27</td><td>$81.12</td></tr>
+</table>
+
+<div class="co ci">
+<strong>诊断：Mobile 不是「没流量」，是「有流量不出单」。</strong>Mobile 点击 2,982→2,761 只少 7.4%，CPC $1.17→$1.23 只贵 5%，但购买率 1.95%→0.76% 直接砍掉六成。对照 Desktop：点击 +24%(1,102→1,370)、花费 +55%($2,486→$3,840)、花费占比 41.0%→52.5%，转化率基本稳(5.37%→4.96%)，购买 +8.8 单，等于「加价买量、量还是能转」。两个设备走的是完全相反的路。
+</div>
+
+<h3>两种可能（本月数据还无法裁决）</h3>
+<table>
+<tr><th>假设</th><th>支持证据</th><th>反驳证据</th></tr>
+<tr><td>① 竞价涨价把 Mobile 上「顺手买」的低价转化挤出了</td><td>全账户 CPM +43.4%；Mobile 本身是低价流量(CPC $1.23)，对成本最敏感</td><td>Mobile CPC 只涨 5%，涨价幅度不足以解释 −61% 的购买率</td></tr>
+<tr><td>② 9.2 新英文购买系列偏 Desktop，预算结构把量推向 Desktop</td><td>Desktop 花费占比 41%→52.5%，时间点与两条新系列上线(9.2)吻合</td><td>缺口从 9.21 周才开始塌（9.14 周还是 33 单），比新系列上线晚了三周</td></tr>
+</table>
+<p style="font-size:12px;color:#999">本次未拉「系列 × 设备」交叉数据，两种假设暂无法二选一；这是 10 月第一个要补的拆解（见第九节 P2）。</p>
+
+<h3>周维度的缺口（交叉验证）</h3>
+<p>缺口在时间上也不均匀：9.1-9.20 两周半购买 70 单（日均 3.0），9.21-9.30 十天只有 20.1 单（日均 2.0）。结合双周报结论（中文购买系列 ISP Pur / CN Pur 退潮、英文系列 10.2 才单日放量），<strong>设备缺口和系列退潮指向同一批预算</strong>：中文购买系列的量原先 Mobile 占比高，退潮后 Mobile 购买跟着塌。</p>
+
+<div class="co cw">
+<strong>动作含义：</strong>不管最终是哪个假设，10 月的应对是同一套：①泛词降本（「residential proxy」$201.41/0 单的方案在等拍板）；②验证周守 15 单/周的水位；③拉系列×设备交叉定位 Mobile，确认后决定是否给购买系列做设备出价调整（Desktop 加、Mobile 减）。
+</div>
+
+</div></div>
+
+<!-- ============ 六、品牌词与搜索词 ============ -->
+<div class="sec" id="sec6">
+<h2>🔍 六、品牌词与搜索词：品牌词月度出了 8 单，泛词黑洞坐实 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>品牌词「ipoasis」9 月全月</h3>
+<table>
+<tr><th>口径</th><th>消耗</th><th>点击</th><th>点击成本</th><th>优化转化</th><th>All Conv</th></tr>
+<tr><td>9月（搜索词口径）</td><td>$411.84</td><td>85</td><td>$4.85</td><td>23.0</td><td>79.7</td></tr>
+<tr><td>8月（搜索词口径）</td><td>$360.32</td><td>93</td><td>$3.87</td><td>8.0</td><td>40.0</td></tr>
+</table>
+<table>
+<tr><th>23 次优化转化的动作构成</th><th>数量</th><th>挂在哪条系列</th><th>说明</th></tr>
+<tr><td>加购</td><td>15</td><td>ATC_US_en（该系列优化目标就是加购）</td><td>正常干活，不是虚高</td></tr>
+<tr><td><strong>购买</strong></td><td><strong>8</strong></td><td>isp_purchase_ALL_cn 词组 7 + dynamic_purchase_US 词组 1</td><td>购买 CPA $51.5，好于大盘 $81.12</td></tr>
+<tr><td>注册</td><td>0</td><td>无</td><td>品牌词从来不产注册</td></tr>
+</table>
+
+<div class="co cs">
+<strong>修正双周报的悲观读数：</strong>双周窗口(9.21-10.4)品牌词只有 1 单购买，当时记为「品牌词不出单」；放到全月看，9 月品牌词出了 8 单、CPA $51.5，其中 7 单发生在 9.21 之前。结论修正为：<strong>品牌词有价值，但 9 月下旬起不出单了</strong>，与中文购买系列退潮的时间点一致，大概率是同一个原因。8 月报 P2「品牌词归拢到 1-2 条系列」的建议保留，排验证周之后做。
+</div>
+
+<h3>搜索词 Top 14（9 月全月，按消耗排序，已按词合并）</h3>
+<table>
+<tr><th>搜索词</th><th>消耗</th><th>点击</th><th>展示</th><th>注册</th><th>购买</th><th>加购</th></tr>
+<tr><td>ipoasis（品牌）</td><td>$392.94</td><td>82</td><td>179</td><td>0</td><td><strong style="color:var(--g)">8</strong></td><td>15</td></tr>
+<tr><td>what is my ip</td><td>$266.26</td><td>266</td><td>2,299</td><td><strong style="color:var(--g)">40</strong></td><td>0</td><td>0</td></tr>
+<tr style="background:#fff7f6"><td>residential proxy</td><td>$201.41</td><td>31</td><td>618</td><td>0</td><td><strong>0</strong></td><td>2</td></tr>
+<tr><td>静态 ip 购买</td><td>$68.20</td><td>14</td><td>92</td><td>0</td><td><strong style="color:var(--g)">5</strong></td><td>0</td></tr>
+<tr><td>住宅 ip</td><td>$57.23</td><td>70</td><td>2,053</td><td><strong style="color:var(--g)">13</strong></td><td>0</td><td>0</td></tr>
+<tr><td>residential proxies</td><td>$51.28</td><td>7</td><td>49</td><td>0</td><td><strong style="color:var(--g)">2</strong></td><td>0</td></tr>
+<tr><td>proxy（裸词）</td><td>$49.07</td><td>17</td><td>1,098</td><td>0</td><td>0</td><td>18</td></tr>
+<tr><td>ip 购买</td><td>$47.39</td><td>10</td><td>68</td><td>0</td><td><strong style="color:var(--g)">1</strong></td><td>0</td></tr>
+<tr><td>静态 住宅 ip</td><td>$44.31</td><td>54</td><td>1,110</td><td><strong style="color:var(--g)">10</strong></td><td>0</td><td>0</td></tr>
+<tr><td>ip 代理</td><td>$39.85</td><td>11</td><td>64</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>proxy residential</td><td>$39.44</td><td>12</td><td>107</td><td>0</td><td><strong style="color:var(--g)">1</strong></td><td>2</td></tr>
+<tr><td>ipipgo（竞品品牌词）</td><td>$37.09</td><td>16</td><td>159</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>proxies（裸词）</td><td>$31.84</td><td>3</td><td>72</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>静态 ip</td><td>$24.20</td><td>24</td><td>345</td><td><strong style="color:var(--g)">4</strong></td><td>0</td><td>0</td></tr>
+</table>
+<p style="font-size:11px;color:#999">表外小词补充：isp $22.42/1 购买、static residential proxies $22.35/1 购买、mobile proxy $23.60/0 转化、静态 住宅 ip 购买 $21.84/0 转化。注册/购买列为 conversion 动作拆分口径，三列（注册+购买+加购）合计 = 后台「优化目标」转化。</p>
+
+<div class="co ci">
+<strong>搜索词的三层结构：</strong>①<strong>便宜的注册池</strong>：what is my ip(CPA $6.66)、住宅 ip($4.40)、静态 住宅 ip($4.43)、静态 ip($6.05)，CN 静态 IP 词是稳定的低价注册来源；②<strong>便宜的高意图购买词</strong>：静态 ip 购买（5 单，$13.64/单）、residential proxies（2 单，$25.64/单）、ip 购买、proxy residential、isp、static residential proxies 各 1 单，6 个词合计约 $251 换 11 单（约 $22.8/单）；③<strong>泛词黑洞</strong>：residential proxy $201.41 换 0 注册 0 购买，裸词 proxy/proxies/ip 代理/mobile proxy 合计约 $144 也全 0（只有 proxy 挂了 18 次加购，属于 ATC 系列本职），ipipgo $37.09 是竞品品牌词，纯送钱。
+</div>
+
+<div class="co cw">
+<strong>泛词处置的月度证据（方案在等拍板）：</strong>residential proxy 系三变体(residential proxy / residential proxies / proxy residential)全月合计 $292.13 只换回 3 单购买（约 $97/单）且 0 注册；其中单价词「residential proxy」一条就烧掉 $201.41 全 0。此前给过的两个方案（两条购买系列精确否定三词 / 匹配关键词降出价 30%）依然成立，且高意图购买词只要 $22.8/单，省下来的钱够买 13 单。
+</div>
+
+</div></div>
+
+<!-- ============ 七、设备与时段 ============ -->
+<div class="sec" id="sec7">
+<h2>📱 七、设备与时段：Desktop 变主战场，时段不用动 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>设备明细（9 月 vs 8 月）</h3>
+<table>
+<tr><th>设备/月份</th><th>消耗（占比）</th><th>点击成本</th><th>点击</th><th>注册</th><th>注册成本</th><th>购买</th><th>购买成本</th><th>购买率</th></tr>
+<tr><td>Desktop 9月</td><td>$3,840.41(52.5%)</td><td>$2.80</td><td>1,370</td><td>359.9</td><td>$10.67</td><td><strong>68.0</strong></td><td>$56.48</td><td>4.96%</td></tr>
+<tr><td>Desktop 8月</td><td>$2,485.71(41.0%)</td><td>$2.26</td><td>1,102</td><td>323.0</td><td>$7.70</td><td>59.2</td><td>$42.01</td><td>5.37%</td></tr>
+<tr style="background:#fff7f6"><td>Mobile 9月</td><td>$3,383.79(46.3%)</td><td>$1.23</td><td>2,761</td><td>455.3</td><td>$7.43</td><td><strong>21.1</strong></td><td class="down">$160.27</td><td class="down">0.76%</td></tr>
+<tr><td>Mobile 8月</td><td>$3,488.96(57.6%)</td><td>$1.17</td><td>2,982</td><td>602.0</td><td>$5.80</td><td>58.0</td><td>$60.15</td><td>1.95%</td></tr>
+<tr><td>Tablet 9月</td><td>$85.37(1.2%)</td><td>$1.08</td><td>79</td><td>11.0</td><td>$7.76</td><td>1.0</td><td>$85.37</td><td>1.27%</td></tr>
+<tr><td>Tablet 8月</td><td>$83.54(1.4%)</td><td>$0.94</td><td>89</td><td>16.0</td><td>$5.22</td><td>1.0</td><td>$83.54</td><td>1.12%</td></tr>
+</table>
+
+<div class="co ci">
+<strong>除了购买，注册端也在全线上涨：</strong>Desktop 注册成本 $7.70→$10.67(+39%)，Mobile $5.80→$7.43(+28%)，Tablet 同涨。这不是设备结构问题，是全端流量变贵（和 CPM +43% 一致）。Desktop 花费占比 41%→52.5%，历史第一次超过 Mobile：一部分是新英文系列偏 Desktop，一部分是 Mobile 曝光本身就缩了（展示 70,230 上下 → 未单列，点击 −7.4%）。
+</div>
+
+<h3>时段（9 月全月，购买分布）</h3>
+<table>
+<tr><th>时段段</th><th>购买合计</th><th>说明</th></tr>
+<tr><td>白天 9:00-17:59</td><td>43.1</td><td>主力时段，峰值 13 点 11.1 单、11 点 6.0 单</td></tr>
+<tr><td>深夜 22:00-5:59</td><td>36.0</td><td>不输白天太多，0 点单小时 8.5 单是全月第二高</td></tr>
+<tr><td>挂零时段</td><td>仅 7 点 1 个小时</td><td>全月 24 个小时里 23 个有购买</td></tr>
+</table>
+
+<div class="co cs">
+<strong>时段结论：不用动。</strong>购买全天分布，深夜（22-6 点）36 单和白天（9-18 点）43 单相当，0 点还有个小高峰。没有任何「值得砍」的时段，8 月报里「观察深夜投放效率」的挂起项可以关闭。
+</div>
+
+</div></div>
+
+<!-- ============ 八、市场竞价 ============ -->
+<div class="sec" id="sec8">
+<h2>🏟️ 八、市场竞价（9月）：全月截图待补，先给两个已有窗口的趋势 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="co cw">
+<strong>📌 待补数据：</strong>本节需要一张后台「竞价分析」截图（时间范围 9.1-9.30，全部域名）来补全月口径。以下是 9.14-9.20（单周）和 9.21-10.4（双周合并）两个已有窗口的对照，方向可信、幅度按 14 天均值口径打折理解。
+</div>
+
+<table>
+<tr><th>竞价对手</th><th>9.14-9.20 展示份额</th><th>9.21-10.4 展示份额</th><th>方向</th></tr>
+<tr><td>iproyal</td><td>24.47%</td><td>19.67%</td><td class="up">退(−4.8pp)，仍居第一</td></tr>
+<tr><td>dataimpulse</td><td>13.46%</td><td>&lt;10%（掉出可见线）</td><td class="up">明显退</td></tr>
+<tr><td>proxy-seller</td><td>12.04%</td><td>14.84%</td><td class="down">进(+2.8pp)，接位者</td></tr>
+<tr><td>1024proxy</td><td>&lt;10%（重叠率仅 5.11%）</td><td>上到 10% 线</td><td class="down">进，首次可见</td></tr>
+<tr><td>oxylabs</td><td>10.73%</td><td>10.13%</td><td class="flat">微退(−0.6pp)</td></tr>
+<tr style="background:#e8f0fe"><td><strong>我们(IPOasis)</strong></td><td><strong>10.96%</strong></td><td><strong>10.11%</strong></td><td class="down">微退(−0.9pp)</td></tr>
+</table>
+<table>
+<tr><th>我们自己的位置指标</th><th>9.14-9.20</th><th>9.21-10.4</th><th>方向</th></tr>
+<tr><td>页首率(Impr. (Top) %)</td><td>86.60%</td><td>64.43%</td><td class="down">大幅回落</td></tr>
+<tr><td>绝对页首率(Impr. (Abs. Top) %)</td><td>29.47%</td><td>12.06%</td><td class="down">大幅回落</td></tr>
+</table>
+
+<div class="co ci">
+<strong>两个窗口合起来的故事（引双周报第九节结论）：</strong>①9 月中下旬起主要对手 iproyal、dataimpulse 在退场，但接走份额的是 proxy-seller 和 1024proxy，不是我们；②我们的展示份额 10.96%→10.11% 微退，同期页首率 86.6%→64.4% 大幅回落，说明「场子松了但我们没占到便宜，而且排名还在往下掉」；③页首是结构性短板（绝对页首一度只有 12.06%），这也是 CPC 涨价的直接原因之一：同样的排名竞争里我们在更靠后的位置付更多的钱。nodemaven 在 9.21-10.4 窗口以绝对页首 37.50% 新面孔出现，值得 10 月持续盯。
+</div>
+<p style="font-size:11px;color:#999">口径：展示份额来自后台竞价分析截图；Google API 对 &lt;10% 的份额一律报 10% 下限，所以「&lt;10%」不代表恰好 10%。</p>
+
+</div></div>
+
+<!-- ============ 九、10 月行动计划 ============ -->
+<div class="sec" id="sec9">
+<h2>🚀 九、10 月行动计划 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<div class="action-item bad">
+<div class="head"><span class="priority-tag p1">P1 · 等拍板</span>购买系列泛词处置（residential proxy 系）</div>
+<p>两个方案：①<code>dynamic_purchase_US_260116</code> 与 <code>dynamic_purchase_ALL_cn_260509</code> 加 [residential proxy] / [residential proxies] / [cheap residential proxies] 精确否定；②温和版：对应匹配关键词降出价 30%。月度数据补强了理由：三变体 $292.13/3 单，单价词 $201.41/0 单，而高意图购买词只要 $22.8/单。方案已给，等你拍板后我通过 API 执行（只动这两条系列的否词，别的都不碰）。</p>
+</div>
+
+<div class="action-item warn">
+<div class="head"><span class="priority-tag p1">P1 · 本周起</span>验证周观察(10.5-10.11)</div>
+<p>10.1-10.4 日均 4.0 单、购买成本 $55.77 的开局要守住：验证周 ≥15 单/周且购买成本 ≤$70，9 月定性为「月度波动」；掉回去则启动结构调整（砍泛词、预算向高意图词和新系列倾斜）。</p>
+</div>
+
+<div class="action-item">
+<div class="head"><span class="priority-tag p2">P2 · 10.18 前</span>Mobile 购买塌方拆因</div>
+<p>拉「系列 × 设备」交叉数据，裁决第五节的两个假设（竞价挤出 vs 新系列偏 Desktop）。确认后决定是否给购买系列做设备出价调整（Desktop 加、Mobile 减）。</p>
+</div>
+
+<div class="action-item">
+<div class="head"><span class="priority-tag p2">P2 · 验证周后</span>品牌词归拢 + ATC 预算评估</div>
+<p>品牌词月度 8 单购买 CPA $51.5，值得归拢到 1-2 条系列（现在散在 5 条里互相抬 CPC）；ATC 系列 BIS 29.7% 全账户最高，$20 日预算不够花，加购效率保持的话它是第一条加预算候选。</p>
+</div>
+
+<div class="action-item">
+<div class="head"><span class="priority-tag p3">P3 · 随手</span>what is my ip 防守 + 回补盯梢</div>
+<p>①先查「what is my ip」在 Reg US 的展示份额诊断字段，确认是排名丢失再谈 +10~15% 出价（单变量测试）；②9 月购买 90.1 仍会回补（已有 89.1→90.1 先例），10.13 对账任务顺带核对终值；③补一张 9.1-9.30 竞价分析截图给第八节。</p>
+</div>
+
+</div></div>
+
+<!-- ============ 十、附录 ============ -->
+<div class="sec" id="sec10">
+<h2>📎 附录：数据口径与操作记录 <span class="toggle">▼</span></h2>
+<div class="body">
+
+<h3>数据口径</h3>
+<p>①注册 = <code>IPOASIS (web) conversion_register</code> 的 All Conversions；购买 = <code>IPOASIS (web) conversion_purchase</code> 的 All Conversions；账户优化目标 = 注册 + 购买 + 加购三个主要操作合计。<code>IPOASIS (web) purchase</code> 是 conversion_purchase 的子集，统计时不含。②「优化转化」(metrics.conversions)只计主要操作，故品牌词的 23 = 加购 15 + 购买 8 + 注册 0。③注册率/购买率 = 转化/点击；成本均为混合成本（消耗/转化）。④Google API 展示份额 &lt;10% 报 10% 下限。</p>
+
+<h3>回补说明</h3>
+<p>9 月购买 90.1 为 10.8 读数（10.7 当天为 89.1，次日回补 +1.0），后续仍可能小幅回补；9.14-9.20 周在双周报期间已从 32 回补至 33。8 月数值为回补后终值。逐周环比统一用最新回补读数做基准。</p>
+
+<h3>9 月账户变更记录</h3>
+<p>Google Ads change_event API 本轮拉取在全部时间窗口均返回 0 行（变更历史未同步到 API），以下清单引自主周报的人工记录：<strong>9.2</strong> 两条英文新系列上线(ATC_US_en、isp_purchase_US_en)；<strong>9.11</strong>「what is my ip」以词组匹配加入 dynamic_register_US；<strong>9.17</strong> 暂停老 Pur US 品牌词组；<strong>9.22</strong> 两条中文购买系列收紧匹配（双周报核对记录）。9.21 之后无其他已知变更；10 月讨论中的否词调整截至本报告尚未执行。</p>
+
+<h3>数据源与拉数时间</h3>
+<p>Google Ads API(GAQL)：campaign / search_term_view / keyword_view / segments.device / segments.hour / change_event；拉数时间 2026.10.8-10.9。竞价分析部分来自后台截图（9.14-9.20、9.21-10.4 两个窗口）。设备×系列交叉、9.1-9.30 全月竞价口径未拉，见第八、九节。</p>
+
+</div></div>
+
+</div>
+
+<script>
+document.querySelectorAll('.sec h2').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('collapsed')));
+const secs=[...document.querySelectorAll('.sec')];
+const navLinks=[...document.querySelectorAll('.nav a')];
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY+window.innerHeight*0.3;
+  let cur=secs[0];
+  secs.forEach(s=>{if(s.offsetTop<=y)cur=s;});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur.id));
+});
+new Chart(document.getElementById('trendChart'),{
+  type:'bar',
+  data:{labels:['6月','7月','8月','9月','10.1-10.4'],datasets:[
+    {label:'消耗($)',data:[5256,5784,6058,7310,886],backgroundColor:['rgba(26,115,232,.55)','rgba(26,115,232,.55)','rgba(26,115,232,.55)','rgba(26,115,232,.55)','rgba(26,115,232,.25)'],yAxisID:'y'},
+    {label:'购买',type:'line',data:[91.6,119.8,118.2,90.1,15.9],borderColor:'#d93025',backgroundColor:'#d93025',yAxisID:'y1',tension:.3},
+    {label:'注册',type:'line',data:[1115,1281,941,826,109],borderColor:'#0d904f',backgroundColor:'#0d904f',borderDash:[6,4],yAxisID:'y1',tension:.3}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+    scales:{
+      y:{position:'left',beginAtZero:true,title:{display:true,text:'消耗($)',font:{size:11}}},
+      y1:{position:'right',beginAtZero:true,title:{display:true,text:'转化数',font:{size:11}},grid:{drawOnChartArea:false}}
+    }}
+});
+new Chart(document.getElementById('weekChart'),{
+  type:'bar',
+  data:{labels:['9.1-9.6','9.7-9.13','9.14-9.20','9.21-9.27','9.28-9.30','10.1-10.4'],datasets:[
+    {label:'购买（单）',data:[16.5,20.5,33,14,6.1,15.9],backgroundColor:['#a8c7fa','#a8c7fa','#1a73e8','#f6aea9','#f6aea9','#0d904f']}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'购买（单）',font:{size:11}}}}}
+});
+</script>
+</body></html>
